@@ -1,0 +1,19 @@
+{
+  "name": {
+    "positive": ["Saloni QA"]
+  },
+  "email": {
+    "positive": ["saloni@yopmail.com"]
+  },
+  "mobile": {
+    "positive": ["9712738076"]
+  },
+  "countries": {
+    "source": "India",
+    "destination": "United States"
+  },
+  "upi": {
+    "success": "success@razorpay",
+    "failure": "reject@razorpay"
+  }
+}
