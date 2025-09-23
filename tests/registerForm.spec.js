@@ -12,7 +12,7 @@ const testData = {
   email: { positive: ['saloni@yopmail.com'], negative: ['abc.com', 'user@'] },
   mobile: { positive: ['9712738076'], negative: ['123', 'aibcd'] },
   countries: { source: 'India', destination: 'United States' },
-  upi: { success: 'success@razorpay', failure: 'reject@razorpay' }
+  upi: { success: 'success@razorpay', failure: 'failure@razorpay' }
 };
 
 test.describe('Register Form Functional Test - Chrome Desktop', () => {
