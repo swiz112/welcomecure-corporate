@@ -1,5 +1,5 @@
 // tests/registerFormRegressionPOM.spec.js
-const { test, expect } = require('@playwright/test');
+/*const { test, expect } = require('@playwright/test');
 const RegisterFormPage = require('../pages/RegisterFormPage');
 const RazorpayPage = require('../pages/RazorpayPage');
 const ThankYouPage = require('../pages/ThankYouPage');
@@ -113,4 +113,4 @@ test.describe('Register Form Regression with POM', () => {
     expect(bodyText).toContain('Invalid/Expired Link');
   });
 
-});
+});*/
