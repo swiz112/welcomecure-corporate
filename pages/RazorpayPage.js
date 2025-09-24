@@ -20,6 +20,13 @@ class RazorpayPage extends BasePage {
     this.skipOtpButton = '[text="Skip OTP"]'
     this.successButon= 'text=Success';        
     this.successButon='text=Failure';
+
+    this.netBankingMethod = '[data-value="netbanking"]';
+    this.netBankingButton='[text="HDFC"]';
+    this.successButon= 'text=Success';        
+    this.successButon='text=Failure';
+
+
   }
   async completeCardPayment(mobileNumber, cardDetails, shouldSucceed) {
     console.log('Starting completeCardPayment method...');
@@ -82,6 +89,36 @@ console.log('completeCardPayment method finished.');
     await frame.locator(this.verifyAndPayButton).click();
 
     console.log('completeUpiPayment method finished.');
+  }
+   async completeNetBankingPayment(mobileNumber, shouldSucceed) {
+    console.log('Starting complete NetBanking Payment method...');
+    await this.page.waitForSelector(this.iframe, { state: 'visible' });
+    const frame = this.page.frameLocator(this.iframe);
+
+    console.log(`Entering contact number: ${mobileNumber}`);
+    await frame.locator(this.contactField).type(mobileNumber);
+    console.log('Clicking continue button...');
+    await frame.locator(this.continueButton).click();
+
+    console.log('Waiting for NetBanking payment method to be. visible...');
+    await frame.locator(this.netBankingMethod).first().waitFor({ state: 'visible' });
+    console.log('Clicking NetBanking payment method...');
+    await frame.locator(this.netBankingMethod).first().click();
+    
+    await frame.getByText('HDFC', { exact: true }).waitFor({ state: 'visible' });
+    const [popup] = await Promise.all([
+        this.page.waitForEvent('popup'),
+        frame.getByText('HDFC', { exact: true }).click()
+    ]);
+
+if (shouldSucceed) {
+  console.log('Clicking success button in popup...');
+  await popup.locator('text=Success').click();
+} else {
+  console.log('Clicking failure button in popup...');
+  await popup.locator('text=Failure').click();
+}
+console.log('completeCardPayment method finished.');
   }
 }
 
