@@ -81,3 +81,120 @@
 
     console.log('One-time URL restriction validated: Form not accessible and ID removed from URL.');
   });*/
+
+  // Locators for Netbanking
+    // NOTE: These are example selectors. You may need to update them based on the actual application.
+    // this.netbankingPaymentMethod = 'button:has-text("Netbanking")';
+    // this.bankSelect = 'select[name="bank"]'; // Assuming a select element for bank
+    // this.payButton = 'button[data-testid="bottom-cta-button"]';
+    // this.successButton = 'button.success'; // Assuming a success button on the bank page
+    // this.failureButton = 'button.failure'; // Assuming a failure button on the bank page
+
+    // Locators for Credit Card
+    // NOTE: These are example selectors. You may need to update them based on the actual application.
+    // this.cardPaymentMethod = 'button:has-text("Card")';
+    // this.cardNumberField = 'input[name="card_number"]';
+    // this.cardExpiryField = 'input[name="card_expiry"]';
+    // this.cardCvvField = 'input[name="card_cvv"]';
+    // this.cardNameField = 'input[name="card_name"]';
+
+    // async completeNetbankingPayment(contactNumber, success = true) {
+  //   console.log('Starting completeNetbankingPayment method...');
+  //   const frame = this.page.frameLocator(this.iframe);
+  //   console.log(`Entering contact number: ${contactNumber}`);
+  //   await frame.locator(this.contactField).type(contactNumber);
+  //   console.log('Clicking continue button...');
+  //   await frame.locator(this.continueButton).click();
+
+  //   console.log('Waiting for Netbanking payment method to be visible...');
+  //   await frame.locator(this.netbankingPaymentMethod).waitFor({ state: 'visible' });
+  //   console.log('Clicking Netbanking payment method...');
+  //   await frame.locator(this.netbankingPaymentMethod).click();
+
+  //   // This is an assumption. The actual bank selection might be different.
+  //   console.log('Selecting a bank...');
+  //   await frame.locator(this.bankSelect).selectOption('HDFC'); 
+
+  //   console.log('Clicking pay button...');
+  //   await frame.locator(this.payButton).click();
+
+  //   // The following is a simulation of the bank's page.
+  //   // You might need to handle a new page or context here.
+  //   console.log('Handling bank page...');
+  //   if (success) {
+  //     console.log('Clicking success button...');
+  //     // This will likely open a new page, so you might need to handle that
+  //     await this.page.locator(this.successButton).click();
+  //   } else {
+  //     console.log('Clicking failure button...');
+  //     await this.page.locator(this.failureButton).click();
+  //   }
+
+  //   console.log('completeNetbankingPayment method finished.');
+  // }
+
+  // async completeCreditCardPayment(contactNumber, cardNumber, expiry, cvv, name) {
+  //   console.log('Starting completeCreditCardPayment method...');
+  //   const frame = this.page.frameLocator(this.iframe);
+  //   console.log(`Entering contact number: ${contactNumber}`);
+  //   await frame.locator(this.contactField).type(contactNumber);
+  //   console.log('Clicking continue button...');
+  //   await frame.locator(this.continueButton).click();
+
+  //   console.log('Waiting for Card payment method to be visible...');
+  //   await frame.locator(this.cardPaymentMethod).waitFor({ state: 'visible' });
+  //   console.log('Clicking Card payment method...');
+  //   await frame.locator(this.cardPaymentMethod).click();
+
+  //   console.log('Entering card details...');
+  //   await frame.locator(this.cardNumberField).type(cardNumber);
+  //   await frame.locator(this.cardExpiryField).type(expiry);
+  //   await frame.locator(this.cardCvvField).type(cvv);
+  //   await frame.locator(this.cardNameField).type(name);
+
+  //   console.log('Clicking pay button...');
+  //   await frame.locator(this.payButton).click();
+
+  //   console.log('completeCreditCardPayment method finished.');
+  // }
+  // test('Successful Netbanking payment', async () => {
+  //   const razorpayPage = new RazorpayPage(page);
+  //   const thankYouPage = new ThankYouPage(page);
+
+  //   await razorpayPage.completeNetbankingPayment(testData.mobile.positive[0], true);
+
+  //   const thankYouMsg = await thankYouPage.getThankYouMessage();
+  //   expect(thankYouMsg).toContain('Thank You');
+
+  //   const receiptPath = await thankYouPage.downloadReceipt();
+  //   expect(fs.existsSync(receiptPath)).toBeTruthy();
+  // });
+
+  // test('Failed Netbanking payment', async () => {
+  //   const razorpayPage = new RazorpayPage(page);
+  //   await razorpayPage.completeNetbankingPayment(testData.mobile.positive[0], false);
+  //   // Add assertion for payment failure
+  //   // For example, check if the URL is still the razorpay URL
+  //   expect(page.url()).toContain('razorpay');
+  // });
+
+  // test('Successful Credit Card payment', async () => {
+  //   const razorpayPage = new RazorpayPage(page);
+  //   const thankYouPage = new ThankYouPage(page);
+
+  //   await razorpayPage.completeCreditCardPayment(
+  //     testData.mobile.positive[0],
+  //     testData.creditCard.number,
+  //     testData.creditCard.expiry,
+  //     testData.creditCard.cvv,
+  //     testData.creditCard.name
+  //   );
+
+  //   // This is an assumption. The success case for credit card might be different.
+  //   // You might need to handle a 3D secure page.
+  //   const thankYouMsg = await thankYouPage.getThankYouMessage();
+  //   expect(thankYouMsg).toContain('Thank You');
+
+  //   const receiptPath = await thankYouPage.downloadReceipt();
+  //   expect(fs.existsSync(receiptPath)).toBeTruthy();
+  // });
