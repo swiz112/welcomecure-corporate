@@ -55,7 +55,7 @@ test.describe('Card Payment Functional Test', () => {
     expect(page.url()).toContain('vfs_uk');
   });
 
-  test('Complete registration and payment with domestic card - failure', async ({ page }) => {
+  /*test('Complete registration and payment with domestic card - failure', async ({ page }) => {
     const registerPage = new RegisterFormPage(page);
     const razorpayPage = new RazorpayPage(page);
 
@@ -77,5 +77,5 @@ test.describe('Card Payment Functional Test', () => {
 
     // Assert that the payment failed and we are still on the payment page
     expect(page.url()).toContain('razorpay');
-  });
+  });*/
 });

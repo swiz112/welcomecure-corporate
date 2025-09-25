@@ -26,6 +26,13 @@ class RazorpayPage extends BasePage {
     this.successButon= 'text=Success';        
     this.successButon='text=Failure';
 
+    this.walletPaymentMethod ='[data-value="wallet"]';
+    this.airtelPaymentsBank ='[text="Airtel Payments Bank"]'; 
+    //this.walletPaymentMethod ='[text="Airtel Payments Bank"]';
+    this.successButon= 'text=Success';        
+    this.successButon='text=Failure';
+
+
 
   }
   async completeCardPayment(mobileNumber, cardDetails, shouldSucceed) {
@@ -118,7 +125,38 @@ if (shouldSucceed) {
   console.log('Clicking failure button in popup...');
   await popup.locator('text=Failure').click();
 }
-console.log('completeCardPayment method finished.');
+console.log('completeNetbankingPayment method finished.');
+  }
+
+  async completeWalletPayment(mobileNumber, shouldSucceed) {
+    console.log('Starting complete Wallet Payment method...');
+    await this.page.waitForSelector(this.iframe, { state: 'visible' });
+    const frame = this.page.frameLocator(this.iframe);
+
+    console.log(`Entering contact number: ${mobileNumber}`);
+    await frame.locator(this.contactField).type(mobileNumber);
+    console.log('Clicking continue button...');
+    await frame.locator(this.continueButton).click();
+
+    console.log('Waiting for Wallet payment method to be. visible...');
+    await frame.locator(this.walletPaymentMethod).first().waitFor({ state: 'visible' });
+    console.log('Clicking Wallet payment method...');
+    await frame.locator(this.walletPaymentMethod).first().click();
+    
+    await frame.getByText('Airtel Payments Bank', { exact: true }).waitFor({ state: 'visible' });
+    const [popup] = await Promise.all([
+        this.page.waitForEvent('popup'),
+        frame.getByText('Airtel Payments Bank', { exact: true }).click()
+    ]);
+
+if (shouldSucceed) {
+  console.log('Clicking success button in popup...');
+  await popup.locator('text=Success').click();
+} else {
+  console.log('Clicking failure button in popup...');
+  await popup.locator('text=Failure').click();
+}
+console.log('completeWalletPayment method finished.');
   }
 }
 

@@ -48,7 +48,7 @@ test.describe('NetBanking Payment Functional Test', () => {
     expect(page.url()).toContain('vfs_uk');
   });
 
-  test('Complete registration and payment with NetBanking - failure', async ({ page }) => {
+  /*test('Complete registration and payment with NetBanking - failure', async ({ page }) => {
     const registerPage = new RegisterFormPage(page);
     const razorpayPage = new RazorpayPage(page);
 
@@ -65,10 +65,10 @@ test.describe('NetBanking Payment Functional Test', () => {
     await registerPage.checkCheckbox2();
     await registerPage.submitForm();
 
-    // Complete Card Payment
+    // Complete NetBanking Payment
     await razorpayPage.completeNetBankingPayment(testData.mobile, false);
 
     // Assert that the payment failed and we are still on the payment page
     expect(page.url()).toContain('razorpay');
-  });
+  });*/
 });

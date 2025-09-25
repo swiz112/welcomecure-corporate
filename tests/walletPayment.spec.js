@@ -1,4 +1,4 @@
-// tests/registerForm.spec.js
+// tests/walletPayment.spec.js
 const { test, expect } = require('@playwright/test');
 const RegisterFormPage = require('../pages/RegisterFormPage');
 const RazorpayPage = require('../pages/RazorpayPage');
@@ -8,88 +8,67 @@ const fs = require('fs');
 const BASE_URL = 'https://staging.corporate.welcomecure.com/vfs_uk?_id=6899dd1d34920aa9c9d7b1d0';
 
 const testData = {
-  name: { positive: ['Saloni QA'], negative: ['123', '!@#'] },
-  email: { positive: ['saloni@yopmail.com'], negative: ['abc.com', 'user@'] },
-  mobile: { positive: ['9712738076'], negative: ['123', 'aibcd'] },
+  name: 'Sneha',
+  email: 'saloni@yopmail.com',
+  mobile: '9712738076',
   countries: { source: 'India', destination: 'United States' },
-  upi: { success: 'success@razorpay', failure: 'failure@razorpay' }
+   
 };
 
-test.describe('Register Form Functional Test - Chrome Desktop', () => {
+test.describe('Wallet Payment Functional Test', () => {
 
-  test('Complete registration flow with all fields', async ({ page }) => {
+  test('Complete registration and payment with Wallet - success', async ({ page }) => {
     const registerPage = new RegisterFormPage(page);
     const razorpayPage = new RazorpayPage(page);
     const thankYouPage = new ThankYouPage(page);
-    
-    // Navigate and scroll to form
+
+    // Navigate and fill form
     await registerPage.navigate(BASE_URL);
     await page.waitForLoadState('networkidle');
     await registerPage.scrollToForm();
-
-    // Fill all fields
-    await registerPage.enterName(testData.name.positive[0]);
-    await registerPage.enterEmail(testData.email.positive[0]);
-    await registerPage.enterMobile(testData.mobile.positive[0]);
+    await registerPage.enterName(testData.name);
+    await registerPage.enterEmail(testData.email);
+    await registerPage.enterMobile(testData.mobile);
     await registerPage.selectSourceCountry(testData.countries.source);
     await registerPage.selectDestinationCountry(testData.countries.destination);
     await registerPage.checkCheckbox1();
     await registerPage.checkCheckbox2();
-
-    // Disclaimer link
-    await registerPage.clickDisclaimer();
-    await registerPage.closeDisclaimerModal();
-
-    // Submit form
     await registerPage.submitForm();
 
-    //Complete UPI Payment
-    await razorpayPage.completeUpiPayment(testData.mobile.positive[0], testData.upi.success);
-
+    // Complete Wallet Payment
+    await razorpayPage.completeWalletPayment(testData.mobile, true);
+    
     // Thank You page validation
     await page.waitForNavigation({ url: /thankyou/ });
     const thankYouMsg = await thankYouPage.getThankYouMessage();
-          expect(thankYouMsg).toContain('Payment Successful!');
-    // Download receipt
+    expect(thankYouMsg).toContain('Payment Successful!');
     const receiptPath = await thankYouPage.downloadReceipt();
     expect(fs.existsSync(receiptPath)).toBeTruthy();
-
-    // Go to homepage
     await thankYouPage.goToHome();
     expect(page.url()).toContain('vfs_uk');
+  });
 
-    });
-    
-    /*test('Failed registration with failed payment', async ({ page }) => {
+  /*test('Complete registration and payment with Wallet - failure', async ({ page }) => {
     const registerPage = new RegisterFormPage(page);
     const razorpayPage = new RazorpayPage(page);
-    
-    // Navigate and scroll to form
+
+    // Navigate and fill form
     await registerPage.navigate(BASE_URL);
     await page.waitForLoadState('networkidle');
     await registerPage.scrollToForm();
-    
-    // Fill all fields
-    await registerPage.enterName(testData.name.positive[0]);
-    await registerPage.enterEmail(testData.email.positive[0]);
-    await registerPage.enterMobile(testData.mobile.positive[0]);
+    await registerPage.enterName(testData.name);
+    await registerPage.enterEmail(testData.email);
+    await registerPage.enterMobile(testData.mobile);
     await registerPage.selectSourceCountry(testData.countries.source);
     await registerPage.selectDestinationCountry(testData.countries.destination);
     await registerPage.checkCheckbox1();
     await registerPage.checkCheckbox2();
-    
-    // // Disclaimer link
-    await registerPage.clickDisclaimer();
-    await registerPage.closeDisclaimerModal();
-    
-    // Submit form
     await registerPage.submitForm();
-    
-     // Complete UPI Payment with failing ID
-    await razorpayPage.completeUpiPayment(testData.mobile.positive[0], testData.upi.failure);
-    
+
+    // Complete Wallet Payment
+    await razorpayPage.completeWalletPayment(testData.mobile, false);
+
     // Assert that the payment failed and we are still on the payment page
     expect(page.url()).toContain('razorpay');
-    });*/
-
+  });*/
 });
