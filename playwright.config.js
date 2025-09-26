@@ -5,7 +5,8 @@ const config = {
   retries: 1,
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }]
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['./excel-reporter.js', { outputFile: 'test-report.xlsx' }]
   ],
   use: {
     headless: false,
