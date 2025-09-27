@@ -1,4 +1,4 @@
-// pages/LoginPage.js
+// For - add member flow - pages/LoginPage.js
 const BasePage = require('./BasePage');
 
 class LoginPage extends BasePage {

@@ -1,0 +1,49 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: a
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19] [cursor=pointer]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Branch" [ref=e25] [cursor=pointer]:
+            - /url: /vfs/branch
+            - img [ref=e27] [cursor=pointer]
+            - text: Branch
+        - listitem [ref=e30]:
+          - generic [ref=e31] [cursor=pointer]:
+            - generic [ref=e32] [cursor=pointer]:
+              - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Member
+            - img "arrow" [ref=e37] [cursor=pointer]
+          - generic [ref=e38]:
+            - link "Create Member" [ref=e39] [cursor=pointer]:
+              - /url: /vfs/create-member
+            - link "Member List" [ref=e40] [cursor=pointer]:
+              - /url: /vfs/memberlist
+            - link "VFS UK LP" [ref=e41] [cursor=pointer]:
+              - /url: /vfs_uk/memberlist
+            - link "Refunds" [ref=e42] [cursor=pointer]:
+              - /url: /vfs_uk/creditnote
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - text: "Upload your filled member list file here (.xlsx):"
+        - generic [ref=e47]: "*"
+      - generic [ref=e49] [cursor=pointer]:
+        - img [ref=e51] [cursor=pointer]
+        - paragraph [ref=e53] [cursor=pointer]: Click to upload the member list file OR drag & drop the file here.
+        - paragraph [ref=e54] [cursor=pointer]: "Selected File : temp_invalid_email.xlsx"
+      - generic [ref=e55]:
+        - link "Download Sample File" [ref=e57] [cursor=pointer]:
+          - /url: https://welcomcure-corporate-image.b-cdn.net/corporate/vfs_sample_file.xlsx
+        - button "Upload" [ref=e59] [cursor=pointer]
+```
