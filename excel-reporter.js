@@ -17,6 +17,9 @@ class ExcelReporter {
     const missingHeadersAnnotation = test.annotations.find(a => a.type === 'missing-headers');
     const missingHeaders = missingHeadersAnnotation ? JSON.parse(missingHeadersAnnotation.description) : [];
 
+    const testCaseOutcomeAnnotation = test.annotations.find(a => a.type === 'test-case-outcome');
+    const testCaseOutcome = testCaseOutcomeAnnotation ? testCaseOutcomeAnnotation.description : '';
+
     this.results.push({
       test: test.title,
       status: result.status,
@@ -27,11 +30,31 @@ class ExcelReporter {
       errorStack: result.errors.map(error => error.stack).join('\n\n'),
       emptyColumns: emptyColumns.join(', '),
       missingHeaders: missingHeaders.join(', '),
+      testCaseOutcome: testCaseOutcome,
     });
   }
 
   async onEnd(result) {
     console.log(`Finished the run: ${result.status}`);
+
+    let outputFileName = 'test-report.xlsx';
+    if (this.results.length > 0) {
+      const firstTestFile = this.results[0].testFile;
+      const allTestsFromSameFile = this.results.every(res => res.testFile === firstTestFile);
+
+      if (allTestsFromSameFile) {
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        if (firstTestFile.includes('addmember-vfs.spec.js')) {
+          outputFileName = `addmember-vfs-report-${timestamp}.xlsx`;
+        } else if (firstTestFile.includes('onevesco-addMemberflow.spec.js')) {
+          outputFileName = `onevesco-addmemberflow-report-${timestamp}.xlsx`;
+        } else if (firstTestFile.includes('addmember-manual-vfs.spec.js')) {
+          outputFileName = `addmember-manual-vfs-report-${timestamp}.xlsx`;
+        }else if (firstTestFile.includes('addmember-manual-vfs.spec.js')) {
+          outputFileName = `addmember-manual-hr-vfs-report-${timestamp}.xlsx`;
+        }
+      }
+    }
 
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Test Results');
@@ -40,6 +63,7 @@ class ExcelReporter {
     worksheet.columns = [
       { header: 'Test Name', key: 'test', width: 50 },
       { header: 'Status', key: 'status', width: 15 },
+      { header: 'Test Case Outcome', key: 'testCaseOutcome', width: 50, style: { alignment: { wrapText: true } } },
       { header: 'Duration (ms)', key: 'duration', width: 15 },
       { header: 'Test File', key: 'testFile', width: 40 },
       { header: 'Line', key: 'testLine', width: 10 },
@@ -55,7 +79,7 @@ class ExcelReporter {
     });
 
     // Save to file
-    const filePath = path.join(process.cwd(), 'test-report.xlsx');
+    const filePath = path.join(process.cwd(), outputFileName);
     await workbook.xlsx.writeFile(filePath);
     console.log(`Excel report generated at: ${filePath}`);
   }
