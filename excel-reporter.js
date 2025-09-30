@@ -44,14 +44,22 @@ class ExcelReporter {
 
       if (allTestsFromSameFile) {
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        if (firstTestFile.includes('addmember-vfs.spec.js')) {
-          outputFileName = `addmember-vfs-report-${timestamp}.xlsx`;
+        if (firstTestFile.includes('addmember-co-vfs.spec.js')) {
+          outputFileName = `addmember-co-vfs-report-${timestamp}.xlsx`;
         } else if (firstTestFile.includes('onevesco-addMemberflow.spec.js')) {
           outputFileName = `onevesco-addmemberflow-report-${timestamp}.xlsx`;
-        } else if (firstTestFile.includes('addmember-manual-vfs.spec.js')) {
-          outputFileName = `addmember-manual-vfs-report-${timestamp}.xlsx`;
-        }else if (firstTestFile.includes('addmember-manual-vfs.spec.js')) {
+        } else if (firstTestFile.includes('addmember-manual-co-vfs.spec.js')) {
+          outputFileName = `addmember-manual-co-vfs-report-${timestamp}.xlsx`;
+        }else if (firstTestFile.includes('addmember-manual-hr-vfs.spec.js')) {
           outputFileName = `addmember-manual-hr-vfs-report-${timestamp}.xlsx`;
+        }else if (firstTestFile.includes('addmember-hr-vfs.spec.js')) {
+          outputFileName = `addmember-hr-vfs-report-${timestamp}.xlsx`;
+        } else if (firstTestFile.includes('onevesco-member-list.spec.js')) {
+          outputFileName = `onevesco-member-list-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('addmember-admin-vfs.spec.js')) {
+          outputFileName = `addmember-admin-vfs-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('addmember-manual-admin-vfs.spec.js')) {
+          outputFileName = `addmember-manual-admin-vfs-report-${timestamp}.xlsx`;
         }
       }
     }

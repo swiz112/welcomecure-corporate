@@ -247,6 +247,4 @@ test('Validate Excel file for empty columns dynamically', async ({ page }) => {
 
   console.log('All empty column errors validated successfully.');
 });
-
-
 });
