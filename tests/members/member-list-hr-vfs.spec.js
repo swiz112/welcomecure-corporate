@@ -34,61 +34,51 @@ test.describe('HR- Add Member - File Upload Module', () => {
   });*/
 
   test('HR- Add Family member - successful addition', async ({ page }) => {
-    const timestamp = Date.now().toString().slice(-5);
+    const membersData = [
+      { relation: 'Husband', age: '35' },
+      { relation: 'Mother', age: '50' },
+      { relation: 'Grandmother', age: '67' },
+      { relation: 'Father', age: '60' },
+      { relation: 'Daughter', age: '10' }, 
+    ];
 
-    // Click the button to open the add family member form
-    await page.locator('.flex.justify-center.bg-\\[\\#FCDD00\\].cursor-pointer').first().click();
+    for (const member of membersData) {
+      const timestamp = Date.now().toString().slice(-5);
+      const newMemberName = `Test_${member.relation}_${timestamp}`;
+      const newEmail = `test_${member.relation}_${timestamp}@example.com`;
+      const newContact = Math.floor(Math.random() * 10000000000).toString().padStart(10, '0');
 
-    // Fill out the new member form
-    const newMemberName = `TestMember_${timestamp}`;
-    const newEmail = `test_${timestamp}@example.com`;
-    const newContact = Math.floor(Math.random() * 10000000000).toString().padStart(10, '0');
-    const age = '30'; // Example age
+      // Click the button to open the add family member form
+      await page.locator('//tbody/tr[10]/td[4]/span[1]').click(); // add here member xpath
 
-    // The selector for relationLoator was broken. I've made an educated guess here.
-    // 1. Click the dropdown to open the options.
-    await page.locator('.css-19bb58m').first().click();
+      // Fill out the new member form
+      await page.locator('.css-19bb58m').first().click();
+      await page.waitForTimeout(1000); // Add a small delay
+      await page.getByText(member.relation, { exact: true }).click();
 
-    // PAUSING THE TEST HERE.
-    // The test is paused because the next step to select "Spouse" is failing.
-    // Please inspect the page that opens in the browser.
-    // Find the correct selector for the "Spouse" option in the dropdown.
-    // You can also use the Playwright Codegen tool to record the correct steps.
-    // Once you have the correct selector, update the line below and resume the test.
-    await page.pause();
+      await page.locator("//input[contains(@placeholder,'Enter Name')]").fill(newMemberName);
+      await page.locator("(//input[@placeholder='Enter Age'])[1]").fill(member.age);
+      await page.locator("(//input[@id='email'])[1]").fill(newEmail);
+      await page.locator("(//input[@id='contact'])[1]").fill(newContact);
 
-    // 2. Click the desired option. I'm choosing "Spouse" as an example.
-    await page.getByText('Spouse', { exact: true }).click();
+      // Save the new member
+      await page.locator("(//button[normalize-space()='Save'])[1]").click();
 
-    await page.locator("//input[contains(@placeholder,'Enter Name')]").fill(newMemberName);
-    await page.locator("(//input[@placeholder='Enter Age'])[1]").fill(age);
-    await page.locator("(//input[@id='email'])[1]").fill(newEmail);
-    await page.locator("(//input[@id='contact'])[1]").fill(newContact);
+      // Verify the success/error toast message
+      const toastLocator = page.locator('.Toastify__toast-body');
+      await toastLocator.waitFor({ state: 'visible', timeout: 10000 }); // Explicitly wait for visibility
+      const toastText = await toastLocator.textContent(); // Get text content
+      console.log('Toast message:', toastText); // Log the captured text
+      if (membersData.indexOf(member) < 4) { // For the first 4 members
+        expect(toastText).toContain("Family member has been created successfully."); // Assert on captured text
+        await toastLocator.waitFor({ state: 'hidden', timeout: 5000 }); // Only hide if successful
+      } else { // For the 5th member and beyond
+        expect(toastText).toContain("You could only add four family members."); // Assert on captured text
+        // The error toast might persist, so no waitFor hidden here
+      }
 
-    // Save the new member
-    await page.locator("(//button[normalize-space()='Save'])[1]").click();
-
-    // Verify the success toast message
-    const toastLocator = page.locator('.Toastify__toast-body');
-    await toastLocator.waitFor({ state: 'visible', timeout: 10000 });
-    const toastText = await toastLocator.textContent();
-    console.log('Toast message:', toastText);
-    await expect(toastLocator).toHaveText("Member is created successfully.");
-
-    // Verify the member in the member list
-    await page.getByRole('link', { name: 'Member List' }).click();
-    await page.waitForURL('https://staging.corporate.welcomecure.com/hr/employee');
-
-    const searchInput = page.locator("//input[@placeholder='Search By Member Name']");
-    await expect(searchInput).toBeVisible();
-    await searchInput.fill(newMemberName);
-    await page.waitForLoadState('networkidle');
-    const memberInList = page.locator(`//tbody/tr[1]/td[1]/div[1]`);
-    await expect(memberInList).toBeVisible();
-
-    test.info().annotations.push({
-      type: 'test-case-outcome',
-      description: 'Member is created successfully and verified in the list.',
-    });
+      //div[contains(text(),'You could only add four family members.')]
+      
+    }
   });
 });

@@ -1,0 +1,303 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19] [cursor=pointer]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Corporate" [ref=e25] [cursor=pointer]:
+            - /url: /admin/admin_user/corporate
+            - img [ref=e27] [cursor=pointer]
+            - text: Corporate
+        - listitem [ref=e30]:
+          - link "Admin" [ref=e31] [cursor=pointer]:
+            - /url: /admin/admin_user/hr
+            - img [ref=e33] [cursor=pointer]
+            - text: Admin
+        - listitem [ref=e37]:
+          - generic [ref=e38] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img [ref=e41] [cursor=pointer]
+              - generic [ref=e43] [cursor=pointer]: Member
+            - img "arrow" [ref=e44] [cursor=pointer]
+        - listitem [ref=e45]:
+          - link "Health Tips" [ref=e46] [cursor=pointer]:
+            - /url: /admin/admin_user/healthtips
+            - img [ref=e48] [cursor=pointer]
+            - text: Health Tips
+        - listitem [ref=e50]:
+          - link "Book A Lab Test" [ref=e51] [cursor=pointer]:
+            - /url: /admin/admin_user/labtest
+            - img [ref=e53] [cursor=pointer]
+            - text: Book A Lab Test
+        - listitem [ref=e55]:
+          - generic [ref=e56] [cursor=pointer]:
+            - generic [ref=e57] [cursor=pointer]:
+              - img [ref=e59] [cursor=pointer]
+              - generic [ref=e61] [cursor=pointer]: Partners
+            - img "arrow" [ref=e62] [cursor=pointer]
+          - generic [ref=e63]:
+            - link "BLS" [ref=e64] [cursor=pointer]:
+              - /url: /admin/admin_user/bls
+            - link "Onevasco" [ref=e65] [cursor=pointer]:
+              - /url: /admin/admin_user/master
+            - listitem [ref=e66]:
+              - generic [ref=e67] [cursor=pointer]:
+                - generic [ref=e69] [cursor=pointer]: VFS UK LP
+                - img "arrow" [ref=e70] [cursor=pointer]
+        - listitem [ref=e71]:
+          - link "Team Members" [ref=e72] [cursor=pointer]:
+            - /url: /admin/admin_user/team_members
+            - img [ref=e74] [cursor=pointer]
+            - text: Team Members
+    - generic [ref=e79]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - img [ref=e84]
+          - textbox "Search By Corporate Name" [ref=e87]
+        - button "Add" [ref=e89] [cursor=pointer]:
+          - img [ref=e91] [cursor=pointer]
+          - text: Add
+      - table [ref=e94]:
+        - rowgroup [ref=e95]:
+          - row "Corporate Name Name Email Id Contact No. Status Action" [ref=e96]:
+            - cell "Corporate Name" [ref=e97]:
+              - generic [ref=e98]: Corporate Name
+            - cell "Name" [ref=e99]:
+              - generic [ref=e100]: Name
+            - cell "Email Id" [ref=e101]:
+              - generic [ref=e102]: Email Id
+            - cell "Contact No." [ref=e103]:
+              - generic [ref=e104]: Contact No.
+            - cell "Status" [ref=e105]:
+              - generic [ref=e106]: Status
+            - cell "Action" [ref=e107]:
+              - generic [ref=e108]: Action
+        - rowgroup [ref=e109]:
+          - row "LAVA prashant talele prashant@yopmail.com 98798798798" [ref=e110]:
+            - cell "LAVA" [ref=e111]:
+              - generic [ref=e112]:
+                - img [ref=e114]
+                - generic [ref=e116]: LAVA
+            - cell "prashant talele" [ref=e117]:
+              - generic [ref=e118] [cursor=pointer]: prashant talele
+            - cell "prashant@yopmail.com" [ref=e119]:
+              - generic [ref=e120] [cursor=pointer]: prashant@yopmail.com
+            - cell "98798798798" [ref=e121]:
+              - generic [ref=e122] [cursor=pointer]: "98798798798"
+            - cell [ref=e123]:
+              - switch [checked] [ref=e127] [cursor=pointer]
+            - cell [ref=e129]:
+              - generic [ref=e131]:
+                - img [ref=e133] [cursor=pointer]
+                - img [ref=e138] [cursor=pointer]
+                - img [ref=e141] [cursor=pointer]
+                - img [ref=e145] [cursor=pointer]
+          - row "Abu Dhabi - UK VAC prashant talele prashant331@yopmail.com 9909383721" [ref=e147]:
+            - cell "Abu Dhabi - UK VAC" [ref=e148]:
+              - generic [ref=e149]:
+                - img [ref=e151]
+                - generic [ref=e153]: Abu Dhabi - UK VAC
+            - cell "prashant talele" [ref=e154]:
+              - generic [ref=e155] [cursor=pointer]: prashant talele
+            - cell "prashant331@yopmail.com" [ref=e156]:
+              - generic [ref=e157] [cursor=pointer]: prashant331@yopmail.com
+            - cell "9909383721" [ref=e158]:
+              - generic [ref=e159] [cursor=pointer]: "9909383721"
+            - cell [ref=e160]:
+              - switch [checked] [ref=e164] [cursor=pointer]
+            - cell [ref=e166]:
+              - generic [ref=e168]:
+                - img [ref=e170] [cursor=pointer]
+                - img [ref=e175] [cursor=pointer]
+                - img [ref=e178] [cursor=pointer]
+                - img [ref=e182] [cursor=pointer]
+          - row "Dubai - UK VAC prashant talele prashant333@yopmail.com 9909383723" [ref=e184]:
+            - cell "Dubai - UK VAC" [ref=e185]:
+              - generic [ref=e186]:
+                - img [ref=e188]
+                - generic [ref=e190]: Dubai - UK VAC
+            - cell "prashant talele" [ref=e191]:
+              - generic [ref=e192] [cursor=pointer]: prashant talele
+            - cell "prashant333@yopmail.com" [ref=e193]:
+              - generic [ref=e194] [cursor=pointer]: prashant333@yopmail.com
+            - cell "9909383723" [ref=e195]:
+              - generic [ref=e196] [cursor=pointer]: "9909383723"
+            - cell [ref=e197]:
+              - switch [checked] [ref=e201] [cursor=pointer]
+            - cell [ref=e203]:
+              - generic [ref=e205]:
+                - img [ref=e207] [cursor=pointer]
+                - img [ref=e212] [cursor=pointer]
+                - img [ref=e215] [cursor=pointer]
+                - img [ref=e219] [cursor=pointer]
+          - row "jain steel mumbai jakson jakson@yopmail.com 8527090" [ref=e221]:
+            - cell "jain steel mumbai" [ref=e222]:
+              - generic [ref=e223]:
+                - img [ref=e225]
+                - generic [ref=e227]: jain steel mumbai
+            - cell "jakson" [ref=e228]:
+              - generic [ref=e229] [cursor=pointer]: jakson
+            - cell "jakson@yopmail.com" [ref=e230]:
+              - generic [ref=e231] [cursor=pointer]: jakson@yopmail.com
+            - cell "8527090" [ref=e232]:
+              - generic [ref=e233] [cursor=pointer]: "8527090"
+            - cell [ref=e234]:
+              - switch [checked] [ref=e238] [cursor=pointer]
+            - cell [ref=e240]:
+              - generic [ref=e242]:
+                - img [ref=e244] [cursor=pointer]
+                - img [ref=e249] [cursor=pointer]
+                - img [ref=e252] [cursor=pointer]
+                - img [ref=e256] [cursor=pointer]
+          - row "Boat7 aman gupt aman7@yopmail.com 91364534501" [ref=e258]:
+            - cell "Boat7" [ref=e259]:
+              - generic [ref=e260]:
+                - img [ref=e262]
+                - generic [ref=e264]: Boat7
+            - cell "aman gupt" [ref=e265]:
+              - generic [ref=e266] [cursor=pointer]: aman gupt
+            - cell "aman7@yopmail.com" [ref=e267]:
+              - generic [ref=e268] [cursor=pointer]: aman7@yopmail.com
+            - cell "91364534501" [ref=e269]:
+              - generic [ref=e270] [cursor=pointer]: "91364534501"
+            - cell [ref=e271]:
+              - switch [checked] [ref=e275] [cursor=pointer]
+            - cell [ref=e277]:
+              - generic [ref=e279]:
+                - img [ref=e281] [cursor=pointer]
+                - img [ref=e286] [cursor=pointer]
+                - img [ref=e289] [cursor=pointer]
+                - img [ref=e293] [cursor=pointer]
+          - row "Boat6 aman gupt aman6@yopmail.com 91364534500" [ref=e295]:
+            - cell "Boat6" [ref=e296]:
+              - generic [ref=e297]:
+                - img [ref=e299]
+                - generic [ref=e301]: Boat6
+            - cell "aman gupt" [ref=e302]:
+              - generic [ref=e303] [cursor=pointer]: aman gupt
+            - cell "aman6@yopmail.com" [ref=e304]:
+              - generic [ref=e305] [cursor=pointer]: aman6@yopmail.com
+            - cell "91364534500" [ref=e306]:
+              - generic [ref=e307] [cursor=pointer]: "91364534500"
+            - cell [ref=e308]:
+              - switch [checked] [ref=e312] [cursor=pointer]
+            - cell [ref=e314]:
+              - generic [ref=e316]:
+                - img [ref=e318] [cursor=pointer]
+                - img [ref=e323] [cursor=pointer]
+                - img [ref=e326] [cursor=pointer]
+                - img [ref=e330] [cursor=pointer]
+          - row "Boat5 aman gupta aman5@yopmail.com 91364534555" [ref=e332]:
+            - cell "Boat5" [ref=e333]:
+              - generic [ref=e334]:
+                - img [ref=e336]
+                - generic [ref=e338]: Boat5
+            - cell "aman gupta" [ref=e339]:
+              - generic [ref=e340] [cursor=pointer]: aman gupta
+            - cell "aman5@yopmail.com" [ref=e341]:
+              - generic [ref=e342] [cursor=pointer]: aman5@yopmail.com
+            - cell "91364534555" [ref=e343]:
+              - generic [ref=e344] [cursor=pointer]: "91364534555"
+            - cell [ref=e345]:
+              - switch [checked] [ref=e349] [cursor=pointer]
+            - cell [ref=e351]:
+              - generic [ref=e353]:
+                - img [ref=e355] [cursor=pointer]
+                - img [ref=e360] [cursor=pointer]
+                - img [ref=e363] [cursor=pointer]
+                - img [ref=e367] [cursor=pointer]
+          - row "Boat4 aman gupta aman4@yopmail.com 91364534558" [ref=e369]:
+            - cell "Boat4" [ref=e370]:
+              - generic [ref=e371]:
+                - img [ref=e373]
+                - generic [ref=e375]: Boat4
+            - cell "aman gupta" [ref=e376]:
+              - generic [ref=e377] [cursor=pointer]: aman gupta
+            - cell "aman4@yopmail.com" [ref=e378]:
+              - generic [ref=e379] [cursor=pointer]: aman4@yopmail.com
+            - cell "91364534558" [ref=e380]:
+              - generic [ref=e381] [cursor=pointer]: "91364534558"
+            - cell [ref=e382]:
+              - switch [checked] [ref=e386] [cursor=pointer]
+            - cell [ref=e388]:
+              - generic [ref=e390]:
+                - img [ref=e392] [cursor=pointer]
+                - img [ref=e397] [cursor=pointer]
+                - img [ref=e400] [cursor=pointer]
+                - img [ref=e404] [cursor=pointer]
+          - row "Boat3 aman gupta aman3@yopmail.com 91364534553" [ref=e406]:
+            - cell "Boat3" [ref=e407]:
+              - generic [ref=e408]:
+                - img [ref=e410]
+                - generic [ref=e412]: Boat3
+            - cell "aman gupta" [ref=e413]:
+              - generic [ref=e414] [cursor=pointer]: aman gupta
+            - cell "aman3@yopmail.com" [ref=e415]:
+              - generic [ref=e416] [cursor=pointer]: aman3@yopmail.com
+            - cell "91364534553" [ref=e417]:
+              - generic [ref=e418] [cursor=pointer]: "91364534553"
+            - cell [ref=e419]:
+              - switch [checked] [ref=e423] [cursor=pointer]
+            - cell [ref=e425]:
+              - generic [ref=e427]:
+                - img [ref=e429] [cursor=pointer]
+                - img [ref=e434] [cursor=pointer]
+                - img [ref=e437] [cursor=pointer]
+                - img [ref=e441] [cursor=pointer]
+          - row "Boat2 aman gupta aman2@yopmail.com 91364534551" [ref=e443]:
+            - cell "Boat2" [ref=e444]:
+              - generic [ref=e445]:
+                - img [ref=e447]
+                - generic [ref=e449]: Boat2
+            - cell "aman gupta" [ref=e450]:
+              - generic [ref=e451] [cursor=pointer]: aman gupta
+            - cell "aman2@yopmail.com" [ref=e452]:
+              - generic [ref=e453] [cursor=pointer]: aman2@yopmail.com
+            - cell "91364534551" [ref=e454]:
+              - generic [ref=e455] [cursor=pointer]: "91364534551"
+            - cell [ref=e456]:
+              - switch [checked] [ref=e460] [cursor=pointer]
+            - cell [ref=e462]:
+              - generic [ref=e464]:
+                - img [ref=e466] [cursor=pointer]
+                - img [ref=e471] [cursor=pointer]
+                - img [ref=e474] [cursor=pointer]
+                - img [ref=e478] [cursor=pointer]
+      - generic [ref=e481]:
+        - generic [ref=e482]:
+          - paragraph [ref=e483]: View
+          - button "10 LimitArrow" [ref=e487] [cursor=pointer]:
+            - paragraph [ref=e488] [cursor=pointer]: "10"
+            - img "LimitArrow" [ref=e489] [cursor=pointer]
+        - generic [ref=e490]:
+          - button "<<" [ref=e491] [cursor=pointer]
+          - navigation "Pagination" [ref=e493] [cursor=pointer]:
+            - listitem [ref=e494] [cursor=pointer]:
+              - button "Previous page" [disabled] [ref=e495] [cursor=pointer]: <
+            - listitem [ref=e496] [cursor=pointer]:
+              - button "Page 1 is your current page" [ref=e497] [cursor=pointer]: "1"
+            - listitem [ref=e498] [cursor=pointer]:
+              - button "Page 2" [ref=e499] [cursor=pointer]: "2"
+            - listitem [ref=e500] [cursor=pointer]:
+              - button "Page 3" [ref=e501] [cursor=pointer]: "3"
+            - listitem [ref=e502] [cursor=pointer]:
+              - button "Jump forward" [ref=e503] [cursor=pointer]: ...
+            - listitem [ref=e504] [cursor=pointer]:
+              - button "Page 21" [ref=e505] [cursor=pointer]: "21"
+            - listitem [ref=e506] [cursor=pointer]:
+              - button "Page 22" [ref=e507] [cursor=pointer]: "22"
+            - listitem [ref=e508] [cursor=pointer]:
+              - button "Next page" [ref=e509] [cursor=pointer]: ">"
+          - button ">>" [ref=e510] [cursor=pointer]
+```
