@@ -7,13 +7,11 @@ const adminLogin = {
     password: 'Cure@3210#',
     role: 'Admin',
     url: 'https://staging.corporate.welcomecure.com/admin/admin_user/corporate',
-    memberListNav: async (page) => {
-        await page.click("(//img[contains(@alt,'arrow')])[2]");
-        await page.waitForSelector("//span[normalize-space()='VFS UK LP']");
-        await page.click("//span[normalize-space()='VFS UK LP']");
-        await page.waitForSelector("(//img[contains(@alt,'arrow')])[3]");
-        await page.click("(//img[contains(@alt,'arrow')])[3]");
-        await page.getByRole('link', { name: 'Member List' }).click(); 
+   memberListNav: async (page) => {
+    await page.click("(//img[contains(@alt,'arrow')])[2]");
+    await page.waitForSelector("//span[normalize-space()='VFS UK LP']");
+    await page.click("//span[normalize-space()='VFS UK LP']");
+    await page.click("//a[normalize-space()='Member List']");
 }
 };
 test('Admin Export - VFS UKLP - Member List', async ({ page }) => {

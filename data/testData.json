@@ -15,5 +15,12 @@
   "upi": {
     "success": "success@razorpay",
     "failure": "reject@razorpay"
+  },
+  "adminLogin": {
+    "name": "Admin",
+    "username": "9687298058",
+    "password": "Cure@3210#",
+    "role": "Admin",
+    "url": "https://staging.corporate.welcomecure.com/admin/admin_user/corporate"
   }
 }
