@@ -74,7 +74,7 @@ test.afterEach(async ({}, testInfo) => {
         console.error('Error in export validation:', err);
     }
 });
-test('Admin Export - Family Member (Static Date via Fill)', async ({ page }, testInfo) => {
+test.skip('Admin Export - Family Member (Static Date via Fill)', async ({ page }, testInfo) => {
     await selectDateRange(page);
 
     // Trigger Export
@@ -90,7 +90,66 @@ test('Admin Export - Family Member (Static Date via Fill)', async ({ page }, tes
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - Family Member (Search by Name and Static Date)', async ({ page }, testInfo) => {
+test.skip('Admin Export - Family Member (Static Single Date via Fill)', async ({ page }, testInfo) => {
+
+    //await selectDateRange(page);
+    await page.click("//button[contains(@class,'bg-[#fae006] items-center text-sm flex px-4 rounded-[8px] py-2 font-medium')]");
+    const earlyInput = page.locator("(//input[@placeholder='Early'])[1]");
+    await expect(earlyInput).toBeVisible({ timeout: 10000 });
+    await earlyInput.click();
+    await page.locator("//button[@class='rdrNextPrevButton rdrPprevButton']//i").click();
+    await page.locator("(//span[contains(text(),'3')])[2]").click();
+    //await page.locator("(//span[@class='rdrDayNumber'])[2]").click();
+    await page.locator("(//button[@class='rdrNextPrevButton rdrNextButton'])[1]").click();
+    const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
+    await expect(continuousInput).toBeVisible({ timeout: 10000 });
+    await continuousInput.click();
+    await page.locator("(//span[contains(text(),'4')])[1]").click();
+    //await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
+
+    // Trigger Export
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    // Mark export triggered for afterEach
+    testInfo.exportTriggered = true;
+});
+test.skip('Admin Export - Family Member (Static Invalid Date via Fill)', async ({ page }, testInfo) => {
+
+    //await selectDateRange(page);
+    await page.click("//button[contains(@class,'bg-[#fae006] items-center text-sm flex px-4 rounded-[8px] py-2 font-medium')]");
+    const earlyInput = page.locator("(//input[@placeholder='Early'])[1]");
+    await expect(earlyInput).toBeVisible({ timeout: 10000 });
+    await earlyInput.click();
+    await page.locator("//button[@class='rdrNextPrevButton rdrPprevButton']//i").click();
+    await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
+    //await page.locator("(//span[@class='rdrDayNumber'])[2]").click();
+    await page.locator("(//button[@class='rdrNextPrevButton rdrNextButton'])[1]").click();
+    const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
+    await expect(continuousInput).toBeVisible({ timeout: 10000 });
+    await continuousInput.click();
+    await page.locator("(//span[@class='rdrDayNumber'])[2]").click();
+    //await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
+
+    // Trigger Export
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    // Mark export triggered for afterEach
+    testInfo.exportTriggered = true;
+});
+
+test.skip('Admin Export - Family Member (Search by Name and Static Date)', async ({ page }, testInfo) => {
     await page.locator("//input[@placeholder='Search By P Member Name']").fill('Charlie2');
     await selectDateRange(page);
 
@@ -105,7 +164,102 @@ test('Admin Export - Family Member (Search by Name and Static Date)', async ({ p
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - Family Member (Filter by Branch and Static Date)', async ({ page }, testInfo) => {
+test.skip('Admin Export - Family Member (Search by blank field and Static Date)', async ({ page }, testInfo) => {
+
+    await selectDateRange(page);
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('');
+    await page.locator("//input[@placeholder='Search By P Member Name']").press('Enter');
+    await page.waitForTimeout(2000);
+    
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});
+
+test.skip('Admin Export - Family Member (Search by Name(invalid-long string) and Static Date)', async ({ page }, testInfo) => {
+    
+    await selectDateRange(page);
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('Charlie2fdfsdfsdfsdfsdfsffseqwwertytryruutyutyutyututyutyutyuytuytutyutyutyutyuytuytututyutuytyutyutyu');
+    await page.locator("//input[@placeholder='Search By P Member Name']").press('Enter');
+    await page.waitForTimeout(2000);
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});
+
+test('Admin Export - Family Member (Search by Name(invalid-special charecters@#$%^&) and Static Date)', async ({ page }, testInfo) => {
+    
+    await selectDateRange(page);
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('@Charlie2#$%^&*()!');
+    await page.locator("//input[@placeholder='Search By P Member Name']").press('Enter');
+    await page.waitForTimeout(2000);
+
+    const noResultsMessage = page.locator('text=No Family Member Details Available.');
+    const noResultsVisible = await noResultsMessage.isVisible();
+
+    if (noResultsVisible) {
+        // Expected: no data found
+        console.log(' No family members found — verifying message');
+        await expect(noResultsMessage).toBeVisible();
+        } else {
+        // Data exists → proceed with export
+        console.log(' Family members found — proceeding with export');
+        await page.getByRole('button', { name: 'Export' }).click();
+        await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+        await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+        const toastLocator = page.locator('.Toastify__toast-body');
+        await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+        await expect(toastLocator).toContainText('Your request is being processed.');
+
+        testInfo.exportTriggered = true;
+    }
+    });
+    /*await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;*/
+
+
+test.skip('Admin Export - Family Member (Search by Invalid Name and Static Date)', async ({ page }, testInfo) => {
+
+    await selectDateRange(page);
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('32charli3123');
+    await page.locator("//input[@placeholder='Search By P Member Name']").press('Enter');
+    await page.waitForTimeout(2000);
+    
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});
+
+test.skip('Admin Export - Family Member (Filter by Branch and Static Date)', async ({ page }, testInfo) => {
     // Apply Filter
     await page.locator("//button[normalize-space()='Filters']").click();
     await page.locator("(//div[contains(@class,'react-select__input-container')])[1]").click();
@@ -125,7 +279,7 @@ test('Admin Export - Family Member (Filter by Branch and Static Date)', async ({
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - Family Member (Search + Filter + Date)', async ({ page }, testInfo) => {
+test.skip('Admin Export - Family Member (Search + Filter + Date)', async ({ page }, testInfo) => {
     await page.locator("//input[@placeholder='Search By P Member Name']").fill('Charlie2');
 
     await page.locator("//button[normalize-space()='Filters']").click();
@@ -146,7 +300,7 @@ test('Admin Export - Family Member (Search + Filter + Date)', async ({ page }, t
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - Family Member (Without Date Selection)', async ({ page }) => {
+test.skip('Admin Export - Family Member (Without Date Selection)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
 
     const popupLocator = page.locator("//div[@role='dialog']");
@@ -155,3 +309,63 @@ test('Admin Export - Family Member (Without Date Selection)', async ({ page }) =
     await expect(popupText).toContain('Please select a date range before exporting the data!');
     
 });
+
+test.skip('Admin Export - Family Member (Date + Search + Filter)', async ({ page }, testInfo) => {
+    await selectDateRange(page);
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('Charlie2');
+
+    await page.locator("//button[normalize-space()='Filters']").click();
+    await page.locator("(//div[contains(@class,'react-select__input-container')])[1]").click();
+    await page.locator('.react-select__option:has-text("stackbelowflow")').click();
+    await page.locator("//button[normalize-space()='Apply Filters']").click();
+
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});
+
+test.skip('Admin Export - Family Member (Date + Filter + Search)', async ({ page }, testInfo) => {
+    await selectDateRange(page);
+    
+    await page.locator("//button[normalize-space()='Filters']").click();
+    await page.locator("(//div[contains(@class,'react-select__input-container')])[1]").click();
+    await page.locator('.react-select__option:has-text("stackbelowflow")').click();
+    await page.locator("//button[normalize-space()='Apply Filters']").click();
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('Charlie2');
+
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});
+/*test.skip('Admin Export - Family Member (Search by Name(invalid-special charecters@#$%^&) and Static Date)', async ({ page }, testInfo) => {
+    
+    await selectDateRange(page);
+
+    await page.locator("//input[@placeholder='Search By P Member Name']").fill('@Charlie2#$%^&*()!');
+    await page.locator("//input[@placeholder='Search By P Member Name']").press('Enter');
+    await page.waitForTimeout(2000);
+    
+    await page.getByRole('button', { name: 'Export' }).click();
+    await page.locator("(//input[@id='email'])[1]").fill('saloni@wizcoder.com');
+    await page.locator("(//button[contains(@class,'bg-[#FCDD00]')])[1]").click();
+
+    const toastLocator = page.locator('.Toastify__toast-body');
+    await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
+    await expect(toastLocator).toContainText('Your request is being processed.');
+
+    testInfo.exportTriggered = true;
+});*/

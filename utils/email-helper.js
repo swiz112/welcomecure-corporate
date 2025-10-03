@@ -17,14 +17,14 @@ const hostingerConfig = {
   }
 };
 
-export async function fetchLatestExportEmail(testTitle = 'export') {
-  console.log('Connecting to IMAP server...');
+export async function fetchLatestExportEmail(testTitle = 'Family Members List Export') {
+  //console.log('Connecting to IMAP server...');
   const connection = await imaps.connect(hostingerConfig);
   await connection.openBox('INBOX');
-  console.log('Searching for unseen emails with subject containing \'Export\'...');
+  //console.log('Searching for unseen emails with subject containing \'Export\'...');
 
   // Search unseen emails with subject containing 'Export'
-  const searchCriteria = ['UNSEEN', ['SUBJECT', 'Export']];
+  const searchCriteria = ['UNSEEN', ['SUBJECT', 'Family Members List Export']];
   const messages = await connection.search(searchCriteria, { bodies: ['HEADER.FIELDS (SUBJECT)'], struct: true });
   console.log(`Found ${messages.length} unseen email(s) with 'Export' in the subject.`);
 
