@@ -1,0 +1,78 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19] [cursor=pointer]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Corporate" [ref=e25] [cursor=pointer]:
+            - /url: /admin/admin_user/corporate
+            - img [ref=e27] [cursor=pointer]
+            - text: Corporate
+        - listitem [ref=e30]:
+          - link "Admin" [ref=e31] [cursor=pointer]:
+            - /url: /admin/admin_user/hr
+            - img [ref=e33] [cursor=pointer]
+            - text: Admin
+        - listitem [ref=e37]:
+          - generic [ref=e38] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img [ref=e41] [cursor=pointer]
+              - generic [ref=e43] [cursor=pointer]: Member
+            - img "arrow" [ref=e44] [cursor=pointer]
+          - generic [ref=e45]:
+            - link "Create Member" [ref=e46] [cursor=pointer]:
+              - /url: /admin/admin_user/uploadeemployee
+            - link "Member List" [ref=e47] [cursor=pointer]:
+              - /url: /admin/admin_user/employee
+            - link "Export" [ref=e48] [cursor=pointer]:
+              - /url: /admin/export
+            - link "Family Member" [ref=e49] [cursor=pointer]:
+              - /url: /admin/admin_user/family_member
+        - listitem [ref=e50]:
+          - link "Health Tips" [ref=e51] [cursor=pointer]:
+            - /url: /admin/admin_user/healthtips
+            - img [ref=e53] [cursor=pointer]
+            - text: Health Tips
+        - listitem [ref=e55]:
+          - link "Book A Lab Test" [ref=e56] [cursor=pointer]:
+            - /url: /admin/admin_user/labtest
+            - img [ref=e58] [cursor=pointer]
+            - text: Book A Lab Test
+        - listitem [ref=e60]:
+          - generic [ref=e61] [cursor=pointer]:
+            - generic [ref=e62] [cursor=pointer]:
+              - img [ref=e64] [cursor=pointer]
+              - generic [ref=e66] [cursor=pointer]: Partners
+            - img "arrow" [ref=e67] [cursor=pointer]
+        - listitem [ref=e68]:
+          - link "Team Members" [ref=e69] [cursor=pointer]:
+            - /url: /admin/admin_user/team_members
+            - img [ref=e71] [cursor=pointer]
+            - text: Team Members
+    - generic [ref=e76]:
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - img [ref=e81]
+          - textbox "Search By P Member Name" [ref=e84]: Jacob
+        - generic [ref=e85]:
+          - button "new" [ref=e87] [cursor=pointer]:
+            - img "new" [ref=e89] [cursor=pointer]
+          - button "Filters" [ref=e90] [cursor=pointer]:
+            - img [ref=e91] [cursor=pointer]
+            - text: Filters
+          - button "calenderimg 01/09/2025 - 01/10/2025" [ref=e94] [cursor=pointer]:
+            - img "calenderimg" [ref=e95] [cursor=pointer]
+            - text: 01/09/2025 - 01/10/2025
+      - paragraph [ref=e98]: No Family Member Details Available.
+```

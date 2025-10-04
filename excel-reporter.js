@@ -60,6 +60,8 @@ class ExcelReporter {
           outputFileName = `addmember-admin-vfs-report-${timestamp}.xlsx`;
           } else if (firstTestFile.includes('addmember-manual-admin-vfs.spec.js')) {
           outputFileName = `addmember-manual-admin-vfs-report-${timestamp}.xlsx`;
+           } else if (firstTestFile.includes('admin-export-family-member.spec.js')) {
+          outputFileName = `admin-export-family-member-final-report-${timestamp}.xlsx`;
         }
       }
     }
