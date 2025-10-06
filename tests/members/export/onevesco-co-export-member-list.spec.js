@@ -1,23 +1,22 @@
 import { test, expect } from '@playwright/test';
-import LoginPage from '../../../pages/LoginPage';
+import LoginPage from '../../../pages/LoginPage.js';
 import XLSX from 'xlsx';
 import { fetchAllExportEmails } from '../../../utils/email-helper.js';
 
-// Login details
+// Login details (Onevesco - Corporate)
 const adminLogin = {
-    name: 'Admin',
-    username: '9687298058',
-    password: 'Cure@3210#',
-    role: 'Admin',
-    url: 'https://staging.corporate.welcomecure.com/admin/admin_user/corporate',
-
+    name: 'Corporate',
+    username: '8978989789',
+    password: 'Test@1234',
+    role: 'Corporate',
+    url: 'https://staging.corporate.welcomecure.com/vfs/branch',
     async memberListNav(page) {
-        await page.click("(//img[contains(@alt,'arrow')])[2]");
-        await page.click("//a[normalize-space()='Onevasco']");
+        await page.click("(//img[contains(@alt,'arrow')])[1]");
+        await page.click("//a[normalize-space()='Member List']");
     }
 };
 
-// Select Date
+// Select Date 
 async function selectDateRange(page) {
     await page.click("//button[normalize-space()='Select Date']");
 
@@ -37,11 +36,17 @@ async function selectDateRange(page) {
 }
 
 // Export function
-async function triggerExport(page, email = 'saloni@wizcoder.com') {
+async function triggerExport(page, email = 'prasad@yopmail.com') {
     await page.getByRole('button', { name: 'Export' }).click();
-    await page.locator("(//input[@id='email'])[1]").fill(email);
-
-    await page.locator("(//button[@class='w-full bg-[#FCDD00] text-black py-3 px-4 rounded-lg hover:bg-[#FCDD00] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium'])[1]").click();
+    
+    const emailInput = page.locator("(//input[@id='email'])[1]");
+    if (await emailInput.count()) {
+        await emailInput.fill(email);
+    }
+    const confirmBtn = page.locator("(//button[@class='w-full bg-[#FCDD00] text-black py-3 px-4 rounded-lg'])[1]");
+    if (await confirmBtn.count()) {
+        await confirmBtn.click();
+    }
 
     const toastLocator = page.locator('.Toastify__toast-body');
     await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
@@ -52,23 +57,15 @@ async function triggerExport(page, email = 'saloni@wizcoder.com') {
     await expect(toastLocator).toHaveText(expectedText);
 }
 
-// filter functions
-async function openFilters(page) {
-    await page.getByRole('button', { name: 'Filters' }).click();
-    await expect(page.getByRole('button', { name: 'Apply Filters' })).toBeVisible();
+// filter helper
+async function applyFilter(page, filterName) {
+    await page.locator("//button[normalize-space()='Filters']").click();
+    await page.locator("(//div[contains(@class,'react-select__input-container')])[1]").click();
+    await page.locator(`.react-select__option:has-text("${filterName}")`).click();
+    await page.locator("//button[normalize-space()='Apply Filters']").click();
 }
 
-async function applyFilterByField(page, fieldLabel, optionText) {
-    await openFilters(page);
-    const selectContainer = page.locator(`//label[normalize-space()='${fieldLabel}']/../div[contains(@class,'react-select__input-container')]`);
-    await selectContainer.click();
-    const option = page.locator('.react-select__option', { hasText: optionText });
-    await option.waitFor({ state: 'visible', timeout: 5000 });
-    await option.click();
-    await page.getByRole('button', { name: 'Apply Filters' }).click();
-}
-
-// Before each : login+ nevigate to onevesco member list 
+//Before each : login + navigate to member list
 test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     console.log(`Logging in as ${adminLogin.name}...`);
@@ -80,7 +77,7 @@ test.beforeEach(async ({ page }) => {
     await expect(page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]")).toBeVisible();
 });
 
-// After each: export validation
+//  After each: export validation 
 test.afterEach(async ({}, testInfo) => {
     if (!testInfo.exportTriggered) {
         console.log(` Skipping export validation for: ${testInfo.title}`);
@@ -124,14 +121,14 @@ test.afterEach(async ({}, testInfo) => {
 // Test cases
 
 // Static date via fill
-test.skip('Admin Export - Onevasco (Static Date)', async ({ page }, testInfo) => {
+test.skip('Onevesco Export - Member List (Static Date)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Static single date
-test('Admin Export - Onevasco (Static Single Date)', async ({ page }, testInfo) => {
+test('Onevesco Export - Member List (Static Single Date)', async ({ page }, testInfo) => {
     await page.click("//button[normalize-space()='Select Date']");
     const earlyInput = page.locator("//input[contains(@placeholder,'Early')]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
@@ -146,7 +143,7 @@ test('Admin Export - Onevasco (Static Single Date)', async ({ page }, testInfo) 
 });
 
 // Search by Name + Static Date
-test.skip('Admin Export - Onevasco (Search by Name)', async ({ page }, testInfo) => {
+test.skip('Onevesco Export - Member List (Search by Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('Mitesh');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
@@ -154,8 +151,8 @@ test.skip('Admin Export - Onevasco (Search by Name)', async ({ page }, testInfo)
     testInfo.exportTriggered = true;
 });
 
-//  Search invalid name + Static Date
-test.skip('Admin Export - Onevasco (Invalid Name)', async ({ page }, testInfo) => {
+// Search invalid name + Static Date
+test.skip('Onevesco Export - Member List (Invalid Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('32charli3123');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
@@ -170,25 +167,25 @@ test.skip('Admin Export - Onevasco (Invalid Name)', async ({ page }, testInfo) =
 });
 
 // Filter branch + Static Date
-test.skip('Admin Export - Onevasco (Filter by Branch)', async ({ page }, testInfo) => {
-    await applyFilterByField(page, 'Branch', 'Onevasco Mumbai');
+test.skip('Onevesco Export - Member List (Filter by Branch)', async ({ page }, testInfo) => {
+    await applyFilter(page, 'Onevesco Branch Name');
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Search with Email + Filter + Static Date
-test.skip('Admin Export - Onevasco (Search + Filter)', async ({ page }, testInfo) => {
+test.skip('Onevesco Export - Member List (Search + Filter)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('harshil@wizcoder.com');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
-    await applyFilterByField(page, 'Branch', 'Onevasco Goa');
+    await applyFilter(page, 'Onevesco Branch Name');
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Without Date Selection → popup error
-test.skip('Admin Export - Onevasco (No Date Selected)', async ({ page }) => {
+test.skip('Onevesco Export - Member List (No Date Selected)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
     const popupLocator = page.locator("//div[@role='dialog']");
     await popupLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -197,19 +194,20 @@ test.skip('Admin Export - Onevasco (No Date Selected)', async ({ page }) => {
 });
 
 // Date + Search with Name + Filter
-test.skip('Admin Export - Onevasco (Date + Search + Filter)', async ({ page }, testInfo) => {
+test.skip('Onevesco Export - Member List (Date + Search + Filter)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('Jacob');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
-    await applyFilterByField(page, 'Branch', 'Onevasco Pune');
+    await applyFilter(page, 'Onevesco Branch A');
+    await applyFilter(page, 'Onevesco Branch B');
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Date + Filter + Search with Contact No
-test.skip('Admin Export - Onevasco (Date + Filter + Search)', async ({ page }, testInfo) => {
+test.skip('Onevesco Export - Member List (Date + Filter + Search)', async ({ page }, testInfo) => {
     await selectDateRange(page);
-    await applyFilterByField(page, 'Branch', 'Onevasco Chennai');
+    await applyFilter(page, 'Onevesco Branch C');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9222874550');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await triggerExport(page);

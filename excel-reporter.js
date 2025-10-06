@@ -62,6 +62,22 @@ class ExcelReporter {
           outputFileName = `addmember-manual-admin-vfs-report-${timestamp}.xlsx`;
            } else if (firstTestFile.includes('admin-export-family-member.spec.js')) {
           outputFileName = `admin-export-family-member-final-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('admin-export-bls.spec.js')) {
+          outputFileName = `admin-export-bls-final-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('admin-export-onevesco.spec.js')) {
+          outputFileName = `admin-export-onevesco-final-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('admin-export-vfs-india-refund.spec.js')) {
+          outputFileName = `admin-export-vfs-india-refund-final-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('admin-export-vfs-uk-india-member-list.spec.js')) {
+          outputFileName = `admin-export-vfs-uk-india-member-list-final-report-${timestamp}.xlsx`;
+          } else if (firstTestFile.includes('admin-export-vfs-uk-india-payment-failed-spec.js')) {
+          outputFileName = `admin-export-vfs-uk-india-payment-failed-final-report-${timestamp}.xlsx`;   
+        } else if (firstTestFile.includes('co-export-member-data.spec.js')) {
+          outputFileName = `admin-export-member-data-final-report-${timestamp}.xlsx`;   
+        } else if (firstTestFile.includes('hr-export-member-data.spec.js')) {
+          outputFileName = `hr-export-member-data-final-report-${timestamp}.xlsx`; 
+        } else if (firstTestFile.includes('onevesco-co-export-member-data.spec.js')) {
+          outputFileName = `onevesco-co-export-member-data-final-report-${timestamp}.xlsx`; 
         }
       }
     }
