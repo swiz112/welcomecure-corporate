@@ -3,47 +3,39 @@ import LoginPage from '../../../pages/LoginPage.js';
 import XLSX from 'xlsx';
 import { fetchAllExportEmails } from '../../../utils/email-helper.js';
 
-// Login details
+// Login details (Onevesco - Corporate)
 const adminLogin = {
-    name: 'Admin',
-    username: '9687298058',
-    password: 'Cure@3210#',
-    role: 'Admin',
-    url: 'https://staging.corporate.welcomecure.com/admin/admin_user/corporate',
-
+    name: 'Corporate',
+    username: '8978989789',
+    password: 'Test@1234',
+    role: 'Corporate',
+    url: 'https://staging.corporate.welcomecure.com/vfs/branch',
     async memberListNav(page) {
-        await page.click("(//img[contains(@alt,'arrow')])[2]");
-        await page.waitForSelector("//span[normalize-space()='VFS UK INDIA']");
-        await page.click("//span[normalize-space()='VFS UK INDIA']");
-        await page.click("//a[normalize-space()='Member List']");
+        await page.click("(//img[contains(@alt,'arrow')])[1]");
+        await page.click("//a[normalize-space()='VFS UK LP']");
     }
 };
 
-// Select Date
+// Date selection
 async function selectDateRange(page) {
     await page.click("//button[normalize-space()='Select Date']");
-
-    const earlyInput = page.locator("(//input[@placeholder='Early'])[1]");
+    const earlyInput = page.locator("//input[contains(@placeholder,'Early')]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
     await earlyInput.click();
-
-    await page.locator("//button[@class='rdrNextPrevButton rdrPprevButton']//i").click();
-    await page.locator("(//span[@class='rdrDayNumber'])[2]").click();
-
-    await page.locator("(//button[@class='rdrNextPrevButton rdrNextButton'])[1]").click();
-
+    await page.locator("//button[contains(@class,'rdrNextPrevButton rdrPprevButton')]").click();
+    await page.locator("(//span[contains(text(),'1')])[2]").click();
+    await page.locator("//button[contains(@class,'rdrNextPrevButton rdrNextButton')]//i").click();
     const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
     await expect(continuousInput).toBeVisible({ timeout: 10000 });
     await continuousInput.click();
     await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
 }
 
-// Export function
-async function triggerExport(page, email = 'saloni@yopmail.com') {
+// Export
+async function triggerExport(page, email = 'saloni@wizcoder.com') {
     await page.getByRole('button', { name: 'Export' }).click();
     await page.locator("(//input[@id='email'])[1]").fill(email);
-
-    await page.locator("(//button[@class='w-full bg-[#FCDD00] text-black py-3 px-4 rounded-lg hover:bg-[#FCDD00] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200 font-medium'])[1]").click();
+    await page.locator("//button[normalize-space()='Export']").click();
 
     const toastLocator = page.locator('.Toastify__toast-body');
     await toastLocator.waitFor({ state: 'visible', timeout: 15000 });
@@ -53,6 +45,7 @@ async function triggerExport(page, email = 'saloni@yopmail.com') {
     const expectedText = `Your request is being processed. The download file will be sent to ${email}`;
     await expect(toastLocator).toHaveText(expectedText);
 }
+
 
 async function applyFilter(page, filters = {}) {
   // Wait for Filters panel to render
@@ -334,7 +327,7 @@ test.skip('Admin Export - VFS UK INDIA (Filter + Search by Email)', async ({ pag
 
 test.skip('Admin Export - VFS UK INDIA (Filter + Search by Contact No)', async ({ page }, testInfo) => {
     await applyFilter(page, { zone: 'East' });
-    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9222874550');
+    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('+91 9328221950');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
     await triggerExport(page);
@@ -342,7 +335,7 @@ test.skip('Admin Export - VFS UK INDIA (Filter + Search by Contact No)', async (
 });
 
 test('Admin Export - VFS UK INDIA (Clear All Filters)', async ({ page }) => {
-    // Apply multiple filters
+    // Apply all filters
     await applyFilter(page, {
         branch: 'HYDERABAD - UK VAC',
         region: 'South Asia',

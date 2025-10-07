@@ -1,0 +1,111 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19] [cursor=pointer]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Corporate" [ref=e25] [cursor=pointer]:
+            - /url: /admin/admin_user/corporate
+            - img [ref=e27] [cursor=pointer]
+            - text: Corporate
+        - listitem [ref=e30]:
+          - link "Admin" [ref=e31] [cursor=pointer]:
+            - /url: /admin/admin_user/hr
+            - img [ref=e33] [cursor=pointer]
+            - text: Admin
+        - listitem [ref=e37]:
+          - generic [ref=e38] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img [ref=e41] [cursor=pointer]
+              - generic [ref=e43] [cursor=pointer]: Member
+            - img "arrow" [ref=e44] [cursor=pointer]
+        - listitem [ref=e45]:
+          - link "Health Tips" [ref=e46] [cursor=pointer]:
+            - /url: /admin/admin_user/healthtips
+            - img [ref=e48] [cursor=pointer]
+            - text: Health Tips
+        - listitem [ref=e50]:
+          - link "Book A Lab Test" [ref=e51] [cursor=pointer]:
+            - /url: /admin/admin_user/labtest
+            - img [ref=e53] [cursor=pointer]
+            - text: Book A Lab Test
+        - listitem [ref=e55]:
+          - generic [ref=e56] [cursor=pointer]:
+            - generic [ref=e57] [cursor=pointer]:
+              - img [ref=e59] [cursor=pointer]
+              - generic [ref=e61] [cursor=pointer]: Partners
+            - img "arrow" [ref=e62] [cursor=pointer]
+        - listitem [ref=e63]:
+          - link "Team Members" [ref=e64] [cursor=pointer]:
+            - /url: /admin/admin_user/team_members
+            - img [ref=e66] [cursor=pointer]
+            - text: Team Members
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - img [ref=e77]
+            - textbox "Search By Admin Name" [active] [ref=e80]: Admin-saloni
+          - generic [ref=e81]:
+            - button "Filters" [ref=e83] [cursor=pointer]:
+              - img [ref=e84] [cursor=pointer]
+              - text: Filters
+            - button "Add" [ref=e86] [cursor=pointer]:
+              - img [ref=e88] [cursor=pointer]
+              - text: Add
+        - paragraph [ref=e92]: No Admin Details Available.
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - generic [ref=e97]: Add Corporate
+          - button [ref=e98] [cursor=pointer]:
+            - img [ref=e99] [cursor=pointer]
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - text: Select Corporate
+              - generic [ref=e107]: "*"
+              - text: ":"
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: stackbelowflow
+                - combobox [ref=e116]
+              - img [ref=e119]
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - text: Admin Name
+              - generic [ref=e123]: "*"
+              - text: ":"
+            - textbox "Enter Admin Name" [ref=e124]: Adminsaloni
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - text: Email Id
+              - generic [ref=e127]: "*"
+              - text: ":"
+            - textbox "Enter Admin Email Id" [ref=e128]: saloni@yopmail.com
+          - generic [ref=e129]:
+            - generic [ref=e130]:
+              - text: Contact No
+              - generic [ref=e131]: "*"
+              - text: ":"
+            - generic [ref=e132]:
+              - generic [ref=e136]:
+                - generic [ref=e137]:
+                  - generic [ref=e138]: "+91"
+                  - combobox [ref=e140]
+                - img [ref=e144]
+              - textbox "Enter Admin Contact No" [ref=e146]: "123467888"
+        - generic [ref=e147]:
+          - button "Save" [ref=e148] [cursor=pointer]
+          - button "Close" [ref=e149] [cursor=pointer]
+```
