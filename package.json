@@ -13,7 +13,7 @@
   "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.40.0",
+    "@playwright/test": "^1.56.0",
     "cross-env": "^10.1.0"
   },
   "dependencies": {
