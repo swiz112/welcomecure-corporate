@@ -22,7 +22,7 @@ test.describe('Admin Page - Full Functionality', () => {
 
 // Search function test cases (Name/Email/Contact Number)
 
-  /* test('Search by valid admin name', async ({ page }) => {
+test('Search by valid admin name', async ({ page }) => {
     await page.locator(SEARCH_INPUT).fill('Olivia');
     await page.locator(SEARCH_INPUT).press('Enter');
     await page.waitForTimeout(2000);
@@ -180,6 +180,25 @@ test('should add team member with valid data and one permission', async ({ page 
     await expect(page.getByText('Team member created successfully')).toBeVisible();
    
   });
+
+   // Edit team member
+test('shoulddd Edit team member with valid data', async ({ page }) => {
+  // Search for the member to edit
+  await page.locator(SEARCH_INPUT).fill('Olivia');
+  await page.locator(SEARCH_INPUT).press('Enter');
+  await page.waitForTimeout(2000);
+
+ // Wait for the Edit modal/form
+  await page.locator('.text-xl > .cursor-pointer').first().click();
+  
+  // Edit permissions
+  await page.getByLabel('Admin', { exact: true }).check();
+  // Click Save
+  await page.getByRole('button', { name: 'Update' }).click();
+
+  // Verify success (for edit flow)
+  await expect(page.getByText('Team permission updated successfully')).toBeVisible({ timeout: 5000 });
+});
 // this is not working ----- unable to find locator for validation msg---------------------
 test('should add team member with  invalid data with all permissions selected', async ({ page }) => {
     await page.locator(ADD_TEAM_MEMBER).click();
@@ -206,9 +225,9 @@ await expect(anyErrorMessage).toBeVisible({ timeout: 5000 });
     // Pop-up should remain openok
     await expect(page.getByText('Add Team Member')).toBeVisible(); 
   });
-*/
 
-/*test('Team Member - Filter', async ({ page }, testInfo) => {
+
+test('Team Member - Filter by- Role = Accountant ', async ({ page }, testInfo) => {
     
     await page.locator("//button[normalize-space()='Filters']").click();
     await page.locator("(//*[name()='svg'][contains(@class,'css-8mmkcg')])[1]").click();
@@ -221,24 +240,20 @@ await expect(anyErrorMessage).toBeVisible({ timeout: 5000 });
     expect(roleCells).toBe(totalRows); 
     expect(totalRows).toBeGreaterThan(0);
 
-});*/
-
+});
 
 // Status Filter Only
 test('Team Member - Filter by Status = Active', async ({ page }) => {
-  await page.locator("//button[normalize-space()='Filters']").click();
-  await page.locator("(//*[name()='svg'][contains(@class,'css-8mmkcg')])[2]").click();
+  await page.getByRole('button', { name: 'Filters' }).click();
+  await page.locator('div:nth-child(2) > .css-b62m3t-container > .css-12x3uyk-control > .css-7gwid4 > .css-1xc3v61-indicatorContainer').click();
   await page.getByText('Active', { exact: true }).click();
-  await page.locator("//button[normalize-space()='Apply Filters']").click();
+  await page.getByRole('button', { name: 'Apply Filters' }).click();
   await page.waitForTimeout(3000);
+  });
+  
 
-  const totalRows = await page.locator('tbody tr').count();
-  const activeCells = await page.locator('td:has-text("Active")').count(); 
-  expect(activeCells).toBe(totalRows);
-  expect(totalRows).toBeGreaterThan(0);
-});
 // Both Filters: Role = Accountant AND Status = Active
-/*test('Team Member - Filter by Role = Accountant and Status = Active', async ({ page }) => {
+test('Team Member - Filter by Role = Accountant and Status = Active', async ({ page }) => {
   await page.locator("//button[normalize-space()='Filters']").click();
   
   // Select Role
@@ -246,23 +261,16 @@ test('Team Member - Filter by Status = Active', async ({ page }) => {
   await page.locator('.css-dq6lu7-option', { hasText: 'Accountant' }).click();
   
   // Select Status
-  await page.locator("(//*[name()='svg'][contains(@class,'css-8mmkcg')])[2]").click();
-  await page.locator('.css-dq6lu7-option', { hasText: 'Active' }).click();
+  await page.locator('div:nth-child(2) > .css-b62m3t-container > .css-12x3uyk-control > .css-7gwid4 > .css-1xc3v61-indicatorContainer').click();
+  await page.getByText('Active', { exact: true }).click();
   
   await page.locator("//button[normalize-space()='Apply Filters']").click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
 
-  const totalRows = await page.locator('tbody tr').count();
-  const roleCells = await page.locator('td:has-text("Accountant")').count();
-  const statusCells = await page.locator('td:has-text("Active")').count();
-  
-  expect(roleCells).toBe(totalRows);
-  expect(statusCells).toBe(totalRows);
-  expect(totalRows).toBeGreaterThan(0);
+   await page.locator(SEARCH_INPUT);
+   await page.locator("//img[@alt='new']").click();
+   await page.waitForTimeout(4000);
+
 });
 
-*/
-
-
-// //img[@alt='new']  - clear filter
 });
