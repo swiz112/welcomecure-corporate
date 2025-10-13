@@ -13,7 +13,7 @@ const PAGINATION_NEXT = "//div[contains(@class,'hidden text-sm md:block')]//a[co
 const ITEMS_PER_PAGE_DROPDOWN = "//img[@alt='LimitArrow']";
 
 
-test.describe('Admin Page - Full Functionality', () => {
+test.describe('Admin=> Team Member - Full Functionality', () => {
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.login('9687298058', 'Cure@3210#', 'Admin');
