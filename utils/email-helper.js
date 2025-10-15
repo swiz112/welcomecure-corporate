@@ -3,24 +3,42 @@ import { simpleParser } from 'mailparser';
 import fs from 'fs';
 import path from 'path';
 
-const hostingerConfig = {
-  imap: {
-    user: 'saloni@wizcoder.com',
-    password: 'Saloni@2025',
-    host: 'imap.hostinger.com',
-    port: 993,
-    tls: true,
-    authTimeout: 3000
+const hostingerUsers = {
+  user1: {
+    imap: {
+      user: 'saloni@wizcoder.com',
+      password: 'Saloni@2025',
+      host: 'imap.hostinger.com',
+      port: 993,
+      tls: true,
+      authTimeout: 3000
+    }
+  },
+  user2: {
+    imap: {
+      user: 'mehul@wizcoder.com', 
+      password: 'Mehul@2025', 
+      host: 'imap.hostinger.com',
+      port: 993,
+      tls: true,
+      authTimeout: 3000
+    }
   }
 };
 
 /**
  * Fetch all export emails and save attachments with test case name
  * @param {string} testTitle - Exact test case name
+ * @param {string} user - The user to connect as ('user1' or 'user2')
+ * @param {string} subject - The subject of the email to search for
  * @returns {string[]} Array of downloaded attachment file paths
  */
-export async function fetchAllExportEmails(testTitle) {
-  const connection = await imaps.connect(hostingerConfig);
+export async function fetchAllExportEmails(testTitle, user = 'user2', subject = 'Members List Export') {
+  const config = hostingerUsers[user];
+  if (!config) {
+    throw new Error(`Invalid user specified: ${user}. Available users are: ${Object.keys(hostingerUsers).join(', ')}`);
+  }
+  const connection = await imaps.connect(config);
   await connection.openBox('INBOX');
   
   const today = new Date();
@@ -28,7 +46,7 @@ export async function fetchAllExportEmails(testTitle) {
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const year = today.getFullYear();
 
-  const searchCriteria = ['UNSEEN', ['SUBJECT', 'Family Members List Export']];
+  const searchCriteria = ['UNSEEN', ['SUBJECT', subject]];
   const messages = await connection.search(searchCriteria, { bodies: ['HEADER.FIELDS (SUBJECT)'], struct: true });
   console.log(`Found ${messages.length} unseen email(s) with 'Export' in the subject.`);
 

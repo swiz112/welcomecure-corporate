@@ -231,42 +231,39 @@ await expect(anyErrorMessage).toBeVisible({ timeout: 5000 });
 
 // Pagination Test cases
 
- test.skip('should display 10 team members by default', async ({ page }) => {
-    const rowCount = await page.locator("//tbody/tr").count();
-    expect(rowCount).toBe(10);
+ test('should display 10 team members by default', async ({ page }) => {
+    await expect(page.locator('//tbody/tr')).toHaveCount(10);
     await page.waitForTimeout(3000);
   });
 
-test.skip('should display 25 items when selecting 25 per page', async ({ page }) => {
+test('should display 25 items when selecting 25 per page', async ({ page }) => {
     // Open items per page dropdown
     await page.locator(ITEMS_PER_PAGE_DROPDOWN).click();
     // Select 25 (assuming options appear as text/buttons)
     await page.locator('text=25').click();
-    await page.waitForTimeout(1000);
 
-    const rowCount = await page.locator("//tbody/tr").count();
-    expect(rowCount).toBe(25);
+    // Expect exactly 25 rows to be present within a timeout
+    await expect(page.locator('//tbody/tr')).toHaveCount(25);
     await page.waitForTimeout(3000);
   });
 
-  test.skip('should navigate to page 2 using Next button', async ({ page }) => {
+  test('should navigate to page 2 using Next button', async ({ page }) => {
     const firstRowPage1 = await page.locator(ADMIN_TABLE_ROW).textContent();
 
     await page.locator(PAGINATION_NEXT).click();
-    await page.waitForTimeout(1000);
+    
+    // Wait for navigation and check the content of the first row has changed
+    await expect(page.locator(ADMIN_TABLE_ROW)).not.toHaveText(firstRowPage1);
 
-    const firstRowPage2 = await page.locator(ADMIN_TABLE_ROW).textContent();
-    expect(firstRowPage2).not.toBe(firstRowPage1);
-
-    const rowCount = await page.locator("//tbody/tr").count();
-    expect(rowCount).toBe(10); // or 25, if you changed view
+    // Expect 10 rows on the new page
+    await expect(page.locator('//tbody/tr')).toHaveCount(10);
   });
 
-test.skip('should show correct number of items on last page', async ({ page }) => {
+test('should show correct number of items on last page', async ({ page }) => {
   const totalMemberLocator = page.locator("//p[contains(@class,'text-sm font-semibold')]");
   
   await expect(totalMemberLocator).toBeVisible();
-  await expect(totalMemberLocator).toContainText('Total Member :');
+  await expect(totalMemberLocator).toContainText(/Total Member : \d+/);
 
   const totalCountText = await totalMemberLocator.textContent();
   const totalMembers = parseInt(totalCountText.match(/\d+/)[0], 10);
@@ -279,43 +276,33 @@ test.skip('should show correct number of items on last page', async ({ page }) =
   console.log(`Total Pages: ${totalPages}`);
   console.log(`Expected items on last page: ${expectedLastPageItems}`);
 
-  // Log Page 1
-  let currentPage = 1;
-  let rowCount = await page.locator("//tbody/tr").count();
-  console.log(`Page ${currentPage}: ${rowCount} members`);
-
-  // Navigate to last page and log each page
+  // Navigate to last page
   for (let i = 1; i < totalPages; i++) {
     await page.locator(PAGINATION_NEXT).click();
-    await page.waitForTimeout(800);
-    
-    currentPage++;
-    rowCount = await page.locator("//tbody/tr").count();
-    console.log(`Page ${currentPage}: ${rowCount} members`);
   }
 
   // Final assertion
-  expect(rowCount).toBe(expectedLastPageItems);
+  await expect(page.locator('//tbody/tr')).toHaveCount(expectedLastPageItems);
 });
 
-test.skip('should reset to page 1 after performing a search', async ({ page }) => {
+test('should reset to page 1 after performing a search', async ({ page }) => {
     // Go to page 2
     await page.locator(PAGINATION_NEXT).click();
-    await page.waitForTimeout(2000);
+    // Await for page 2 to load, by checking for a change in the first row
+    const firstRowPage1 = await page.locator(ADMIN_TABLE_ROW).textContent();
+    await expect(page.locator(ADMIN_TABLE_ROW)).not.toHaveText(firstRowPage1);
 
     // Perform search
-    await page.locator(SEARCH_INPUT).fill('mehul');
+    await page.locator(SEARCH_INPUT).fill('raull');
     await page.locator(SEARCH_INPUT).press('Enter');
-    await page.waitForTimeout(4000);
 
     // Should be back on page 1 with filtered results
     const rowCount = await page.locator("//tbody/tr").count();
     expect(rowCount).toBeGreaterThanOrEqual(1);
-    await page.locator(3000);
 
     // Optional: verify first result is "mehul"
     const firstResult = await page.locator("//tbody/tr[1]/td[1]").textContent();
-    expect(firstResult.toLowerCase()).toContain('mehul');
+    expect(firstResult.toLowerCase()).toContain('raull');
   });
 
   // Check Filters
