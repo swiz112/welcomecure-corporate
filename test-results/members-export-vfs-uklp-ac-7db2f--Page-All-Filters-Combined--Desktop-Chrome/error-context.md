@@ -1,0 +1,133 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - img "logo" [ref=e9]
+        - img "logo" [ref=e10]
+      - generic [ref=e12] [cursor=pointer]: A
+    - generic [ref=e13]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - button [ref=e18] [cursor=pointer]:
+            - img [ref=e19]
+          - generic: Hide
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - link "Member List" [ref=e25] [cursor=pointer]:
+              - /url: /vfs_uk_lp/accountant/memberlist
+              - img [ref=e27]
+              - text: Member List
+          - listitem [ref=e30]:
+            - link "Refund" [ref=e31] [cursor=pointer]:
+              - /url: /vfs_uk_lp/accountant/refund
+              - img [ref=e33]
+              - text: Refund
+      - generic [ref=e35]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - img [ref=e40]
+            - textbox "Search By Member, Email, Contact No" [ref=e43]
+            - paragraph [ref=e44]: "Total Member: 2"
+          - generic [ref=e45]:
+            - button "new" [ref=e47] [cursor=pointer]:
+              - img "new" [ref=e49]
+            - button "Filters" [ref=e50] [cursor=pointer]:
+              - img [ref=e51]
+              - text: Filters
+            - button "calenderimg 01/08/2025 - 17/09/2025" [ref=e54] [cursor=pointer]:
+              - img "calenderimg" [ref=e55]
+              - text: 01/08/2025 - 17/09/2025
+            - button "Export" [active] [ref=e56] [cursor=pointer]
+        - table [ref=e58]:
+          - rowgroup [ref=e59]:
+            - row "Branch Name Member Name Email Id Contact No. Qty Amount Invoice No. Register Date Approval Date Status" [ref=e60]:
+              - cell "Branch Name" [ref=e61]:
+                - generic [ref=e62]: Branch Name
+              - cell "Member Name" [ref=e63]:
+                - generic [ref=e64]: Member Name
+              - cell "Email Id" [ref=e65]:
+                - generic [ref=e66]: Email Id
+              - cell "Contact No." [ref=e67]:
+                - generic [ref=e68]: Contact No.
+              - cell "Qty" [ref=e69]:
+                - generic [ref=e70]: Qty
+              - cell "Amount" [ref=e71]:
+                - generic [ref=e72]: Amount
+              - cell "Invoice No." [ref=e73]:
+                - generic [ref=e74]: Invoice No.
+              - cell "Register Date" [ref=e75]:
+                - generic [ref=e76]: Register Date
+              - cell "Approval Date" [ref=e77]:
+                - generic [ref=e78]: Approval Date
+              - cell "Status" [ref=e79]:
+                - generic [ref=e80]: Status
+          - rowgroup [ref=e81]:
+            - row "AHMEDABAD - UK V... mayur *********** +91 4561237894 1 INR 300 WC0275 15/08/2025 15/08/2025 approve" [ref=e82]:
+              - cell "AHMEDABAD - UK V..." [ref=e83]:
+                - generic [ref=e85]: AHMEDABAD - UK V...
+              - cell "mayur" [ref=e86]:
+                - generic [ref=e87] [cursor=pointer]: mayur
+              - cell "***********" [ref=e88]:
+                - generic [ref=e89]: "***********"
+              - cell "+91 4561237894" [ref=e90]:
+                - generic [ref=e91] [cursor=pointer]: +91 4561237894
+              - cell "1" [ref=e92]:
+                - paragraph [ref=e93]: "1"
+              - cell "INR 300" [ref=e94]:
+                - paragraph [ref=e95]: INR 300
+              - cell "WC0275" [ref=e96]:
+                - paragraph [ref=e97]: WC0275
+              - cell "15/08/2025" [ref=e98]:
+                - paragraph [ref=e99]: 15/08/2025
+              - cell "15/08/2025" [ref=e100]:
+                - paragraph [ref=e101]: 15/08/2025
+              - cell "approve" [ref=e102]:
+                - paragraph [ref=e103]: approve
+            - row "AHMEDABAD - UK V... Mehul SIngh *********** +91 45612378941 1 INR 300 WC0257 14/08/2025 14/08/2025 approve" [ref=e104]:
+              - cell "AHMEDABAD - UK V..." [ref=e105]:
+                - generic [ref=e107]: AHMEDABAD - UK V...
+              - cell "Mehul SIngh" [ref=e108]:
+                - generic [ref=e109] [cursor=pointer]: Mehul SIngh
+              - cell "***********" [ref=e110]:
+                - generic [ref=e111]: "***********"
+              - cell "+91 45612378941" [ref=e112]:
+                - generic [ref=e113] [cursor=pointer]: +91 45612378941
+              - cell "1" [ref=e114]:
+                - paragraph [ref=e115]: "1"
+              - cell "INR 300" [ref=e116]:
+                - paragraph [ref=e117]: INR 300
+              - cell "WC0257" [ref=e118]:
+                - paragraph [ref=e119]: WC0257
+              - cell "14/08/2025" [ref=e120]:
+                - paragraph [ref=e121]: 14/08/2025
+              - cell "14/08/2025" [ref=e122]:
+                - paragraph [ref=e123]: 14/08/2025
+              - cell "approve" [ref=e124]:
+                - paragraph [ref=e125]: approve
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: View
+            - button "10 LimitArrow" [ref=e133] [cursor=pointer]:
+              - paragraph [ref=e134]: "10"
+              - img "LimitArrow" [ref=e135]
+          - generic [ref=e136]:
+            - button "<<" [ref=e137] [cursor=pointer]
+            - navigation "Pagination" [ref=e139] [cursor=pointer]:
+              - listitem [ref=e140]:
+                - button "Previous page" [disabled] [ref=e141]: <
+              - listitem [ref=e142]:
+                - button "Page 1 is your current page" [ref=e143]: "1"
+              - listitem [ref=e144]:
+                - button "Next page" [disabled] [ref=e145]: ">"
+            - button ">>" [ref=e146] [cursor=pointer]
+  - generic [ref=e148] [cursor=pointer]:
+    - alert [ref=e149]:
+      - img [ref=e151]
+      - generic [ref=e153]: Your request is being processed. The download file will be sent to mehul@wizcoder.com
+    - button "close" [ref=e154]:
+      - img [ref=e155]
+    - progressbar "notification timer" [ref=e157]
+```

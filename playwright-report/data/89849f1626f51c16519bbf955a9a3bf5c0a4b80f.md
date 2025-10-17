@@ -1,0 +1,268 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Member List" [ref=e25] [cursor=pointer]:
+            - /url: /vfs_uk_lp/accountant/memberlist
+            - img [ref=e27]
+            - text: Member List
+        - listitem [ref=e30]:
+          - link "Refund" [ref=e31] [cursor=pointer]:
+            - /url: /vfs_uk_lp/accountant/refund
+            - img [ref=e33]
+            - text: Refund
+    - generic [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - img [ref=e40]
+          - textbox "Search By Member, Email, Contact No" [ref=e43]
+          - paragraph [ref=e44]: "Total Member: 9"
+        - generic [ref=e45]:
+          - button "Filters" [ref=e46] [cursor=pointer]:
+            - img [ref=e47]
+            - text: Filters
+          - button "calenderimg Select Date" [ref=e50] [cursor=pointer]:
+            - img "calenderimg" [ref=e51]
+            - text: Select Date
+          - button "Export" [ref=e52] [cursor=pointer]
+      - table [ref=e54]:
+        - rowgroup [ref=e55]:
+          - row "Branch Name Member Name Email Id Contact No. Qty Amount Invoice No. Register Date Approval Date Status" [ref=e56]:
+            - cell "Branch Name" [ref=e57]:
+              - generic [ref=e58]: Branch Name
+            - cell "Member Name" [ref=e59]:
+              - generic [ref=e60]: Member Name
+            - cell "Email Id" [ref=e61]:
+              - generic [ref=e62]: Email Id
+            - cell "Contact No." [ref=e63]:
+              - generic [ref=e64]: Contact No.
+            - cell "Qty" [ref=e65]:
+              - generic [ref=e66]: Qty
+            - cell "Amount" [ref=e67]:
+              - generic [ref=e68]: Amount
+            - cell "Invoice No." [ref=e69]:
+              - generic [ref=e70]: Invoice No.
+            - cell "Register Date" [ref=e71]:
+              - generic [ref=e72]: Register Date
+            - cell "Approval Date" [ref=e73]:
+              - generic [ref=e74]: Approval Date
+            - cell "Status" [ref=e75]:
+              - generic [ref=e76]: Status
+        - rowgroup [ref=e77]:
+          - row "PUNE - UK VAC kumar kumar@yopmail.com ** *********** 1 INR 300 WC10273 10/10/2025 - reject" [ref=e78]:
+            - cell "PUNE - UK VAC" [ref=e79]
+            - cell "kumar" [ref=e80]:
+              - generic [ref=e81] [cursor=pointer]: kumar
+            - cell "kumar@yopmail.com" [ref=e82]:
+              - generic [ref=e83] [cursor=pointer]: kumar@yopmail.com
+            - cell "** ***********" [ref=e84]:
+              - generic [ref=e85]: "** ***********"
+            - cell "1" [ref=e86]:
+              - paragraph [ref=e87]: "1"
+            - cell "INR 300" [ref=e88]:
+              - paragraph [ref=e89]: INR 300
+            - cell "WC10273" [ref=e90]:
+              - paragraph [ref=e91]: WC10273
+            - cell "10/10/2025" [ref=e92]:
+              - paragraph [ref=e93]: 10/10/2025
+            - cell "-" [ref=e94]:
+              - paragraph [ref=e95]: "-"
+            - cell "reject" [ref=e96]:
+              - paragraph [ref=e97]: reject
+          - row "NEW DELHI - UK V... krish saloni@yopmail.com ** *********** 1 INR 300 WC10061 07/10/2025 - reject" [ref=e98]:
+            - cell "NEW DELHI - UK V..." [ref=e99]:
+              - generic [ref=e101]: NEW DELHI - UK V...
+            - cell "krish" [ref=e102]:
+              - generic [ref=e103] [cursor=pointer]: krish
+            - cell "saloni@yopmail.com" [ref=e104]:
+              - generic [ref=e105] [cursor=pointer]: saloni@yopmail.com
+            - cell "** ***********" [ref=e106]:
+              - generic [ref=e107]: "** ***********"
+            - cell "1" [ref=e108]:
+              - paragraph [ref=e109]: "1"
+            - cell "INR 300" [ref=e110]:
+              - paragraph [ref=e111]: INR 300
+            - cell "WC10061" [ref=e112]:
+              - paragraph [ref=e113]: WC10061
+            - cell "07/10/2025" [ref=e114]:
+              - paragraph [ref=e115]: 07/10/2025
+            - cell "-" [ref=e116]:
+              - paragraph [ref=e117]: "-"
+            - cell "reject" [ref=e118]:
+              - paragraph [ref=e119]: reject
+          - row "NEW DELHI - UK V... karan saloni@yopmail.com ** *********** 1 INR 300 WC10057 07/10/2025 - reject" [ref=e120]:
+            - cell "NEW DELHI - UK V..." [ref=e121]:
+              - generic [ref=e123]: NEW DELHI - UK V...
+            - cell "karan" [ref=e124]:
+              - generic [ref=e125] [cursor=pointer]: karan
+            - cell "saloni@yopmail.com" [ref=e126]:
+              - generic [ref=e127] [cursor=pointer]: saloni@yopmail.com
+            - cell "** ***********" [ref=e128]:
+              - generic [ref=e129]: "** ***********"
+            - cell "1" [ref=e130]:
+              - paragraph [ref=e131]: "1"
+            - cell "INR 300" [ref=e132]:
+              - paragraph [ref=e133]: INR 300
+            - cell "WC10057" [ref=e134]:
+              - paragraph [ref=e135]: WC10057
+            - cell "07/10/2025" [ref=e136]:
+              - paragraph [ref=e137]: 07/10/2025
+            - cell "-" [ref=e138]:
+              - paragraph [ref=e139]: "-"
+            - cell "reject" [ref=e140]:
+              - paragraph [ref=e141]: reject
+          - row "NEW DELHI - UK V... saloni qa saloni@yopmail.com ** *********** 1 INR 300 WC10066 06/10/2025 - reject" [ref=e142]:
+            - cell "NEW DELHI - UK V..." [ref=e143]:
+              - generic [ref=e145]: NEW DELHI - UK V...
+            - cell "saloni qa" [ref=e146]:
+              - generic [ref=e147] [cursor=pointer]: saloni qa
+            - cell "saloni@yopmail.com" [ref=e148]:
+              - generic [ref=e149] [cursor=pointer]: saloni@yopmail.com
+            - cell "** ***********" [ref=e150]:
+              - generic [ref=e151]: "** ***********"
+            - cell "1" [ref=e152]:
+              - paragraph [ref=e153]: "1"
+            - cell "INR 300" [ref=e154]:
+              - paragraph [ref=e155]: INR 300
+            - cell "WC10066" [ref=e156]:
+              - paragraph [ref=e157]: WC10066
+            - cell "06/10/2025" [ref=e158]:
+              - paragraph [ref=e159]: 06/10/2025
+            - cell "-" [ref=e160]:
+              - paragraph [ref=e161]: "-"
+            - cell "reject" [ref=e162]:
+              - paragraph [ref=e163]: reject
+          - row "PUNE - UK VAC durgesh rathi durgesh@yopmail.com ** *********** 1 INR 300 WC0303 19/08/2025 19/08/2025 approve" [ref=e164]:
+            - cell "PUNE - UK VAC" [ref=e165]
+            - cell "durgesh rathi" [ref=e166]:
+              - generic [ref=e167] [cursor=pointer]: durgesh rathi
+            - cell "durgesh@yopmail.com" [ref=e168]:
+              - generic [ref=e169] [cursor=pointer]: durgesh@yopmail.com
+            - cell "** ***********" [ref=e170]:
+              - generic [ref=e171]: "** ***********"
+            - cell "1" [ref=e172]:
+              - paragraph [ref=e173]: "1"
+            - cell "INR 300" [ref=e174]:
+              - paragraph [ref=e175]: INR 300
+            - cell "WC0303" [ref=e176]:
+              - paragraph [ref=e177]: WC0303
+            - cell "19/08/2025" [ref=e178]:
+              - paragraph [ref=e179]: 19/08/2025
+            - cell "19/08/2025" [ref=e180]:
+              - paragraph [ref=e181]: 19/08/2025
+            - cell "approve" [ref=e182]:
+              - paragraph [ref=e183]: approve
+          - row "NEW DELHI - UK V... mohammed haji smohammed@vfsglobal.c... ** *********** 1 INR 300 WC0299 18/08/2025 18/08/2025 approve" [ref=e184]:
+            - cell "NEW DELHI - UK V..." [ref=e185]:
+              - generic [ref=e187]: NEW DELHI - UK V...
+            - cell "mohammed haji" [ref=e188]:
+              - generic [ref=e189] [cursor=pointer]: mohammed haji
+            - cell "smohammed@vfsglobal.c..." [ref=e190]:
+              - generic [ref=e191] [cursor=pointer]: smohammed@vfsglobal.c...
+            - cell "** ***********" [ref=e192]:
+              - generic [ref=e193]: "** ***********"
+            - cell "1" [ref=e194]:
+              - paragraph [ref=e195]: "1"
+            - cell "INR 300" [ref=e196]:
+              - paragraph [ref=e197]: INR 300
+            - cell "WC0299" [ref=e198]:
+              - paragraph [ref=e199]: WC0299
+            - cell "18/08/2025" [ref=e200]:
+              - paragraph [ref=e201]: 18/08/2025
+            - cell "18/08/2025" [ref=e202]:
+              - paragraph [ref=e203]: 18/08/2025
+            - cell "approve" [ref=e204]:
+              - paragraph [ref=e205]: approve
+          - row "NEW DELHI - UK V... pankaj patel prashant@wizcoder.com ** *********** 1 INR 300 WC0280 18/08/2025 - reject" [ref=e206]:
+            - cell "NEW DELHI - UK V..." [ref=e207]:
+              - generic [ref=e209]: NEW DELHI - UK V...
+            - cell "pankaj patel" [ref=e210]:
+              - generic [ref=e211] [cursor=pointer]: pankaj patel
+            - cell "prashant@wizcoder.com" [ref=e212]:
+              - generic [ref=e213] [cursor=pointer]: prashant@wizcoder.com
+            - cell "** ***********" [ref=e214]:
+              - generic [ref=e215]: "** ***********"
+            - cell "1" [ref=e216]:
+              - paragraph [ref=e217]: "1"
+            - cell "INR 300" [ref=e218]:
+              - paragraph [ref=e219]: INR 300
+            - cell "WC0280" [ref=e220]:
+              - paragraph [ref=e221]: WC0280
+            - cell "18/08/2025" [ref=e222]:
+              - paragraph [ref=e223]: 18/08/2025
+            - cell "-" [ref=e224]:
+              - paragraph [ref=e225]: "-"
+            - cell "reject" [ref=e226]:
+              - paragraph [ref=e227]: reject
+          - row "AHMEDABAD - UK V... mayur mayur@yopmail.com ** *********** 1 INR 300 WC0275 15/08/2025 15/08/2025 approve" [ref=e228]:
+            - cell "AHMEDABAD - UK V..." [ref=e229]:
+              - generic [ref=e231]: AHMEDABAD - UK V...
+            - cell "mayur" [ref=e232]:
+              - generic [ref=e233] [cursor=pointer]: mayur
+            - cell "mayur@yopmail.com" [ref=e234]:
+              - generic [ref=e235] [cursor=pointer]: mayur@yopmail.com
+            - cell "** ***********" [ref=e236]:
+              - generic [ref=e237]: "** ***********"
+            - cell "1" [ref=e238]:
+              - paragraph [ref=e239]: "1"
+            - cell "INR 300" [ref=e240]:
+              - paragraph [ref=e241]: INR 300
+            - cell "WC0275" [ref=e242]:
+              - paragraph [ref=e243]: WC0275
+            - cell "15/08/2025" [ref=e244]:
+              - paragraph [ref=e245]: 15/08/2025
+            - cell "15/08/2025" [ref=e246]:
+              - paragraph [ref=e247]: 15/08/2025
+            - cell "approve" [ref=e248]:
+              - paragraph [ref=e249]: approve
+          - row "AHMEDABAD - UK V... Mehul SIngh mehul@wizcoder.com ** *********** 1 INR 300 WC0257 14/08/2025 14/08/2025 approve" [ref=e250]:
+            - cell "AHMEDABAD - UK V..." [ref=e251]:
+              - generic [ref=e253]: AHMEDABAD - UK V...
+            - cell "Mehul SIngh" [ref=e254]:
+              - generic [ref=e255] [cursor=pointer]: Mehul SIngh
+            - cell "mehul@wizcoder.com" [ref=e256]:
+              - generic [ref=e257] [cursor=pointer]: mehul@wizcoder.com
+            - cell "** ***********" [ref=e258]:
+              - generic [ref=e259]: "** ***********"
+            - cell "1" [ref=e260]:
+              - paragraph [ref=e261]: "1"
+            - cell "INR 300" [ref=e262]:
+              - paragraph [ref=e263]: INR 300
+            - cell "WC0257" [ref=e264]:
+              - paragraph [ref=e265]: WC0257
+            - cell "14/08/2025" [ref=e266]:
+              - paragraph [ref=e267]: 14/08/2025
+            - cell "14/08/2025" [ref=e268]:
+              - paragraph [ref=e269]: 14/08/2025
+            - cell "approve" [ref=e270]:
+              - paragraph [ref=e271]: approve
+      - generic [ref=e273]:
+        - generic [ref=e274]:
+          - paragraph [ref=e275]: View
+          - button "10 LimitArrow" [ref=e279] [cursor=pointer]:
+            - paragraph [ref=e280]: "10"
+            - img "LimitArrow" [ref=e281]
+        - generic [ref=e282]:
+          - button "<<" [ref=e283] [cursor=pointer]
+          - navigation "Pagination" [ref=e285] [cursor=pointer]:
+            - listitem [ref=e286]:
+              - button "Previous page" [disabled] [ref=e287]: <
+            - listitem [ref=e288]:
+              - button "Page 1 is your current page" [ref=e289]: "1"
+            - listitem [ref=e290]:
+              - button "Next page" [disabled] [ref=e291]: ">"
+          - button ">>" [ref=e292] [cursor=pointer]
+```
