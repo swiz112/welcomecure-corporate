@@ -216,7 +216,7 @@ test('VFS UKLP Export - Refund Page (Static Date)', async ({ page }, testInfo) =
 });
 
 // Static single date
-test.skip('VFS UKLP Export - Refund Page (Static Single Date)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Static Single Date)', async ({ page }, testInfo) => {
     await page.click("//button[normalize-space()='Select Date']");
     const earlyInput = page.locator("//input[contains(@placeholder,'Early')]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
@@ -229,7 +229,7 @@ test.skip('VFS UKLP Export - Refund Page (Static Single Date)', async ({ page },
 });
 
 // Search by Name + Static Date
-test.skip('VFS UKLP Export - Refund Page (Search by Name)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Search by Name)', async ({ page }, testInfo) => {
     
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('pankaj patel');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
@@ -241,7 +241,7 @@ test.skip('VFS UKLP Export - Refund Page (Search by Name)', async ({ page }, tes
 });
 
 // Search invalid name + Static Date
-test.skip('VFS UKLP Export - Refund Page (Invalid Name)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Invalid Name)', async ({ page }, testInfo) => {
     
     await page.locator("//input[@placeholder='Search By Member, Email, Contact No']").fill('32charli3123');
     await page.locator("//input[@placeholder='Search By Member, Email, Contact No']").press('Enter');
@@ -280,7 +280,7 @@ test('VFS UKLP Export - Refund Page (Search with Email + Filter + Static Date)',
 });
 
 // Without Date Selection → popup error
-test.skip('VFS UKLP Export - Refund Page (No Date Selected)', async ({ page }) => {
+test('VFS UKLP Export - Refund Page (No Date Selected)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
     const popupLocator = page.locator("//div[@role='dialog']");
     await popupLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -315,7 +315,7 @@ test('VFS UKLP Export - Refund Page (Date + Filter + Search)', async ({ page }, 
 });
 
 // Filter by Zone
-test.skip('VFS UKLP Export - Refund Page (Filter by Zone)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Filter by Zone)', async ({ page }, testInfo) => {
     
     await applyFilter(page, { zone: 'North' });
     
@@ -325,7 +325,7 @@ test.skip('VFS UKLP Export - Refund Page (Filter by Zone)', async ({ page }, tes
 });
 
 // Filter by Branch
-test.skip('VFS UKLP Export - Refund Page (Filter by Branch - Specific)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Filter by Branch - Specific)', async ({ page }, testInfo) => {
    
     await applyFilter(page, { branch: 'NEW DELHI - UK VAC' });
     const filteredMemberCount = await getMemberCount(page);
@@ -336,7 +336,7 @@ test.skip('VFS UKLP Export - Refund Page (Filter by Branch - Specific)', async (
 });
 
 // Filter by Region
-test.skip('VFS UKLP Export - Refund Page (Filter by Region)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Filter by Region)', async ({ page }, testInfo) => {
     
     await applyFilter(page, { region: 'South Asia' });
     
@@ -346,7 +346,7 @@ test.skip('VFS UKLP Export - Refund Page (Filter by Region)', async ({ page }, t
 }); 
 
 // Filter by Source Country
-test.skip('VFS UKLP Export - Refund Page (Filter by Source Country)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Filter by Source Country)', async ({ page }, testInfo) => {
     
     await applyFilter(page, { sourceCountry: 'Algeria' });
    
@@ -356,7 +356,7 @@ test.skip('VFS UKLP Export - Refund Page (Filter by Source Country)', async ({ p
 });
 
 // Filter by Destination Country
-test.skip('VFS UKLP Export - Refund Page (Filter by Destination Country)', async ({ page }, testInfo) => {
+test('VFS UKLP Export - Refund Page (Filter by Destination Country)', async ({ page }, testInfo) => {
     
     await applyFilter(page, { destinationCountry: 'Barbados' });
     
@@ -551,7 +551,7 @@ test('Email column should display masked values (e.g., **********) in UI', async
   }
 });
 
-test('Contact Number column should display masked values (e.g., **********) in UI', async ({ page }) => {
+test('Contact Number column should display masked values (e.g., ** **********) in UI', async ({ page }) => {
   
   await page.waitForSelector('//tbody/tr', { state: 'attached' });
   const emailCells = page.locator('//tbody/tr/td[4]'); 
@@ -560,8 +560,31 @@ test('Contact Number column should display masked values (e.g., **********) in U
 
   for (let i = 0; i < count; i++) {
     const cellText = (await emailCells.nth(i).textContent()).trim();
-    expect(cellText).toMatch(/^\** **+$/);
-    expect(cellText).not.toContain('@');
-    expect(cellText).not.toContain('.');
+    expect(cellText).toMatch(/^\*\* \*{11}$/); // if always 2 + 11
+    expect(cellText).not.toContain('1234567890');
   }
 });
+
+//This test case is for Excel file.
+test.skip('Real email should not be present in DOM (including attributes)', async ({ page }) => {
+  await page.waitForSelector('//tbody/tr', { state: 'attached' });
+
+  const emailCells = page.locator('//tbody/tr/td[3]');
+  const count = await emailCells.count();
+
+  for (let i = 0; i < count; i++) {
+    const cell = emailCells.nth(i);
+    const innerHTML = await cell.innerHTML();
+    const textContent = await cell.textContent();
+    const title = await cell.getAttribute('title') || '';
+    const dataEmail = await cell.getAttribute('data-email') || '';
+    const ariaLabel = await cell.getAttribute('aria-label') || '';
+
+    const fullContent = [innerHTML, textContent, title, dataEmail, ariaLabel].join(' ');
+
+    // Ensure no real email pattern exists anywhere
+    expect(fullContent).not.toMatch(/[\w.-]+@[\w.-]+\.\w+/);
+  }
+});
+
+
