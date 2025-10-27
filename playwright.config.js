@@ -1,4 +1,6 @@
 // playwright.config.js
+
+//require('dotenv').config();
 const config = {
   testDir: './tests',
   timeout: 60000,
