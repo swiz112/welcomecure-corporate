@@ -124,7 +124,7 @@ test.afterEach(async ({}, testInfo) => {
 // Test cases
 
 // Static date via fill
-test.skip('Admin Export - Onevasco (Static Date)', async ({ page }, testInfo) => {
+test('Admin Export - Onevasco (Static Date)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;

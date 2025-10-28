@@ -30,7 +30,7 @@ async function selectDateRange(page) {
     const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
     await expect(continuousInput).toBeVisible({ timeout: 10000 });
     await continuousInput.click();
-    await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
+    await page.locator("(//span[contains(text(),'28')])[2]").click();
 }
 
 // Export trigger (VFS)
@@ -55,14 +55,15 @@ async function openFilters(page) {
 }
 
 const dropdownClickTargets = {
-    'Branch': "(//*[name()='svg'][contains(@class,'css-8mmkcg')])[1]",
-    'Refund Status': "(//*[name()='svg'][contains(@class,'css-8mmkcg')])[2]"
+    'Zone': "(//*[name()='svg'][contains(@class,'css-8mmkcg')])[1]",
+    'Branch': "(//*[name()='svg'][contains(@class,'css-8mmkcg')])[2]",
+    'Refund Status': "(//*[name()='svg'][contains(@class,'css-8mmkcg')])[3]"
 };
 
 /**
  * Select option by field label text (e.g. 'Branch' or 'Refund Status')
  */
-async function applyFilterByField(page, fieldLabel, optionText) {
+/*async function applyFilterByField(page, fieldLabel, optionText) {
     await openFilters(page);
     const clickTargetLocator = dropdownClickTargets[fieldLabel];
     if (!clickTargetLocator) {
@@ -72,7 +73,22 @@ async function applyFilterByField(page, fieldLabel, optionText) {
     await page.getByText(optionText, { exact: true }).click();
     await page.getByRole('button', { name: 'Apply Filters' }).click();
     await expect(page.getByRole('button', { name: 'Export' })).toBeVisible();
+}*/
+async function applyFilterByField(page, label, optionText) {
+    await page.getByRole('button', { name: 'Filters' }).click();
+    
+    const dropdown = page.locator(`//label[contains(text(),"${label}")]/following-sibling::div`);
+    await dropdown.click();
+
+    const option = page.locator(`//div[contains(@class,'menu')]//div[contains(., "${optionText}")]`).first();
+    await expect(option).toBeVisible({ timeout: 15000 });
+    await option.click();
+
+    await page.getByRole('button', { name: 'Apply Filters' }).click();
+
+    await page.waitForLoadState('networkidle');
 }
+
 
 /**
  * Apply multiple filters in Filters panel before clicking Apply.
@@ -186,8 +202,10 @@ test.skip('Admin Export - VFS UK INDIA (Invalid Name)', async ({ page }, testInf
 });
 
 // Filter branch + Static Date (uses new field helper)
-test.skip('Admin Export - VFS UK INDIA (Filter by Branch)', async ({ page }, testInfo) => {
-    await applyFilterByField(page, 'Branch', 'COCHIN - UK VAC');
+test('Admin Export - VFS UK INDIA (Filter by Branch)', async ({ page }, testInfo) => {
+    await applyFilterByField(page,'Zone', 'East');
+    //await page.pause();
+    await applyFilterByField(page, 'Branch', 'KOLKATA - UK VAC');
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
@@ -218,7 +236,7 @@ test('Admin Export - VFS UK INDIA (Refund Status - Approve)', async ({ page }, t
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Refund Status - Reject)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK INDIA (Refund Status - Reject)', async ({ page }, testInfo) => {
     await applyFilterByField(page, 'Refund Status', 'Reject');
     await selectDateRange(page);
     await triggerExport(page);

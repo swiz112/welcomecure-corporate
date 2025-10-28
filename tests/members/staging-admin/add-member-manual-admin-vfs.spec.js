@@ -1,31 +1,43 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import LoginPage from '../../pages/LoginPage';
+import LoginPage from '../../../pages/LoginPage';
 import ExcelJS from 'exceljs';
+
+const EXPECTED_HEADERS = [
+  'Corporate',
+  'Name',
+  'Email',
+  'Mobile No',
+];
 
 test.describe('Add Member - Manual flow', () => {
   test.beforeEach(async ({ page }) => {
    
     const loginPage = new LoginPage(page);
     console.log('Logging in...');
-    await loginPage.login('4242425656', 'Test@1234', 'HR');
-    console.log('Waiting for URL to be **/HR-page');
-    await page.waitForURL('https://staging.corporate.welcomecure.com/hr/uploademployee');
-    //await expect(page.locator('text=Click to upload the member list file OR drag & drop the file here.')).toBeVisible();
-    await page.click("//button[normalize-space()='Add']");
+    await loginPage.login('9687298058', 'Cure@3210#', 'Admin');
+    console.log('Waiting for URL to be **/Admin-page');
+    await page.waitForURL('https://staging.corporate.welcomecure.com/admin/admin_user/corporate');
+    await page.click("(//img[contains(@alt,'arrow')])[1]");
+    await page.click("//a[normalize-space()='Create Member']");
+    await expect(page.locator('text=Click to upload the member list file OR drag & drop the file here.')).toBeVisible();
   });
 
-  test('HR- Add member manually - successful addition', async ({ page }) => {
-    const iterations = 1;
-    const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+  test('Add member manually - successful addition', async ({ page }) => {
+    const iterations = 1; // Let's do 1 iteration to simplify and test first.
+    const names = ['Rajesh', 'Samir', 'Charlie', 'Dinesh', 'Esha'];
     const timestamp = Date.now().toString().slice(-5);
     for (let i = 0; i < iterations; i++) {
-      // On iterations after the first, navigate back to the add member form
       if (i > 0) {
         await page.click("//a[normalize-space()='Create Member']");
         await expect(page.locator('text=Click to upload the member list file OR drag & drop the file here.')).toBeVisible();
-        await page.click("//button[normalize-space()='Add']");
       }
+
+      await page.click("//button[normalize-space()='Add']");
+      // Use a more specific locator for the dropdown inside the "Add Member" modal
+      // to avoid strict mode violation.
+      await page.locator('div:has-text("Add Member") + div').locator('div.css-19bb58m').first().click();
+      await page.getByText('Madan lab', { exact: true }).click();
       const memberNameLocator = page.locator("//input[@id='name']");
       const emailIdLocator = page.locator("//input[@id='email']");
       const contactNoLocator = page.locator("//input[@id='contact']");
@@ -49,14 +61,14 @@ test.describe('Add Member - Manual flow', () => {
 
       // Verify the member in the member list
       await page.click("//a[normalize-space()='Member List']");
-      const searchInput = page.locator("//input[@placeholder='Search By Member Name']");
+      const searchInput = page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]");
       await expect(searchInput).toBeVisible();
       await searchInput.fill(newMemberName);
       await page.waitForLoadState('networkidle'); // wait for search
-      const memberInList = page.locator(`//tbody/tr[1]/td[1]/div[1]`);
+      const memberInList = page.locator(`//body[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr[2]/td[2]/div[1]`);
       await expect(memberInList).toBeVisible();
-
-      test.info().annotations.push({
+     
+        test.info().annotations.push({
         type: 'test-case-outcome',
         description: `Iteration ${i + 1}: Member is created successfully and verified in the list.`,
       });
@@ -64,21 +76,26 @@ test.describe('Add Member - Manual flow', () => {
   });
 
   test('Add member manually - all fields duplicate', async ({ page }) => {
+    await page.click("//button[normalize-space()='Add']");
+    // Use a more specific locator for the dropdown inside the "Add Member" modal
+    await page.locator('div:has-text("Add Member") + div').locator('div.css-19bb58m').first().click();
+    await page.getByText('Madan lab', { exact: true }).click();
+
     const memberNameLocator = page.locator("//input[@id='name']");
     const emailIdLocator = page.locator("//input[@id='email']");
     const contactNoLocator = page.locator("//input[@id='contact']");
     const saveButtonLocator = page.locator("//button[normalize-space()='Save']");
 
-    await memberNameLocator.fill('Keyur'); // Duplicate name
+    await memberNameLocator.fill('Rajesh'); // Duplicate name
     await emailIdLocator.fill('abc@yopmail.com'); // Duplicate email
     await contactNoLocator.fill('9988776655'); // Duplicate mobile
 
     await saveButtonLocator.click();
     // The form does not hide on duplicate, messages appear in Toastify
-
+    await page.waitForTimeout(2000);
     const duplicateEmailMessage = "A email id already exists.";
     const duplicateMobileMessage = "A mobile number already exists.";
-    const duplicateNameMessage = "A name already exists."; // Assuming this is the message
+    const duplicateNameMessage = "A name already exists."; 
 
     const duplicateEmailLocator = page.locator(`.Toastify__toast-body:has-text("${duplicateEmailMessage}")`);
     const duplicateMobileLocator = page.locator(`.Toastify__toast-body:has-text("${duplicateMobileMessage}")`);

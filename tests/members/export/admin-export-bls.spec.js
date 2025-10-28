@@ -183,10 +183,10 @@ test.skip('Admin Export - BLS (Date + Search + Filter)', async ({ page }, testIn
 });
 
 // Date + Filter + Search with Contact No
-test.skip('Admin Export - BLS (Date + Filter + Search)', async ({ page }, testInfo) => {
+test('Admin Export - BLS (Date + Filter + Search)', async ({ page }, testInfo) => {
     await selectDateRange(page);
-    await applyFilter(page, 'BLS Thailand');
-    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9222874550');
+    await applyFilter(page, 'BLS Philippines');
+    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9130231000');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await triggerExport(page);
     testInfo.exportTriggered = true;

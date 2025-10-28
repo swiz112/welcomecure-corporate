@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
-import LoginPage from '../../pages/LoginPage';
+import LoginPage from '../../../pages/LoginPage';
 import ExcelJS from 'exceljs';
 
 test.describe('Add Member - Manual flow', () => {
@@ -8,16 +8,19 @@ test.describe('Add Member - Manual flow', () => {
    
     const loginPage = new LoginPage(page);
     console.log('Logging in...');
-    await loginPage.login('4242425656', 'Test@1234', 'HR');
-    console.log('Waiting for URL to be **/HR-page');
-    await page.waitForURL('https://staging.corporate.welcomecure.com/hr/uploademployee');
-    //await expect(page.locator('text=Click to upload the member list file OR drag & drop the file here.')).toBeVisible();
+    await loginPage.login('3355662288', 'Test@1234', 'Corporate');
+    console.log('Waiting for URL to be **/corporatepage');
+    await page.waitForURL('https://staging.corporate.welcomecure.com/corporate/hr');
+    await page.click("(//img[@alt='arrow'])[1]");
+    await page.click("//a[normalize-space()='Create Member']");
+    await expect(page.locator('text=Click to upload the member list file OR drag & drop the file here.')).toBeVisible();
     await page.click("//button[normalize-space()='Add']");
   });
 
-  test('HR- Add member manually - successful addition', async ({ page }) => {
+  test('Add member manually - successful addition', async ({ page }) => {
     const iterations = 1;
-    const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+    const names = ['Alice'];
+   // const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
     const timestamp = Date.now().toString().slice(-5);
     for (let i = 0; i < iterations; i++) {
       // On iterations after the first, navigate back to the add member form
@@ -75,11 +78,11 @@ test.describe('Add Member - Manual flow', () => {
 
     await saveButtonLocator.click();
     // The form does not hide on duplicate, messages appear in Toastify
-
+    //await page.waitForTimeout(2000);
     const duplicateEmailMessage = "A email id already exists.";
     const duplicateMobileMessage = "A mobile number already exists.";
     const duplicateNameMessage = "A name already exists."; // Assuming this is the message
-
+    //await page.waitForTimeout(2000);
     const duplicateEmailLocator = page.locator(`.Toastify__toast-body:has-text("${duplicateEmailMessage}")`);
     const duplicateMobileLocator = page.locator(`.Toastify__toast-body:has-text("${duplicateMobileMessage}")`);
     const duplicateNameLocator = page.locator(`.Toastify__toast-body:has-text("${duplicateNameMessage}")`);

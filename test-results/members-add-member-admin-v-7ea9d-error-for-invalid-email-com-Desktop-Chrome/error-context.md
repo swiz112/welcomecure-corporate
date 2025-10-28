@@ -1,0 +1,94 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - img "logo" [ref=e9]
+        - img "logo" [ref=e10]
+      - generic [ref=e12] [cursor=pointer]: A
+    - generic [ref=e13]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - button [ref=e18] [cursor=pointer]:
+            - img [ref=e19]
+          - generic: Hide
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - link "Corporate" [ref=e25] [cursor=pointer]:
+              - /url: /admin/admin_user/corporate
+              - img [ref=e27]
+              - text: Corporate
+          - listitem [ref=e30]:
+            - link "Admin" [ref=e31] [cursor=pointer]:
+              - /url: /admin/admin_user/hr
+              - img [ref=e33]
+              - text: Admin
+          - listitem [ref=e37]:
+            - generic [ref=e38] [cursor=pointer]:
+              - generic [ref=e39]:
+                - img [ref=e41]
+                - generic [ref=e43]: Member
+              - img "arrow" [ref=e44]
+            - generic [ref=e45]:
+              - link "Create Member" [ref=e46] [cursor=pointer]:
+                - /url: /admin/admin_user/uploadeemployee
+              - link "Member List" [ref=e47] [cursor=pointer]:
+                - /url: /admin/admin_user/employee
+              - link "Export" [ref=e48] [cursor=pointer]:
+                - /url: /admin/export
+              - link "Family Member" [ref=e49] [cursor=pointer]:
+                - /url: /admin/admin_user/family_member
+          - listitem [ref=e50]:
+            - link "Health Tips" [ref=e51] [cursor=pointer]:
+              - /url: /admin/admin_user/healthtips
+              - img [ref=e53]
+              - text: Health Tips
+          - listitem [ref=e55]:
+            - link "Book A Lab Test" [ref=e56] [cursor=pointer]:
+              - /url: /admin/admin_user/labtest
+              - img [ref=e58]
+              - text: Book A Lab Test
+          - listitem [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]:
+              - generic [ref=e62]:
+                - img [ref=e64]
+                - generic [ref=e66]: Partners
+              - img "arrow" [ref=e67]
+          - listitem [ref=e68]:
+            - link "Team Members" [ref=e69] [cursor=pointer]:
+              - /url: /admin/admin_user/team_members
+              - img [ref=e71]
+              - text: Team Members
+      - generic [ref=e76]:
+        - generic [ref=e78]:
+          - generic [ref=e82]:
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: Madan lab
+                - combobox [ref=e90]
+              - img [ref=e93]
+            - button "new" [ref=e95] [cursor=pointer]:
+              - img "new" [ref=e96]
+          - button "Add" [ref=e98] [cursor=pointer]:
+            - img [ref=e100]
+            - text: Add
+        - generic [ref=e102]:
+          - generic [ref=e103]: "Upload your filled member list file here (.xlsx): *"
+          - generic [ref=e105] [cursor=pointer]:
+            - img [ref=e107]
+            - paragraph [ref=e109]: Click to upload the member list file OR drag & drop the file here.
+            - paragraph [ref=e110]: Selected File :temp1_invalid_email.xlsx
+          - generic [ref=e111]:
+            - link "Download Sample File" [ref=e113] [cursor=pointer]:
+              - /url: https://welcomcure-corporate-image.b-cdn.net/corporate/FileMemberListSample.xlsx
+            - button "Save" [ref=e115] [cursor=pointer]
+  - generic [ref=e117] [cursor=pointer]:
+    - alert [ref=e118]:
+      - img [ref=e120]
+      - generic [ref=e122]: row => "Email Not Found For Record " + row
+    - button "close" [ref=e123]:
+      - img [ref=e124]
+    - progressbar "notification timer" [ref=e126]
+```

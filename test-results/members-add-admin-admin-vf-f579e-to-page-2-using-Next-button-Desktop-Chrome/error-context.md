@@ -1,0 +1,248 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Corporate" [ref=e25] [cursor=pointer]:
+            - /url: /admin/admin_user/corporate
+            - img [ref=e27]
+            - text: Corporate
+        - listitem [ref=e30]:
+          - link "Admin" [ref=e31] [cursor=pointer]:
+            - /url: /admin/admin_user/hr
+            - img [ref=e33]
+            - text: Admin
+        - listitem [ref=e37]:
+          - generic [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]:
+              - img [ref=e41]
+              - generic [ref=e43]: Member
+            - img "arrow" [ref=e44]
+        - listitem [ref=e45]:
+          - link "Health Tips" [ref=e46] [cursor=pointer]:
+            - /url: /admin/admin_user/healthtips
+            - img [ref=e48]
+            - text: Health Tips
+        - listitem [ref=e50]:
+          - link "Book A Lab Test" [ref=e51] [cursor=pointer]:
+            - /url: /admin/admin_user/labtest
+            - img [ref=e53]
+            - text: Book A Lab Test
+        - listitem [ref=e55]:
+          - generic [ref=e56] [cursor=pointer]:
+            - generic [ref=e57]:
+              - img [ref=e59]
+              - generic [ref=e61]: Partners
+            - img "arrow" [ref=e62]
+        - listitem [ref=e63]:
+          - link "Team Members" [ref=e64] [cursor=pointer]:
+            - /url: /admin/admin_user/team_members
+            - img [ref=e66]
+            - text: Team Members
+    - generic [ref=e71]:
+      - generic [ref=e73]:
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - textbox "Search By Admin Name" [ref=e80]
+        - generic [ref=e81]:
+          - button "Filters" [ref=e83] [cursor=pointer]:
+            - img [ref=e84]
+            - text: Filters
+          - button "Add" [ref=e86] [cursor=pointer]:
+            - img [ref=e88]
+            - text: Add
+      - table [ref=e91]:
+        - rowgroup [ref=e92]:
+          - row "Corporate Name Admin Name Email Id Contact No. Status Action" [ref=e93]:
+            - cell "Corporate Name" [ref=e94]:
+              - generic [ref=e95]: Corporate Name
+            - cell "Admin Name" [ref=e96]:
+              - generic [ref=e97]: Admin Name
+            - cell "Email Id" [ref=e98]:
+              - generic [ref=e99]: Email Id
+            - cell "Contact No." [ref=e100]:
+              - generic [ref=e101]: Contact No.
+            - cell "Status" [ref=e102]:
+              - generic [ref=e103]: Status
+            - cell "Action" [ref=e104]:
+              - generic [ref=e105]: Action
+        - rowgroup [ref=e106]:
+          - row "stackbelowflow Ramesh ram123@yopmail.com +91 1235555554" [ref=e107]:
+            - cell "stackbelowflow" [ref=e108]
+            - cell "Ramesh" [ref=e109]:
+              - generic [ref=e110] [cursor=pointer]: Ramesh
+            - cell "ram123@yopmail.com" [ref=e111]:
+              - generic [ref=e112] [cursor=pointer]: ram123@yopmail.com
+            - cell "+91 1235555554" [ref=e113]:
+              - generic [ref=e114] [cursor=pointer]: +91 1235555554
+            - cell [ref=e115]:
+              - switch [checked] [ref=e118] [cursor=pointer]
+            - cell [ref=e120]:
+              - generic [ref=e121]:
+                - img [ref=e124] [cursor=pointer]
+                - img [ref=e128] [cursor=pointer]
+          - row "stackbelowflow Neha neha112@yopmail.com +91 1235555555" [ref=e130]:
+            - cell "stackbelowflow" [ref=e131]
+            - cell "Neha" [ref=e132]:
+              - generic [ref=e133] [cursor=pointer]: Neha
+            - cell "neha112@yopmail.com" [ref=e134]:
+              - generic [ref=e135] [cursor=pointer]: neha112@yopmail.com
+            - cell "+91 1235555555" [ref=e136]:
+              - generic [ref=e137] [cursor=pointer]: +91 1235555555
+            - cell [ref=e138]:
+              - switch [checked] [ref=e141] [cursor=pointer]
+            - cell [ref=e143]:
+              - generic [ref=e144]:
+                - img [ref=e147] [cursor=pointer]
+                - img [ref=e151] [cursor=pointer]
+          - row "stackbelowflow Adminsaloni1 saloni1231@yopmail.com +91 123467887" [ref=e153]:
+            - cell "stackbelowflow" [ref=e154]
+            - cell "Adminsaloni1" [ref=e155]:
+              - generic [ref=e156] [cursor=pointer]: Adminsaloni1
+            - cell "saloni1231@yopmail.com" [ref=e157]:
+              - generic [ref=e158] [cursor=pointer]: saloni1231@yopmail.com
+            - cell "+91 123467887" [ref=e159]:
+              - generic [ref=e160] [cursor=pointer]: +91 123467887
+            - cell [ref=e161]:
+              - switch [checked] [ref=e164] [cursor=pointer]
+            - cell [ref=e166]:
+              - generic [ref=e167]:
+                - img [ref=e170] [cursor=pointer]
+                - img [ref=e174] [cursor=pointer]
+          - row "stackbelowflow Adminsaloni saloni123@yopmail.com +91 123467888" [ref=e176]:
+            - cell "stackbelowflow" [ref=e177]
+            - cell "Adminsaloni" [ref=e178]:
+              - generic [ref=e179] [cursor=pointer]: Adminsaloni
+            - cell "saloni123@yopmail.com" [ref=e180]:
+              - generic [ref=e181] [cursor=pointer]: saloni123@yopmail.com
+            - cell "+91 123467888" [ref=e182]:
+              - generic [ref=e183] [cursor=pointer]: +91 123467888
+            - cell [ref=e184]:
+              - switch [checked] [ref=e187] [cursor=pointer]
+            - cell [ref=e189]:
+              - generic [ref=e190]:
+                - img [ref=e193] [cursor=pointer]
+                - img [ref=e197] [cursor=pointer]
+          - row "stackbelowflow malvika choksi malvika14@yopmail.com +245 6351053589100" [ref=e199]:
+            - cell "stackbelowflow" [ref=e200]
+            - cell "malvika choksi" [ref=e201]:
+              - generic [ref=e202] [cursor=pointer]: malvika choksi
+            - cell "malvika14@yopmail.com" [ref=e203]:
+              - generic [ref=e204] [cursor=pointer]: malvika14@yopmail.com
+            - cell "+245 6351053589100" [ref=e205]:
+              - generic [ref=e206] [cursor=pointer]: +245 6351053589100
+            - cell [ref=e207]:
+              - switch [checked] [ref=e210] [cursor=pointer]
+            - cell [ref=e212]:
+              - generic [ref=e213]:
+                - img [ref=e216] [cursor=pointer]
+                - img [ref=e220] [cursor=pointer]
+          - row "Boat7 meggie meggiw@yopmail.com +852 7895220" [ref=e222]:
+            - cell "Boat7" [ref=e223]
+            - cell "meggie" [ref=e224]:
+              - generic [ref=e225] [cursor=pointer]: meggie
+            - cell "meggiw@yopmail.com" [ref=e226]:
+              - generic [ref=e227] [cursor=pointer]: meggiw@yopmail.com
+            - cell "+852 7895220" [ref=e228]:
+              - generic [ref=e229] [cursor=pointer]: +852 7895220
+            - cell [ref=e230]:
+              - switch [checked] [ref=e233] [cursor=pointer]
+            - cell [ref=e235]:
+              - generic [ref=e236]:
+                - img [ref=e239] [cursor=pointer]
+                - img [ref=e243] [cursor=pointer]
+          - row "stackbelowflow Tushar mehta tusha2r@yopmail.com +91 464874638748" [ref=e245]:
+            - cell "stackbelowflow" [ref=e246]
+            - cell "Tushar mehta" [ref=e247]:
+              - generic [ref=e248] [cursor=pointer]: Tushar mehta
+            - cell "tusha2r@yopmail.com" [ref=e249]:
+              - generic [ref=e250] [cursor=pointer]: tusha2r@yopmail.com
+            - cell "+91 464874638748" [ref=e251]:
+              - generic [ref=e252] [cursor=pointer]: +91 464874638748
+            - cell [ref=e253]:
+              - switch [checked] [ref=e256] [cursor=pointer]
+            - cell [ref=e258]:
+              - generic [ref=e259]:
+                - img [ref=e262] [cursor=pointer]
+                - img [ref=e266] [cursor=pointer]
+          - row "Artisan - Delhi 11 Hitesh prashant@yopmail.com +91 89675656656" [ref=e268]:
+            - cell "Artisan - Delhi 11" [ref=e269]
+            - cell "Hitesh" [ref=e270]:
+              - generic [ref=e271] [cursor=pointer]: Hitesh
+            - cell "prashant@yopmail.com" [ref=e272]:
+              - generic [ref=e273] [cursor=pointer]: prashant@yopmail.com
+            - cell "+91 89675656656" [ref=e274]:
+              - generic [ref=e275] [cursor=pointer]: +91 89675656656
+            - cell [ref=e276]:
+              - switch [checked] [ref=e279] [cursor=pointer]
+            - cell [ref=e281]:
+              - generic [ref=e282]:
+                - img [ref=e285] [cursor=pointer]
+                - img [ref=e289] [cursor=pointer]
+          - row "Artisan HP Michael michl@yopmail.com +504 4545454454" [ref=e291]:
+            - cell "Artisan HP" [ref=e292]
+            - cell "Michael" [ref=e293]:
+              - generic [ref=e294] [cursor=pointer]: Michael
+            - cell "michl@yopmail.com" [ref=e295]:
+              - generic [ref=e296] [cursor=pointer]: michl@yopmail.com
+            - cell "+504 4545454454" [ref=e297]:
+              - generic [ref=e298] [cursor=pointer]: +504 4545454454
+            - cell [ref=e299]:
+              - switch [checked] [ref=e302] [cursor=pointer]
+            - cell [ref=e304]:
+              - generic [ref=e305]:
+                - img [ref=e308] [cursor=pointer]
+                - img [ref=e312] [cursor=pointer]
+          - row "stackbelowflow Maria saloni1@yopmail.com +353 6767676767" [ref=e314]:
+            - cell "stackbelowflow" [ref=e315]
+            - cell "Maria" [ref=e316]:
+              - generic [ref=e317] [cursor=pointer]: Maria
+            - cell "saloni1@yopmail.com" [ref=e318]:
+              - generic [ref=e319] [cursor=pointer]: saloni1@yopmail.com
+            - cell "+353 6767676767" [ref=e320]:
+              - generic [ref=e321] [cursor=pointer]: +353 6767676767
+            - cell [ref=e322]:
+              - switch [checked] [ref=e325] [cursor=pointer]
+            - cell [ref=e327]:
+              - generic [ref=e328]:
+                - img [ref=e331] [cursor=pointer]
+                - img [ref=e335] [cursor=pointer]
+      - generic [ref=e338]:
+        - generic [ref=e339]:
+          - paragraph [ref=e340]: View
+          - button "10 LimitArrow" [ref=e344] [cursor=pointer]:
+            - paragraph [ref=e345]: "10"
+            - img "LimitArrow" [ref=e346]
+        - generic [ref=e347]:
+          - button "<<" [ref=e348] [cursor=pointer]
+          - navigation "Pagination" [ref=e350] [cursor=pointer]:
+            - listitem [ref=e351]:
+              - button "Previous page" [ref=e352]: <
+            - listitem [ref=e353]:
+              - button "Page 1" [ref=e354]: "1"
+            - listitem [ref=e355]:
+              - button "Page 2 is your current page" [ref=e356]: "2"
+            - listitem [ref=e357]:
+              - button "Page 3" [ref=e358]: "3"
+            - listitem [ref=e359]:
+              - button "Page 4" [ref=e360]: "4"
+            - listitem [ref=e361]:
+              - button "Page 8" [ref=e362]: "8"
+            - listitem [ref=e363]:
+              - button "Page 9" [ref=e364]: "9"
+            - listitem [ref=e365]:
+              - button "Next page" [active] [ref=e366]: ">"
+          - button ">>" [ref=e367] [cursor=pointer]
+```

@@ -26,6 +26,22 @@ const hostingerUsers = {
   }
 };
 
+const subjectFilters = {
+  user1: [
+    'UK Master Member List Export',
+    'Family Members List Export', 
+    'BLS Member List Export',
+    'Export Request Completed',
+    'Transaction List Export',
+    'Credit List Export',
+    'Family Members List Export'
+  ],
+  user2: [
+    'Members List Export'
+  ]
+};
+
+
 /**
  * Fetch all export emails and save attachments with test case name
  * @param {string} testTitle - Exact test case name
@@ -46,7 +62,19 @@ export async function fetchAllExportEmails(testTitle, user = 'user2', subject = 
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const year = today.getFullYear();
 
-  const searchCriteria = ['UNSEEN', ['SUBJECT', subject]];
+  //const searchCriteria = ['UNSEEN', ['SUBJECT', subject]];
+  const subjectsToSearch = subjectFilters[user] || [subject];
+  
+  let subjectCriteria;
+  if (subjectsToSearch.length > 1) {
+    // Build a nested OR query for multiple subjects, e.g., ['OR', ['SUBJECT', 'A'], ['OR', ['SUBJECT', 'B'], ['SUBJECT', 'C']]]
+    const orQuery = subjectsToSearch.map(s => ['SUBJECT', s]);
+    subjectCriteria = orQuery.slice(1).reduce((acc, crit) => ['OR', acc, crit], orQuery[0]);
+  } else {
+    subjectCriteria = ['SUBJECT', subjectsToSearch[0]];
+  }
+  
+  const searchCriteria = ['UNSEEN', subjectCriteria];
   const messages = await connection.search(searchCriteria, { bodies: ['HEADER.FIELDS (SUBJECT)'], struct: true });
   console.log(`Found ${messages.length} unseen email(s) with 'Export' in the subject.`);
 

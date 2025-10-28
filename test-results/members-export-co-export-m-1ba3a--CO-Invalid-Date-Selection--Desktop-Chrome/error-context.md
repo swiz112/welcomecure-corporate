@@ -1,0 +1,276 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - img "user" [ref=e13] [cursor=pointer]
+  - generic [ref=e14]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - button [ref=e19] [cursor=pointer]:
+          - img [ref=e20]
+        - generic: Hide
+      - list [ref=e24]:
+        - listitem [ref=e25]:
+          - link "Admin" [ref=e26] [cursor=pointer]:
+            - /url: /corporate/hr
+            - img [ref=e28]
+            - text: Admin
+        - listitem [ref=e32]:
+          - generic [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]:
+              - img [ref=e36]
+              - generic [ref=e38]: Member
+            - img "arrow" [ref=e39]
+          - generic [ref=e40]:
+            - link "Create Member" [ref=e41] [cursor=pointer]:
+              - /url: /corporate/uploademployee
+            - link "Member List" [ref=e42] [cursor=pointer]:
+              - /url: /corporate/employee
+    - generic [ref=e44]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - img [ref=e49]
+          - textbox "Search By Member Name" [ref=e52]
+        - generic [ref=e53]:
+          - button "new" [ref=e55] [cursor=pointer]:
+            - img "new" [ref=e56]
+          - generic [ref=e57]:
+            - button "calenderimg 03/09/2025 - 03/09/2025" [ref=e58] [cursor=pointer]:
+              - img "calenderimg" [ref=e59]
+              - text: 03/09/2025 - 03/09/2025
+            - generic [ref=e61]:
+              - generic [ref=e62]:
+                - generic [ref=e63]:
+                  - button "Today" [ref=e64] [cursor=pointer]:
+                    - generic [ref=e65]: Today
+                  - button "Yesterday" [ref=e66] [cursor=pointer]:
+                    - generic [ref=e67]: Yesterday
+                  - button "This Week" [ref=e68] [cursor=pointer]:
+                    - generic [ref=e69]: This Week
+                  - button "Last Week" [ref=e70] [cursor=pointer]:
+                    - generic [ref=e71]: Last Week
+                  - button "This Month" [ref=e72] [cursor=pointer]:
+                    - generic [ref=e73]: This Month
+                  - button "Last Month" [ref=e74] [cursor=pointer]:
+                    - generic [ref=e75]: Last Month
+                - generic [ref=e76]:
+                  - generic [ref=e77]:
+                    - textbox "-" [ref=e78]
+                    - generic [ref=e79]: days up to today
+                  - generic [ref=e80]:
+                    - textbox "-" [ref=e81]
+                    - generic [ref=e82]: days starting today
+              - generic [ref=e83]:
+                - generic [ref=e85]:
+                  - textbox "Early" [ref=e87] [cursor=pointer]: Sep 3, 2025
+                  - textbox "Continuous" [ref=e89] [cursor=pointer]: Sep 3, 2025
+                - generic [ref=e90]:
+                  - button [ref=e91] [cursor=pointer]
+                  - generic [ref=e93]:
+                    - combobox [ref=e95] [cursor=pointer]:
+                      - option "January"
+                      - option "February"
+                      - option "March"
+                      - option "April"
+                      - option "May"
+                      - option "June"
+                      - option "July"
+                      - option "August"
+                      - option "September"
+                      - option "October" [selected]
+                      - option "November"
+                      - option "December"
+                    - combobox [ref=e97] [cursor=pointer]:
+                      - option "2025" [selected]
+                      - option "2024"
+                      - option "2023"
+                      - option "2022"
+                      - option "2021"
+                      - option "2020"
+                      - option "2019"
+                      - option "2018"
+                      - option "2017"
+                      - option "2016"
+                      - option "2015"
+                      - option "2014"
+                      - option "2013"
+                      - option "2012"
+                      - option "2011"
+                      - option "2010"
+                      - option "2009"
+                      - option "2008"
+                      - option "2007"
+                      - option "2006"
+                      - option "2005"
+                      - option "2004"
+                      - option "2003"
+                      - option "2002"
+                      - option "2001"
+                      - option "2000"
+                      - option "1999"
+                      - option "1998"
+                      - option "1997"
+                      - option "1996"
+                      - option "1995"
+                      - option "1994"
+                      - option "1993"
+                      - option "1992"
+                      - option "1991"
+                      - option "1990"
+                      - option "1989"
+                      - option "1988"
+                      - option "1987"
+                      - option "1986"
+                      - option "1985"
+                      - option "1984"
+                      - option "1983"
+                      - option "1982"
+                      - option "1981"
+                      - option "1980"
+                      - option "1979"
+                      - option "1978"
+                      - option "1977"
+                      - option "1976"
+                      - option "1975"
+                      - option "1974"
+                      - option "1973"
+                      - option "1972"
+                      - option "1971"
+                      - option "1970"
+                      - option "1969"
+                      - option "1968"
+                      - option "1967"
+                      - option "1966"
+                      - option "1965"
+                      - option "1964"
+                      - option "1963"
+                      - option "1962"
+                      - option "1961"
+                      - option "1960"
+                      - option "1959"
+                      - option "1958"
+                      - option "1957"
+                      - option "1956"
+                      - option "1955"
+                      - option "1954"
+                      - option "1953"
+                      - option "1952"
+                      - option "1951"
+                      - option "1950"
+                      - option "1949"
+                      - option "1948"
+                      - option "1947"
+                      - option "1946"
+                      - option "1945"
+                      - option "1944"
+                      - option "1943"
+                      - option "1942"
+                      - option "1941"
+                      - option "1940"
+                      - option "1939"
+                      - option "1938"
+                      - option "1937"
+                      - option "1936"
+                      - option "1935"
+                      - option "1934"
+                      - option "1933"
+                      - option "1932"
+                      - option "1931"
+                      - option "1930"
+                      - option "1929"
+                      - option "1928"
+                      - option "1927"
+                      - option "1926"
+                      - option "1925"
+                  - button [ref=e98] [cursor=pointer]
+                - generic [ref=e101]:
+                  - generic [ref=e102]: Oct 2025
+                  - generic [ref=e103]:
+                    - generic [ref=e104]: Sun
+                    - generic [ref=e105]: Mon
+                    - generic [ref=e106]: Tue
+                    - generic [ref=e107]: Wed
+                    - generic [ref=e108]: Thu
+                    - generic [ref=e109]: Fri
+                    - generic [ref=e110]: Sat
+                  - generic [ref=e111]:
+                    - button "28":
+                      - generic:
+                        - generic: "28"
+                    - button "29":
+                      - generic:
+                        - generic: "29"
+                    - button "30":
+                      - generic:
+                        - generic: "30"
+                    - button "1" [ref=e112] [cursor=pointer]:
+                      - generic [ref=e114]: "1"
+                    - button "2" [ref=e115] [cursor=pointer]:
+                      - generic [ref=e117]: "2"
+                    - button "3" [ref=e118] [cursor=pointer]:
+                      - generic [ref=e120]: "3"
+                    - button "4" [ref=e121] [cursor=pointer]:
+                      - generic [ref=e123]: "4"
+                    - button "5" [ref=e124] [cursor=pointer]:
+                      - generic [ref=e126]: "5"
+                    - button "6" [ref=e127] [cursor=pointer]:
+                      - generic [ref=e129]: "6"
+                    - button "7" [ref=e130] [cursor=pointer]:
+                      - generic [ref=e132]: "7"
+                    - button "8" [ref=e133] [cursor=pointer]:
+                      - generic [ref=e135]: "8"
+                    - button "9" [ref=e136] [cursor=pointer]:
+                      - generic [ref=e138]: "9"
+                    - button "10" [ref=e139] [cursor=pointer]:
+                      - generic [ref=e141]: "10"
+                    - button "11" [ref=e142] [cursor=pointer]:
+                      - generic [ref=e144]: "11"
+                    - button "12" [ref=e145] [cursor=pointer]:
+                      - generic [ref=e147]: "12"
+                    - button "13" [ref=e148] [cursor=pointer]:
+                      - generic [ref=e150]: "13"
+                    - button "14" [ref=e151] [cursor=pointer]:
+                      - generic [ref=e153]: "14"
+                    - button "15" [ref=e154] [cursor=pointer]:
+                      - generic [ref=e156]: "15"
+                    - button "16" [ref=e157] [cursor=pointer]:
+                      - generic [ref=e159]: "16"
+                    - button "17" [ref=e160] [cursor=pointer]:
+                      - generic [ref=e162]: "17"
+                    - button "18" [ref=e163] [cursor=pointer]:
+                      - generic [ref=e165]: "18"
+                    - button "19" [ref=e166] [cursor=pointer]:
+                      - generic [ref=e168]: "19"
+                    - button "20" [ref=e169] [cursor=pointer]:
+                      - generic [ref=e171]: "20"
+                    - button "21" [ref=e172] [cursor=pointer]:
+                      - generic [ref=e174]: "21"
+                    - button "22" [ref=e175] [cursor=pointer]:
+                      - generic [ref=e177]: "22"
+                    - button "23" [ref=e178] [cursor=pointer]:
+                      - generic [ref=e180]: "23"
+                    - button "24" [ref=e181] [cursor=pointer]:
+                      - generic [ref=e183]: "24"
+                    - button "25" [ref=e184] [cursor=pointer]:
+                      - generic [ref=e186]: "25"
+                    - button "26" [ref=e187] [cursor=pointer]:
+                      - generic [ref=e189]: "26"
+                    - button "27" [ref=e190] [cursor=pointer]:
+                      - generic [ref=e192]: "27"
+                    - button "28" [ref=e193] [cursor=pointer]:
+                      - generic [ref=e195]: "28"
+                    - button "29" [ref=e196]:
+                      - generic [ref=e198]: "29"
+                    - button "30" [ref=e199]:
+                      - generic [ref=e201]: "30"
+                    - button "31" [ref=e202]:
+                      - generic [ref=e204]: "31"
+                    - button "1":
+                      - generic:
+                        - generic: "1"
+      - paragraph [ref=e207]: No Member Details Available.
+```

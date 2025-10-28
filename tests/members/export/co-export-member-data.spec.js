@@ -25,12 +25,12 @@ async function selectDateRange(page) {
     await earlyInput.click();
    
     await page.locator("//button[@class='rdrNextPrevButton rdrPprevButton']//i").click().catch(() => {});
-    await page.locator("(//span[@class='rdrDayNumber'])[2]").click().catch(() => {});
+    await page.locator("(//span[contains(@class,'rdrDayNumber')])[6]").click().catch(() => {});
     await page.locator("(//button[@class='rdrNextPrevButton rdrNextButton'])[1]").click().catch(() => {});
     const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
     await expect(continuousInput).toBeVisible({ timeout: 10000 });
     await continuousInput.click();
-    await page.locator("(//span[@class='rdrDayNumber'])[4]").click().catch(() => {});
+    await page.locator("(//span[contains(text(),'28')])[2]").click().catch(() => {});
 }
 
 // Export 

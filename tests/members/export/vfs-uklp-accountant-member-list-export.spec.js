@@ -1,4 +1,8 @@
 import { test, expect } from '@playwright/test';
+
+// Use a custom browser context to ignore HTTPS errors for this specific test file.
+test.use({ ignoreHTTPSErrors: true });
+
 import XLSX from 'xlsx';
 import { fetchAllExportEmails } from '../../../utils/email-helper.js';
 
@@ -13,7 +17,7 @@ const ITEMS_PER_PAGE_DROPDOWN = "//img[@alt='LimitArrow']";
 const vfsUklpAdminLogin = {
     name: 'Alice',
     username: '9811122222', 
-    password: '451516', 
+    password: '123456', 
     loginUrl: 'https://staging.corporate.welcomecure.com/vfs_uk_lp/team/login',
     postLoginUrl: 'https://staging.corporate.welcomecure.com/vfs_uk_lp/accountant/memberlist', 
     async memberListNav(page) {

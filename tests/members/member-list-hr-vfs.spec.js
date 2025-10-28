@@ -18,20 +18,20 @@ test.describe('HR- Add Member - File Upload Module', () => {
     await page.waitForURL('https://staging.corporate.welcomecure.com/hr/employee');
   });
 
-  /*test('Verify Email action button opens action menu', async ({ page }) => {
+  test('Verify Email action button opens action menu', async ({ page }) => {
     const actionBtn = page.locator("//tbody/tr[1]/td[5]/div[1]/div[1]/span[1]//*[name()='svg']");
     await expect(actionBtn).toBeVisible();
     await actionBtn.click();
     await page.waitForTimeout(3000);
     //await expect(page.locator('body')).toContainText('Email');
-  });*/
+  });
 
-  /*test('Verify Delete action button is clickable', async ({ page }) => {
+  test('Verify Delete action button is clickable', async ({ page }) => {
     const actionBtn = page.locator("(//*[name()='svg'][contains(@stroke,'currentColor')])[7]");
     await expect(actionBtn).toBeVisible();
     await actionBtn.click();
     await page.waitForTimeout(3000);
-  });*/
+  });
 
   test('HR- Add Family member - successful addition', async ({ page }) => {
     const membersData = [

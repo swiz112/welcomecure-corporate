@@ -133,20 +133,20 @@ test.skip('Click Add button opens form', async ({ page }) => {
     //await expect(page.getByText(/Please fill in this field/)).toBeVisible({ timeout: 2000 });
   });
 
-test.skip('Add new branch ', async ({ page }) => {
+test('Add new branch ', async ({ page }) => {
     
     // Add a new branch 
     await page.locator(ADD_BRANCH).click();
-    await page.locator("//input[@id='corporateName']").fill('Branch-Mumbai');
+    await page.locator("//input[@id='corporateName']").fill('Branch-Mumbaii');
     await page.locator("//input[@id='name']").fill('Eliana');
-    await page.locator("//input[@id='email']").fill('elina113@yopmail.com');
-    await page.locator("//input[@id='contact']").fill('9911188272');
+    await page.locator("//input[@id='email']").fill('elina114@yopmail.com');
+    await page.locator("//input[@id='contact']").fill('99111880000');
     await page.setInputFiles('input[type="file"]', './tests/fixtures/logo.png');
     await page.locator("//button[normalize-space()='Save']").click();
     await expect(page.getByText('Branch is created successfully')).toBeVisible({ timeout: 5000 });
     });
     
-test.skip('handle duplicate entry', async ({ page }) => {
+test('handle duplicate entry', async ({ page }) => {
 
    // Try to add the same branch again
     await page.locator(ADD_BRANCH).click();
@@ -158,12 +158,12 @@ test.skip('handle duplicate entry', async ({ page }) => {
     await page.locator("//button[normalize-space()='Save']").click();
 
     // Expect a duplicate entry error message
-    await expect(page.getByText('Branch name with new branch already exists')).toBeVisible({ timeout: 2000 });
+    await expect(page.getByText('Branch name with Branch-Mumbai already exists')).toBeVisible({ timeout: 2000 });
   });
   
   // Pagination Test cases
   
-   test.skip('should display 10 team members by default', async ({ page }) => {
+   test('should display 10 team members by default', async ({ page }) => {
   // Wait until at least one row is visible (max 10 seconds)
   await page.waitForSelector("//tbody/tr", { timeout: 10000 });
 

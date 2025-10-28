@@ -35,11 +35,11 @@ async function selectDateRange(page) {
     const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
     await expect(continuousInput).toBeVisible({ timeout: 10000 });
     await continuousInput.click();
-    await page.locator("(//span[@class='rdrDayNumber'])[4]").click();
+    await page.locator("(//span[contains(text(),'28')])[2]").click();
 }
 
 // Export function
-async function triggerExport(page, email = 'saloni@yopmail.com') {
+async function triggerExport(page, email = 'saloni@wizcoder.com') {
     await page.getByRole('button', { name: 'Export' }).click();
     await page.locator("(//input[@id='email'])[1]").fill(email);
 
@@ -54,6 +54,7 @@ async function triggerExport(page, email = 'saloni@yopmail.com') {
     await expect(toastLocator).toHaveText(expectedText);
 }
 
+//filter
 async function applyFilter(page, filters = {}) {
   // Wait for Filters panel to render
   const filtersButton = page.locator("//button[normalize-space()='Filters']");
@@ -64,17 +65,20 @@ async function applyFilter(page, filters = {}) {
   // Universal selectFilter for React Select dropdowns
   const selectFilter = async (label, value) => {
     console.log(`Selecting filter: ${label} → ${value}`);
-
-    const dropdownLocator = page.locator(`//*[text()='${label}']/following-sibling::div`);
+    
+    const dropdownLocator = page.locator(`//*[text()='Select ${label}']/following-sibling::div`);
     await dropdownLocator.waitFor({ state: 'visible', timeout: 10000 });
 
     for (let i = 0; i < 3; i++) {
       try {
         console.log(`Clicking dropdown for "${label}"`);
         await dropdownLocator.click();
-
+        
         // Only select the actual option elements
-        const optionLocator = page.locator(`div[class*="option"]:has-text("${value}")`);
+        //const optionLocator = page.locator(`div[class*="option"]:has-text("${value}")`);
+        const optionLocator = page.locator(`div[class*="option"]:has-text("${value}")`).first();
+
+
         await optionLocator.waitFor({ state: 'visible', timeout: 10000 });
 
         console.log(`Clicking option "${value}"`);
@@ -82,7 +86,7 @@ async function applyFilter(page, filters = {}) {
 
         // Small wait to ensure selection registers
         await page.waitForTimeout(300);
-
+        
         // Close dropdown
         await page.keyboard.press('Escape');
         console.log(`Selected "${value}" for "${label}" successfully`);
@@ -95,11 +99,12 @@ async function applyFilter(page, filters = {}) {
   };
 
   // Apply filters conditionally
+  if (filters.zone) await selectFilter('Zone', filters.zone);
   if (filters.branch) await selectFilter('Branch', filters.branch);
   if (filters.region) await selectFilter('Region', filters.region);
   if (filters.sourceCountry) await selectFilter('Source Country', filters.sourceCountry);
   if (filters.destinationCountry) await selectFilter('Destination Country', filters.destinationCountry);
-  if (filters.zone) await selectFilter('Zone', filters.zone);
+  
 
   // Apply all filters
   const applyButton = page.locator("//button[normalize-space()='Apply Filters']");
@@ -111,11 +116,11 @@ async function applyFilter(page, filters = {}) {
   await page.waitForLoadState('networkidle');
 
   // === Clear All Filters ===
-  const clearButton = page.locator("(//img[@alt='new'])[1]"); // Use a reliable locator
+  /*const clearButton = page.locator("(//img[@alt='new'])[1]"); // Use a reliable locator
   await clearButton.waitFor({ state: 'visible', timeout: 15000 });
   await clearButton.scrollIntoViewIfNeeded();
   await clearButton.click();
-  console.log("All filters cleared successfully.");
+  console.log("All filters cleared successfully.");*/
 
   // Optional: wait for page/results to update
   await page.waitForLoadState('networkidle');
@@ -148,7 +153,7 @@ test.afterEach(async ({}, testInfo) => {
 
         for (let i = 0; i < 6; i++) { // try 6 times (30s total)
             try {
-                attachmentPaths = await fetchAllExportEmails(testInfo.title);
+                attachmentPaths = await fetchAllExportEmails(testInfo.title, 'user1');
                 if (attachmentPaths && attachmentPaths.length > 0) break;
             } catch (err) {
                 console.log(`Attempt #${i + 1} failed: ${err.message}`);
@@ -179,7 +184,7 @@ test.afterEach(async ({}, testInfo) => {
 // Test cases
 
 // Static date via fill
-test.skip('Admin Export - VFS UK INDIA (Static Date)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK INDIA (Static Date)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
@@ -243,7 +248,7 @@ test.skip('Admin Export - VFS UK INDIA (Search + Filter)', async ({ page }, test
 });
 
 // Without Date Selection → popup error
-test.skip('Admin Export - VFS UK INDIA (No Date Selected)', async ({ page }) => {
+test('Admin Export - VFS UK INDIA (No Date Selected)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
     const popupLocator = page.locator("//div[@role='dialog']");
     await popupLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -263,10 +268,12 @@ test.skip('Admin Export - VFS UK INDIA (Date + Search + Filter)', async ({ page 
 });
 
 // Date + Filter + Search with Contact No
-test.skip('Admin Export - VFS UK INDIA (Date + Filter + Search)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK INDIA (Date + Filter + Search)', async ({ page }, testInfo) => {
     await selectDateRange(page);
+    await page.waitForTimeout(3000);
     await applyFilter(page, 'HYDERABAD - UK VAC');
-    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9222874550');
+    await page.waitForTimeout(3000);
+    await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('7359030069');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await triggerExport(page);
     testInfo.exportTriggered = true;
@@ -310,15 +317,18 @@ test.skip('Admin Export - VFS UK INDIA (Region + Source Country Filters)', async
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (All Filters Applied)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK INDIA (All Filters Applied)', async ({ page }, testInfo) => {
     await applyFilter(page, { 
-        branch: 'HYDERABAD - UK VAC',
+        zone: 'East',
+        branch: 'KOLKATA - UK VAC',
         region: 'South Asia',
-        sourceCountry: 'Albania',
-        destinationCountry: 'Afghanistan',
-        zone: 'East'
+        sourceCountry: 'American Samoa',
+        destinationCountry: 'Algeria'
+        
     });
+    await page.waitForTimeout(2000);
     await selectDateRange(page);
+
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
@@ -344,14 +354,14 @@ test.skip('Admin Export - VFS UK INDIA (Filter + Search by Contact No)', async (
 test('Admin Export - VFS UK INDIA (Clear All Filters)', async ({ page }) => {
     // Apply multiple filters
     await applyFilter(page, {
-        branch: 'HYDERABAD - UK VAC',
+        zone: 'East',
+        branch: 'KOLKATA - UK VAC',
         region: 'South Asia',
-        sourceCountry: 'Albania',
-        destinationCountry: 'Afghanistan',
-        zone: 'East'
+        sourceCountry: 'India',
+        destinationCountry: 'American Samoa'
+        
     });
     
     console.log("Clear All Filters clicked successfully.");
     await page.waitForLoadState('networkidle');
 });
-

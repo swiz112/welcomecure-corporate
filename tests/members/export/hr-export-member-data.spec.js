@@ -91,14 +91,14 @@ test.afterEach(async ({}, testInfo) => {
 // Test cases
 
 // Static date via fill
-test('Admin Export - HR (Static Date)', async ({ page }, testInfo) => {
+test('Member List Export - HR (Static Date)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Static single date
-test('Admin Export - HR (Static Single Date)', async ({ page }, testInfo) => {
+test('Member List  Export - HR (Static Single Date)', async ({ page }, testInfo) => {
     await page.click("//button[normalize-space()='Select Date']");
     const earlyInput = page.locator("(//input[@placeholder='Early'])[1]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
@@ -110,7 +110,7 @@ test('Admin Export - HR (Static Single Date)', async ({ page }, testInfo) => {
 });
 
 // Static invalid date
-test('Admin Export - HR (Invalid Date Selection)', async ({ page }, testInfo) => {
+test('Member List  Export - HR (Invalid Date Selection)', async ({ page }, testInfo) => {
     await page.click("//button[contains(@class,'bg-[#fae006]') or normalize-space()='Select Date']");
     const earlyInput = page.locator("(//input[@placeholder='Early'])[1]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
@@ -127,7 +127,7 @@ test('Admin Export - HR (Invalid Date Selection)', async ({ page }, testInfo) =>
 });
 
 // Search by Name + Static Date
-test('Admin Export - HR (Search by Name)', async ({ page }, testInfo) => {
+test('Member List  Export - HR (Search by Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").fill('Harry');
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").press('Enter');
     await selectDateRange(page);
@@ -136,7 +136,7 @@ test('Admin Export - HR (Search by Name)', async ({ page }, testInfo) => {
 });
 
 // Search blank + Static Date
-test('Admin Export - HR (Blank Search)', async ({ page }, testInfo) => {
+test('Member List  Export - HR (Blank Search)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").fill('');
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").press('Enter');
     await selectDateRange(page);
@@ -145,7 +145,7 @@ test('Admin Export - HR (Blank Search)', async ({ page }, testInfo) => {
 });
 
 // Search invalid name + Static Date
-test('Admin Export - HR (Invalid Name)', async ({ page }, testInfo) => {
+test('Member List  Export - HR (Invalid Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").fill('32charli3123');
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").press('Enter');
     await selectDateRange(page);
@@ -160,7 +160,7 @@ test('Admin Export - HR (Invalid Name)', async ({ page }, testInfo) => {
 });
 
 // Without Date Selection → popup error
-test('Admin Export - HR (No Date Selected)', async ({ page }) => {
+test('Member List  Export - HR (No Date Selected)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
     const popupLocator = page.locator("//div[@role='dialog' or contains(@class,'modal')]");
     await popupLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -169,7 +169,7 @@ test('Admin Export - HR (No Date Selected)', async ({ page }) => {
 });
 
 // Date + Search
-test('Admin Export - HR (Date + Search)', async ({ page }, testInfo) => {
+test('Member List  - HR (Date + Search)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").fill('Malvika');
     await page.locator("//input[contains(@placeholder,'Search By Member Name')]").press('Enter');
