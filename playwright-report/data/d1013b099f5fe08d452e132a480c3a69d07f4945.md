@@ -1,0 +1,175 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - img "logo" [ref=e9]
+      - img "logo" [ref=e10]
+    - generic [ref=e12] [cursor=pointer]: A
+  - generic [ref=e13]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+        - generic: Hide
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "Corporate" [ref=e25] [cursor=pointer]:
+            - /url: /admin/admin_user/corporate
+            - img [ref=e27]
+            - text: Corporate
+        - listitem [ref=e30]:
+          - link "Admin" [ref=e31] [cursor=pointer]:
+            - /url: /admin/admin_user/hr
+            - img [ref=e33]
+            - text: Admin
+        - listitem [ref=e37]:
+          - generic [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]:
+              - img [ref=e41]
+              - generic [ref=e43]: Member
+            - img "arrow" [ref=e44]
+          - generic [ref=e45]:
+            - link "Create Member" [ref=e46] [cursor=pointer]:
+              - /url: /admin/admin_user/uploadeemployee
+            - link "Member List" [ref=e47] [cursor=pointer]:
+              - /url: /admin/admin_user/employee
+            - link "Export" [ref=e48] [cursor=pointer]:
+              - /url: /admin/export
+            - link "Family Member" [ref=e49] [cursor=pointer]:
+              - /url: /admin/admin_user/family_member
+        - listitem [ref=e50]:
+          - link "Health Tips" [ref=e51] [cursor=pointer]:
+            - /url: /admin/admin_user/healthtips
+            - img [ref=e53]
+            - text: Health Tips
+        - listitem [ref=e55]:
+          - link "Book A Lab Test" [ref=e56] [cursor=pointer]:
+            - /url: /admin/admin_user/labtest
+            - img [ref=e58]
+            - text: Book A Lab Test
+        - listitem [ref=e60]:
+          - generic [ref=e61] [cursor=pointer]:
+            - generic [ref=e62]:
+              - img [ref=e64]
+              - generic [ref=e66]: Partners
+            - img "arrow" [ref=e67]
+        - listitem [ref=e68]:
+          - link "Team Members" [ref=e69] [cursor=pointer]:
+            - /url: /admin/admin_user/team_members
+            - img [ref=e71]
+            - text: Team Members
+    - generic [ref=e75]:
+      - generic [ref=e76]:
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - img [ref=e81]
+            - textbox "Search By Member, Email, Contact No" [ref=e84]: Jesica
+            - paragraph [ref=e85]: "Total Member : 2"
+          - generic [ref=e86]:
+            - button "Filters" [ref=e87] [cursor=pointer]:
+              - img [ref=e88]
+              - text: Filters
+            - button "calenderimg Select Date" [ref=e91] [cursor=pointer]:
+              - img "calenderimg" [ref=e92]
+              - text: Select Date
+        - table [ref=e94]:
+          - rowgroup [ref=e95]:
+            - row "Corporate Name Member Name Email Id Contact No. Register Date Status Action" [ref=e96]:
+              - cell "Corporate Name" [ref=e97]:
+                - generic [ref=e98]: Corporate Name
+              - cell "Member Name" [ref=e99]:
+                - generic [ref=e100]: Member Name
+              - cell "Email Id" [ref=e101]:
+                - generic [ref=e102]: Email Id
+              - cell "Contact No." [ref=e103]:
+                - generic [ref=e104]: Contact No.
+              - cell "Register Date" [ref=e105]:
+                - generic [ref=e106]: Register Date
+              - cell "Status" [ref=e107]:
+                - generic [ref=e108]: Status
+              - cell "Action" [ref=e109]:
+                - generic [ref=e110]: Action
+          - rowgroup [ref=e111]:
+            - row "MUSCAT - One Vas... jesica saloni@wizcoder.com +968 9712738076 30/10/2025 05:24:48 pm" [ref=e112]:
+              - cell "MUSCAT - One Vas..." [ref=e113]:
+                - generic [ref=e115]: MUSCAT - One Vas...
+              - cell "jesica" [ref=e116]:
+                - generic [ref=e117] [cursor=pointer]: jesica
+              - cell "saloni@wizcoder.com" [ref=e118]:
+                - generic [ref=e119] [cursor=pointer]: saloni@wizcoder.com
+              - cell "+968 9712738076" [ref=e120]:
+                - generic [ref=e121] [cursor=pointer]: +968 9712738076
+              - cell "30/10/2025 05:24:48 pm" [ref=e122]:
+                - paragraph [ref=e123]: 30/10/2025 05:24:48 pm
+              - cell [ref=e124]:
+                - switch [checked] [ref=e127] [cursor=pointer]
+              - cell [ref=e129]:
+                - generic [ref=e130]:
+                  - img [ref=e133] [cursor=pointer]
+                  - img [ref=e138] [cursor=pointer]
+                  - img [ref=e142] [cursor=pointer]
+            - row "One Vasco Dubai jesica saloni@wizcoder.com +971 9712738076 30/10/2025 02:49:58 pm" [ref=e144]:
+              - cell "One Vasco Dubai" [ref=e145]
+              - cell "jesica" [ref=e146]:
+                - generic [ref=e147] [cursor=pointer]: jesica
+              - cell "saloni@wizcoder.com" [ref=e148]:
+                - generic [ref=e149] [cursor=pointer]: saloni@wizcoder.com
+              - cell "+971 9712738076" [ref=e150]:
+                - generic [ref=e151] [cursor=pointer]: +971 9712738076
+              - cell "30/10/2025 02:49:58 pm" [ref=e152]:
+                - paragraph [ref=e153]: 30/10/2025 02:49:58 pm
+              - cell [ref=e154]:
+                - switch [checked] [ref=e157] [cursor=pointer]
+              - cell [ref=e159]:
+                - generic [ref=e160]:
+                  - img [ref=e163] [cursor=pointer]
+                  - img [ref=e168] [cursor=pointer]
+                  - img [ref=e172] [cursor=pointer]
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - paragraph [ref=e177]: View
+            - button "10 LimitArrow" [ref=e181] [cursor=pointer]:
+              - paragraph [ref=e182]: "10"
+              - img "LimitArrow" [ref=e183]
+          - generic [ref=e184]:
+            - button "<<" [ref=e185] [cursor=pointer]
+            - navigation "Pagination" [ref=e187] [cursor=pointer]:
+              - listitem [ref=e188]:
+                - button "Previous page" [disabled] [ref=e189]: <
+              - listitem [ref=e190]:
+                - button "Page 1 is your current page" [ref=e191]: "1"
+              - listitem [ref=e192]:
+                - button "Next page" [disabled] [ref=e193]: ">"
+            - button ">>" [ref=e194] [cursor=pointer]
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - generic [ref=e199]: Edit Member
+          - button [ref=e200] [cursor=pointer]:
+            - img [ref=e201]
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - generic [ref=e209]: "Corporate Name* :"
+            - textbox "Enter Your Name" [disabled] [ref=e210]: MUSCAT - One Vasco
+          - generic [ref=e211]:
+            - generic [ref=e212]: "Member Name* :"
+            - textbox "Enter Your URL" [ref=e213]: jesica
+          - generic [ref=e214]:
+            - generic [ref=e215]: "Email Id* :"
+            - textbox "Enter Your URL" [ref=e216]: saloni@wizcoder.com
+          - generic [ref=e217]:
+            - generic [ref=e218]: "Contact No* :"
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: "+968"
+                  - generic:
+                    - generic:
+                      - img
+              - spinbutton [disabled]: "9712738076"
+        - generic [ref=e219]:
+          - button "Update" [ref=e220] [cursor=pointer]
+          - button "Close" [ref=e221] [cursor=pointer]
+```

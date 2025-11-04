@@ -185,7 +185,7 @@ test('should add team member with valid data and one permission', async ({ page 
    // Edit team member
 test('should Edit team member with valid data', async ({ page }) => {
   // Search for the member to edit
-  await page.locator(SEARCH_INPUT).fill('Olivia');
+  await page.locator(SEARCH_INPUT).fill('komal');
   await page.locator(SEARCH_INPUT).press('Enter');
   await page.waitForTimeout(2000);
 
