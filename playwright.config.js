@@ -8,7 +8,7 @@ const config = {
   reporter: [
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['./excel-reporter.js', { outputFile: 'test-report.xlsx' }]
+    ['./excel-reporter-v2.js', { outputFileName: 'test-report.xlsx' }]
   ],
   use: {
     headless: false,

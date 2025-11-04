@@ -8,7 +8,9 @@
     "test:headed": "npx playwright test --headed",
     "test:debug": "npx playwright test --debug",
     "test:report": "npx playwright show-report",
-    "ortoni": "node ./scripts/ortoni-runner.js"
+    "ortoni": "node ./scripts/ortoni-runner.js",
+    "clean": "powershell Remove-Item -Recurse -Force \"$env:USERPROFILE\\AppData\\Local\\ms-playwright\"; Remove-Item -Recurse -Force playwright-report,test-results,report -ErrorAction SilentlyContinue"
+
   },
   "author": "Your Name",
   "license": "MIT",

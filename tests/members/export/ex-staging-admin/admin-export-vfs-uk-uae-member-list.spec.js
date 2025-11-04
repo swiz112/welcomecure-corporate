@@ -13,8 +13,8 @@ const adminLogin = {
 
     async memberListNav(page) {
         await page.click("(//img[contains(@alt,'arrow')])[2]");
-        await page.waitForSelector("//span[normalize-space()='VFS UK INDIA']");
-        await page.click("//span[normalize-space()='VFS UK INDIA']");
+        await page.waitForSelector("//span[normalize-space()='VFS UK UAE']");
+        await page.click("//span[normalize-space()='VFS UK UAE']");
         await page.click("//a[normalize-space()='Member List']");
     }
 };
@@ -28,14 +28,14 @@ async function selectDateRange(page) {
     await earlyInput.click();
 
     await page.locator("//button[@class='rdrNextPrevButton rdrPprevButton']//i").click();
-    await page.locator("(//span[@class='rdrDayNumber'])[2]").click();
+    await page.locator("(//span[contains(@class,'rdrDayNumber')])[4]").click();
 
     await page.locator("(//button[@class='rdrNextPrevButton rdrNextButton'])[1]").click();
 
     const continuousInput = page.locator("(//input[@placeholder='Continuous'])[1]");
     await expect(continuousInput).toBeVisible({ timeout: 10000 });
     await continuousInput.click();
-    await page.locator("(//span[contains(text(),'28')])[2]").click();
+    await page.locator("(//span[contains(@class,'rdrDayNumber')])[10]").click();
 }
 
 // Export function
@@ -184,14 +184,14 @@ test.afterEach(async ({}, testInfo) => {
 // Test cases
 
 // Static date via fill
-test('Admin Export - VFS UK INDIA (Static Date)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK UAE (Static Date)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
 // Static single date
-test.skip('Admin Export - VFS UK INDIA (Static Single Date)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Static Single Date)', async ({ page }, testInfo) => {
     await page.click("//button[normalize-space()='Select Date']");
     const earlyInput = page.locator("//input[contains(@placeholder,'Early')]");
     await expect(earlyInput).toBeVisible({ timeout: 10000 });
@@ -206,7 +206,7 @@ test.skip('Admin Export - VFS UK INDIA (Static Single Date)', async ({ page }, t
 });
 
 // Search by Name + Static Date
-test.skip('Admin Export - VFS UK INDIA (Search by Name)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Search by Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('Mitesh');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
@@ -215,7 +215,7 @@ test.skip('Admin Export - VFS UK INDIA (Search by Name)', async ({ page }, testI
 });
 
 // Search invalid name + Static Date
-test.skip('Admin Export - VFS UK INDIA (Invalid Name)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Invalid Name)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('32charli3123');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
@@ -230,7 +230,7 @@ test.skip('Admin Export - VFS UK INDIA (Invalid Name)', async ({ page }, testInf
 });
 
 // Filter branch + Static Date
-test.skip('Admin Export - VFS UK INDIA (Filter by Branch)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter by Branch)', async ({ page }, testInfo) => {
     await applyFilter(page, 'COCHIN - UK VAC');
     await selectDateRange(page);
     await triggerExport(page);
@@ -238,7 +238,7 @@ test.skip('Admin Export - VFS UK INDIA (Filter by Branch)', async ({ page }, tes
 });
 
 // Search with Email + Filter + Static Date
-test.skip('Admin Export - VFS UK INDIA (Search + Filter)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Search + Filter)', async ({ page }, testInfo) => {
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('harshil@wizcoder.com');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await applyFilter(page, 'HYDERABAD - UK VAC');
@@ -248,7 +248,7 @@ test.skip('Admin Export - VFS UK INDIA (Search + Filter)', async ({ page }, test
 });
 
 // Without Date Selection → popup error
-test('Admin Export - VFS UK INDIA (No Date Selected)', async ({ page }) => {
+test('Admin Export - VFS UK UAE (No Date Selected)', async ({ page }) => {
     await page.getByRole('button', { name: 'Export' }).click();
     const popupLocator = page.locator("//div[@role='dialog']");
     await popupLocator.waitFor({ state: 'visible', timeout: 10000 });
@@ -257,7 +257,7 @@ test('Admin Export - VFS UK INDIA (No Date Selected)', async ({ page }) => {
 });
 
 // Date + Search with Name + Filter
-test.skip('Admin Export - VFS UK INDIA (Date + Search + Filter)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Date + Search + Filter)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('Jacob');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
@@ -268,7 +268,7 @@ test.skip('Admin Export - VFS UK INDIA (Date + Search + Filter)', async ({ page 
 });
 
 // Date + Filter + Search with Contact No
-test('Admin Export - VFS UK INDIA (Date + Filter + Search)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK UAE (Date + Filter + Search)', async ({ page }, testInfo) => {
     await selectDateRange(page);
     await page.waitForTimeout(3000);
     await applyFilter(page, 'HYDERABAD - UK VAC');
@@ -279,35 +279,35 @@ test('Admin Export - VFS UK INDIA (Date + Filter + Search)', async ({ page }, te
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter by Region)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter by Region)', async ({ page }, testInfo) => {
     await applyFilter(page, { region: 'South Asia' });
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter by Source Country)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter by Source Country)', async ({ page }, testInfo) => {
     await applyFilter(page, { sourceCountry: 'Albania' });
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter by Destination Country)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter by Destination Country)', async ({ page }, testInfo) => {
     await applyFilter(page, { destinationCountry: 'Afghanistan' });
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter by Zone)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter by Zone)', async ({ page }, testInfo) => {
     await applyFilter(page, { zone: 'West' });
     await selectDateRange(page);
     await triggerExport(page);
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Region + Source Country Filters)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Region + Source Country Filters)', async ({ page }, testInfo) => {
     await applyFilter(page, { 
         region: 'South Asia', 
         sourceCountry: 'India' 
@@ -317,7 +317,7 @@ test.skip('Admin Export - VFS UK INDIA (Region + Source Country Filters)', async
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - VFS UK INDIA (All Filters Applied)', async ({ page }, testInfo) => {
+test('Admin Export - VFS UK UAE (All Filters Applied)', async ({ page }, testInfo) => {
     await applyFilter(page, { 
         zone: 'East',
         branch: 'KOLKATA - UK VAC',
@@ -333,7 +333,7 @@ test('Admin Export - VFS UK INDIA (All Filters Applied)', async ({ page }, testI
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter + Search by Email)', async ({ page }, testInfo) => {
+test.skip('Admin Export - VFS UK UAE (Filter + Search by Email)', async ({ page }, testInfo) => {
     await applyFilter(page, { branch: 'COCHIN - UK VAC' });
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('harsh@yopmail.com');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
@@ -342,8 +342,8 @@ test.skip('Admin Export - VFS UK INDIA (Filter + Search by Email)', async ({ pag
     testInfo.exportTriggered = true;
 });
 
-test.skip('Admin Export - VFS UK INDIA (Filter + Search by Contact No)', async ({ page }, testInfo) => {
-    await applyFilter(page, { zone: 'East' });
+test.skip('Admin Export - VFS UK UAE (Filter + Search by Contact No)', async ({ page }, testInfo) => {
+    await applyFilter(page, { zone: 'UAE' });
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").fill('9222874550');
     await page.locator("//input[contains(@placeholder,'Search By Member, Email, Contact No')]").press('Enter');
     await selectDateRange(page);
@@ -351,14 +351,14 @@ test.skip('Admin Export - VFS UK INDIA (Filter + Search by Contact No)', async (
     testInfo.exportTriggered = true;
 });
 
-test('Admin Export - VFS UK INDIA (Clear All Filters)', async ({ page }) => {
+test('Admin Export - VFS UK UAE (Clear All Filters)', async ({ page }) => {
     // Apply multiple filters
     await applyFilter(page, {
-        zone: 'East',
-        branch: 'KOLKATA - UK VAC',
-        region: 'South Asia',
-        sourceCountry: 'India',
-        destinationCountry: 'American Samoa'
+        zone: 'UAE',
+        branch: 'Dubai - UK VAC',
+        region: 'MENA',
+        sourceCountry: 'United Arab Emirates',
+        destinationCountry: 'Algeria'
         
     });
     
