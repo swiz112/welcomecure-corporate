@@ -24,7 +24,7 @@ test.describe('Add Member - Manual flow', () => {
   });
 
   test('Add member manually - successful addition', async ({ page }) => {
-    const iterations = 1; // Let's do 1 iteration to simplify and test first.
+    const iterations = 1; 
     const names = ['Rajesh', 'Samir', 'Charlie', 'Dinesh', 'Esha'];
     const timestamp = Date.now().toString().slice(-5);
     for (let i = 0; i < iterations; i++) {

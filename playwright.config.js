@@ -1,5 +1,6 @@
 // playwright.config.js
 
+const { devices } = require('@playwright/test');
 //require('dotenv').config();
 const config = {
   testDir: './tests',
@@ -21,7 +22,35 @@ const config = {
     browserName: 'chromium'  // Chrome only
   },
   projects: [
-    { name: 'Desktop Chrome', use: { browserName: 'chromium' } }
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    /*{
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+    
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 15'] },
+    },
+    {
+      name: 'Google Chrome',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' }, 
+    },
+    {
+      name: 'Microsoft Edge',
+      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    },*/
   ]
 };
 

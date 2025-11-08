@@ -17,7 +17,7 @@ function readRefundData() {
     return [];
   }
 
-  return jsonData.slice(24, 32).map(row => ({ // Slice to get only the first 10 rows
+  return jsonData.slice(18, 21).map(row => ({ 
     memberName: row['Name'],
     memberEmail: row['Email'],
     memberContact: row['Contact'],
@@ -34,7 +34,13 @@ for (const [index, data] of allData.entries()) {
     }
 
     // 1. Open page
-    await page.goto('https://staging.corporate.welcomecure.com/vfsbahrain?_id=6909bb242d10c0b6a70b0d12'); 
+    //await page.goto('https://staging.corporate.welcomecure.com/vfsbahrain?_id=6909bb242d10c0b6a70b0d12'); 
+    //await page.goto('https://staging.corporate.welcomecure.com/vfssaudi?_id=690b296669f0ce9eef9aa896');
+    //await page.goto('https://staging.corporate.welcomecure.com/onevascosaudi?_id=690c6e7855e6f45410a6acbd');
+    //await page.goto('https://staging.corporate.welcomecure.com/onevascosaudi?_id=690c359255e6f45410a6acb2');
+    //await page.goto('https://staging.corporate.welcomecure.com/onevascosaudi?_690c6ead55e6f45410a6acbe');
+      await page.goto('https://staging.corporate.welcomecure.com/onevascobahrain?_id=690d8bcbebdcc5b774ef1bd5');
+
 
     // 2. Scroll to and click refund link
     const refundLink = page.locator('text="Payment Refund"');
@@ -58,7 +64,8 @@ for (const [index, data] of allData.entries()) {
     // Fill reason
     const reasonDropdown = page.locator('div.col-span-6:has-text("Reason")').locator('div[class$="-control"]');
     await reasonDropdown.click();
-    await page.locator(`div[class*="option"]:has-text("Service not required")`).click();
+    //await page.locator(`div[class*="option"]:has-text("Service not required")`).click(); 
+    await page.locator(`div[class*="option"]:has-text("Visa not approved")`).click();
 
     // 4. Submit
     await page.click("//button[normalize-space()='Submit']");

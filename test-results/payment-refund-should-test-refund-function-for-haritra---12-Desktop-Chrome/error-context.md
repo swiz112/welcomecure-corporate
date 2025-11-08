@@ -1,0 +1,264 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - img "logo" [ref=e9]
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - heading "Global Doctor-on-Call Service Your well-being in unknown geographies is our top priority!" [level=2] [ref=e13]:
+          - text: Global Doctor-on-Call Service
+          - generic [ref=e14]: Your well-being in unknown geographies is our top priority!
+        - paragraph [ref=e15]: Take care of your health, even when you're away from home.
+        - button "Get Started Today" [ref=e17] [cursor=pointer]
+      - img "doctorimg" [ref=e19]
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - heading "Our Doctor Consultation Service" [level=3] [ref=e23]
+        - paragraph [ref=e24]: Remote doctor consultations wherever you go.
+        - paragraph [ref=e25]: Activate doctor consultation services at just BHD 3!
+        - paragraph [ref=e26]: 1 Month validity of Doc-on-Call service during your international travel.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img [ref=e30]
+          - heading "Travel-Friendly Consultations" [level=4] [ref=e32]
+          - paragraph [ref=e33]: Designed for travelers on the move
+        - generic [ref=e34]:
+          - img [ref=e36]
+          - heading "Seamless Telehealth Access" [level=4] [ref=e40]
+          - paragraph [ref=e41]:
+            - text: Get seamless medical support via
+            - text: Tele-medicine.
+        - generic [ref=e42]:
+          - img [ref=e44]
+          - heading "Global Health Expertise" [level=4] [ref=e47]
+          - paragraph [ref=e48]: Consult with Experienced & Global
+          - paragraph [ref=e49]: General Practitioner (GP) Doctors
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - heading "Transparent Pricing" [level=4] [ref=e54]
+        - paragraph [ref=e55]: Quality Healthcare via Global Doctor Consultations at an Affordable Price Point
+      - generic [ref=e57]:
+        - generic [ref=e58]: BHD 3
+        - list [ref=e59]:
+          - listitem [ref=e60]:
+            - generic [ref=e62]: Health Consultations from Global Doctors
+          - listitem [ref=e63]:
+            - generic [ref=e65]: International / Local Prescriptions if required
+          - listitem [ref=e66]:
+            - generic [ref=e68]: Follow-up Consultations
+          - listitem [ref=e69]:
+            - generic [ref=e71]: Digital Health Records & Health Tips
+          - listitem [ref=e72]:
+            - generic [ref=e74]: 1 Month Validity from your date of travel
+    - generic [ref=e76]:
+      - heading "Our Travel Partners" [level=3] [ref=e78]
+      - generic [ref=e79]:
+        - img "Client 1" [ref=e80]
+        - img "Client 2" [ref=e81]
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - heading "See What Our Travelers Have to Say About Us" [level=3] [ref=e84]
+        - generic [ref=e88]:
+          - generic [ref=e91]:
+            - heading [level=3] [ref=e92]: Mrs. Anahita
+            - paragraph [ref=e93]: Hi, Dr was very professional and at the same time caring
+          - generic [ref=e96]:
+            - heading [level=3] [ref=e97]: Mr. Sujith Raju
+            - paragraph [ref=e98]: The consultation process was smooth and online, which was super convenient. My assigned doctor was professional, kind and took the time to really understand my health problems. I am grateful to be with Welcome Cure.
+          - generic [ref=e101]:
+            - heading [level=3] [ref=e102]: Mr. Santosh Kumar
+            - paragraph [ref=e103]: Before calling you, I was very confused about what to do. But the 5-minute call with you cleared many doubts, and also you helped me with the solution to my issue in a few seconds. Thank you.
+          - generic [ref=e106]:
+            - heading "Mrs. Meena" [level=3] [ref=e107]
+            - paragraph [ref=e108]: Thanks a lot. Wonderful experience. I have never come across such a service in my lifetime. I recommend it for everyone. Please keep it up.
+          - generic [ref=e111]:
+            - heading [level=3] [ref=e112]: Mr. Aravindh
+            - paragraph [ref=e113]: The service on the app was courteous and professional, making the whole experience smooth and reassuring.
+          - generic [ref=e116]:
+            - heading [level=3] [ref=e117]: Mrs. Sudhaben Sanjaykumar
+            - paragraph [ref=e118]: Thank you so much for checking in. Yes, I was able to connect with the doctor and have received my prescription. I truly appreciate the support and prompt service throughout the process. I'm feeling better already, and I'm very satisfied with the care and assistance I received. I'd be happy to share a quick experience was also saved my time as well. Thanks again for your excellent service!
+          - generic [ref=e121]:
+            - heading [level=3] [ref=e122]: Mrs.Thampija Thampidhas
+            - paragraph [ref=e123]: I recently used the Doc on Call service from Welcome Cure, the response was prompt.
+          - generic [ref=e126]:
+            - heading [level=3] [ref=e127]: Mr. Suresh
+            - paragraph [ref=e128]: We recently reached out to Welcome Cure Health Concierge when my father was experiencing pain in his ear. The response was incredibly prompt - within minutes, we were connected to a doctor over a video call. The consultation was smooth, professional, and reassuring. In less than 30 minutes, we had a proper diagnosis and a prescription in hand. I'm truly impressed by the speed and efficiency of their service. It gave us peace of mind during a stressful moment. Highly recommended!
+          - generic [ref=e131]:
+            - heading [level=3] [ref=e132]: Mr.Rahul
+            - paragraph [ref=e133]: Hey Hii!, This is Rahul, today I just got a appointment with Welcome Cure One Consultant doctor Dr.Sally. Her response response was so nice and she gave me some Prescription to apply. And Finally a very Quick Response from the welcome cure one to get an appointment with doctor. Thank you for your Consen.
+          - generic [ref=e136]:
+            - heading [level=3] [ref=e137]: Mrs. Anahita
+            - paragraph [ref=e138]: Hi, Dr was very professional and at the same time caring
+          - generic [ref=e141]:
+            - heading [level=3] [ref=e142]: Mr. Sujith Raju
+            - paragraph [ref=e143]: The consultation process was smooth and online, which was super convenient. My assigned doctor was professional, kind and took the time to really understand my health problems. I am grateful to be with Welcome Cure.
+          - generic [ref=e146]:
+            - heading [level=3] [ref=e147]: Mr. Santosh Kumar
+            - paragraph [ref=e148]: Before calling you, I was very confused about what to do. But the 5-minute call with you cleared many doubts, and also you helped me with the solution to my issue in a few seconds. Thank you.
+          - generic [ref=e151]:
+            - heading [level=3] [ref=e152]: Mrs. Meena
+            - paragraph [ref=e153]: Thanks a lot. Wonderful experience. I have never come across such a service in my lifetime. I recommend it for everyone. Please keep it up.
+          - generic [ref=e156]:
+            - heading [level=3] [ref=e157]: Mr. Aravindh
+            - paragraph [ref=e158]: The service on the app was courteous and professional, making the whole experience smooth and reassuring.
+          - generic [ref=e161]:
+            - heading [level=3] [ref=e162]: Mrs. Sudhaben Sanjaykumar
+            - paragraph [ref=e163]: Thank you so much for checking in. Yes, I was able to connect with the doctor and have received my prescription. I truly appreciate the support and prompt service throughout the process. I'm feeling better already, and I'm very satisfied with the care and assistance I received. I'd be happy to share a quick experience was also saved my time as well. Thanks again for your excellent service!
+          - generic [ref=e166]:
+            - heading [level=3] [ref=e167]: Mrs.Thampija Thampidhas
+            - paragraph [ref=e168]: I recently used the Doc on Call service from Welcome Cure, the response was prompt.
+          - generic [ref=e171]:
+            - heading [level=3] [ref=e172]: Mr. Suresh
+            - paragraph [ref=e173]: We recently reached out to Welcome Cure Health Concierge when my father was experiencing pain in his ear. The response was incredibly prompt - within minutes, we were connected to a doctor over a video call. The consultation was smooth, professional, and reassuring. In less than 30 minutes, we had a proper diagnosis and a prescription in hand. I'm truly impressed by the speed and efficiency of their service. It gave us peace of mind during a stressful moment. Highly recommended!
+          - generic [ref=e176]:
+            - heading [level=3] [ref=e177]: Mr.Rahul
+            - paragraph [ref=e178]: Hey Hii!, This is Rahul, today I just got a appointment with Welcome Cure One Consultant doctor Dr.Sally. Her response response was so nice and she gave me some Prescription to apply. And Finally a very Quick Response from the welcome cure one to get an appointment with doctor. Thank you for your Consen.
+          - generic [ref=e181]:
+            - heading [level=3] [ref=e182]: Mrs. Anahita
+            - paragraph [ref=e183]: Hi, Dr was very professional and at the same time caring
+      - generic [ref=e184]:
+        - button "Go to slide 1" [ref=e185] [cursor=pointer]
+        - button "Go to slide 2" [ref=e186] [cursor=pointer]
+        - button "Go to slide 3" [ref=e187] [cursor=pointer]
+        - button "Go to slide 4" [ref=e188] [cursor=pointer]
+        - button "Go to slide 5" [ref=e189] [cursor=pointer]
+        - button "Go to slide 6" [ref=e190] [cursor=pointer]
+        - button "Go to slide 7" [ref=e191] [cursor=pointer]
+        - button "Go to slide 8" [ref=e192] [cursor=pointer]
+        - button "Go to slide 9" [ref=e193] [cursor=pointer]
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - heading "Register Your Detail" [level=3] [ref=e197]
+        - paragraph [ref=e198]: Fill in your details to get started with our Doctor on Call service
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - generic [ref=e202]:
+            - generic [ref=e203]: Full Name *
+            - textbox "Full Name * Full Name *" [ref=e204]:
+              - /placeholder: Enter your full name
+          - generic [ref=e205]:
+            - generic [ref=e206]: Email Address *
+            - textbox "Email Address * Email *" [ref=e207]:
+              - /placeholder: Enter your email address
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e210]: Mobile Number *
+            - generic [ref=e211]:
+              - generic [ref=e215]:
+                - generic [ref=e216]:
+                  - generic [ref=e217]: "+973"
+                  - combobox [ref=e219]
+                - img [ref=e222]
+              - textbox "Mobile Number * Mobile Number *" [ref=e224]:
+                - /placeholder: Enter your mobile number
+          - generic [ref=e225]:
+            - generic [ref=e226]: What’s Your Travel Start Date *
+            - generic [ref=e227]:
+              - textbox "What’s Your Travel Start Date *" [ref=e228] [cursor=pointer]:
+                - /placeholder: dd/mm/yyyy
+              - img
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]: Source Country *
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Bahrain
+                - generic:
+                  - generic:
+                    - img
+          - generic [ref=e232]:
+            - generic [ref=e233]: Destination Country *
+            - generic [ref=e234]:
+              - generic [ref=e237]:
+                - generic [ref=e238]:
+                  - generic [ref=e239]: Select Country
+                  - combobox [ref=e241]
+                - img [ref=e245]
+              - textbox
+        - generic [ref=e247]:
+          - checkbox [ref=e248]
+          - generic [ref=e249]: I here by agree to share my personal details with WelcomeCure to provide services and activate my registration.
+        - generic [ref=e250]:
+          - checkbox [ref=e251]
+          - paragraph [ref=e252] [cursor=pointer]: Terms & Conditions & Refund Policy
+        - paragraph [ref=e254] [cursor=pointer]: Disclaimer
+        - button "Pay BHD 3 Now" [disabled] [ref=e256]
+    - contentinfo [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e260]:
+            - img "logo" [ref=e262]
+            - heading "Waiting To Welcome You Onboard!" [level=4] [ref=e263]
+            - paragraph [ref=e264]: Join us on this journey towards a healthier you!
+          - generic [ref=e265]:
+            - heading "Contact Information" [level=4] [ref=e266]
+            - generic [ref=e267]:
+              - img [ref=e268]
+              - generic [ref=e270]: "Monday - Saturday: 9:00 AM TO 9:00 PM"
+            - generic [ref=e271]:
+              - img [ref=e272]
+              - generic [ref=e277]: Derick Fernandes
+            - generic [ref=e278]:
+              - img [ref=e279]
+              - link "+91 74003 83759" [ref=e281] [cursor=pointer]:
+                - /url: tel:+91 7400383759
+            - generic [ref=e282]:
+              - img [ref=e283]
+              - link "derick@welcomecure.com" [ref=e286] [cursor=pointer]:
+                - /url: mailto:derick@welcomecure.com
+            - generic [ref=e287]:
+              - img [ref=e288]
+              - button "Payment Refund" [ref=e292] [cursor=pointer]
+        - generic [ref=e293]:
+          - paragraph [ref=e294]:
+            - text: "Disclaimer : Welcome Cure is currently serving Schengen Countries, USA, UK, South Africa & India with its Global Doc-on-Call (G-DoC) offering. Welcome Cure aims to keep adding more and more countries for the G-DoC service and better coverage and shall hence update the same from time to time. There could be many other countries apart from the ones mentioned above. For more information and clarity on the active country list for the Welcome Cure's G-DoC service you may call us on - Derick Fernandes -"
+            - link "+91 74003 83759" [ref=e295] [cursor=pointer]:
+              - /url: tel:+91 74003 83759
+            - text: . The Doctor On Call service is exclusively designed for short-term travellers who require temporary and preliminary medical support during their trips. This service is available for a duration of 1 month and is not intended for - A) Students, B) Immigrants, C) Long-term work visa holders, other long-term or long-stay travellers. Eligibility is subject to verification, and the service may be denied if the user does not meet the criteria for frequent travel. For long-stay medical coverage, please explore alternative health insurance or local physical doctors options tailored to your specific needs. Terms and conditions apply. Service availability may vary based on location and provider policies.
+          - generic [ref=e296]:
+            - paragraph [ref=e297]: © 2025 Welcome Cure Pvt. Ltd. All rights reserved.
+            - link "Privacy Policy" [ref=e298] [cursor=pointer]:
+              - /url: /privacypolicy
+  - generic [ref=e300]:
+    - generic [ref=e301]:
+      - generic [ref=e302]: Payment Refund Request
+      - button [ref=e303] [cursor=pointer]:
+        - img [ref=e304]
+    - separator [ref=e307]
+    - generic [ref=e309]:
+      - generic [ref=e310]:
+        - generic [ref=e311]:
+          - generic [ref=e312]: Full Name *
+          - textbox "Enter your registered full name" [ref=e313]: haritra
+        - generic [ref=e314]:
+          - generic [ref=e315]: Email *
+          - textbox "Enter your registered email" [ref=e316]: haritra@yopmail.com
+      - generic [ref=e317]:
+        - generic [ref=e318]:
+          - generic [ref=e319]: Mobile Number *
+          - generic [ref=e320]:
+            - generic [ref=e324]:
+              - generic [ref=e325]:
+                - generic [ref=e326]: "+973"
+                - combobox [ref=e328]
+              - img [ref=e331]
+            - textbox "Enter your mobile number" [ref=e333]: "1324657898987"
+        - generic [ref=e334]:
+          - generic [ref=e335]: Invoice No *
+          - textbox "Invoice No *" [ref=e336]:
+            - /placeholder: Enter invoice no.
+            - text: WC10765
+      - generic [ref=e337]:
+        - generic [ref=e338]: Reason *
+        - generic [ref=e342]:
+          - generic [ref=e343]:
+            - generic [ref=e344]: Visa not approved
+            - combobox [ref=e345]
+          - generic [ref=e346]:
+            - img [ref=e348]
+            - img [ref=e351]
+    - button "Submit" [active] [ref=e354] [cursor=pointer]
+```

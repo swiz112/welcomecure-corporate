@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import LoginPage from '../../../pages/LoginPage';
 
-// Reusable locators
+// locators
 const SEARCH_INPUT = "//input[contains(@placeholder,'Search By Admin Name')]";
 const ADD_ADMIN_BUTTON = "//button[normalize-space()='Add']//span[@class='text-xl']//*[name()='svg']";
 const ADMIN_TABLE_ROW = "//tbody/tr[1]/td[1]";
